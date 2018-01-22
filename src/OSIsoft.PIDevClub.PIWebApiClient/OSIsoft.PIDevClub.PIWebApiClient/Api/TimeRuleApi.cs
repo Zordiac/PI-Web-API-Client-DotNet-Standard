@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -41,8 +41,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PITimeRule</returns>
-		PITimeRule GetByPath(string path, string selectedFields = null);
+		PITimeRule GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Time Rule by path.
@@ -53,8 +54,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PITimeRule></returns>
-		ApiResponse<PITimeRule> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PITimeRule> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Time Rule.
@@ -65,8 +67,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PITimeRule</returns>
-		PITimeRule Get(string webId, string selectedFields = null);
+		PITimeRule Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Time Rule.
@@ -77,8 +80,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PITimeRule></returns>
-		ApiResponse<PITimeRule> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PITimeRule> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a Time Rule by replacing items in its definition.
@@ -137,8 +141,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRule></returns>
-		System.Threading.Tasks.Task<PITimeRule> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PITimeRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Time Rule by path.
@@ -149,8 +154,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Time Rule.
@@ -161,8 +167,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRule></returns>
-		System.Threading.Tasks.Task<PITimeRule> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PITimeRule> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Time Rule.
@@ -173,8 +180,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a Time Rule by replacing items in its definition.
@@ -267,10 +275,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PITimeRule</returns>
-		public PITimeRule GetByPath(string path, string selectedFields = null)
+		public PITimeRule GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PITimeRule> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PITimeRule> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -283,8 +292,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PITimeRule></returns>
-		public ApiResponse<PITimeRule> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PITimeRule> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -308,6 +318,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -334,10 +345,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PITimeRule</returns>
-		public PITimeRule Get(string webId, string selectedFields = null)
+		public PITimeRule Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PITimeRule> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PITimeRule> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -350,8 +362,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PITimeRule></returns>
-		public ApiResponse<PITimeRule> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PITimeRule> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -375,6 +388,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -544,10 +558,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRule></returns>
-		public async System.Threading.Tasks.Task<PITimeRule> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PITimeRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PITimeRule> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PITimeRule> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -560,8 +575,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -585,6 +601,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -611,10 +628,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRule></returns>
-		public async System.Threading.Tasks.Task<PITimeRule> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PITimeRule> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PITimeRule> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PITimeRule> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -627,8 +645,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Time Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimeRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -652,6 +671,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

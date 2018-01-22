@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIItemsEnumerationSet
 	{
-		public PIItemsEnumerationSet(List<PIEnumerationSet> Items = null, Dictionary<string, string> Links = null)
+		public PIItemsEnumerationSet(List<PIEnumerationSet> Items = null, PIPaginationLinks Links = null)
 		{
 			this.Items = Items;
 			this.Links = Links;
@@ -55,7 +55,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIItemsEnumerationSet
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIPaginationLinks Links { get; set; }
 
 	}
 }

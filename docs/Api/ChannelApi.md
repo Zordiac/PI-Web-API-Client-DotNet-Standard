@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 
 ### Return type
 
-[**Object**](../Model/Object.md)
+[**PIItemsChannelInstance**](../Model/PIItemsChannelInstance.md)
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)

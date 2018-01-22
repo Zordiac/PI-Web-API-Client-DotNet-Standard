@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -41,8 +41,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnitClass</returns>
-		PIUnitClass GetByPath(string path, string selectedFields = null);
+		PIUnitClass GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a unit class by path.
@@ -53,8 +54,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnitClass></returns>
-		ApiResponse<PIUnitClass> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PIUnitClass> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a unit class.
@@ -65,8 +67,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnitClass</returns>
-		PIUnitClass Get(string webId, string selectedFields = null);
+		PIUnitClass Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a unit class.
@@ -77,8 +80,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnitClass></returns>
-		ApiResponse<PIUnitClass> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIUnitClass> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a unit class.
@@ -135,8 +139,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnit</returns>
-		PIUnit GetCanonicalUnit(string webId, string selectedFields = null);
+		PIUnit GetCanonicalUnit(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the canonical unit of a unit class.
@@ -147,8 +152,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnit></returns>
-		ApiResponse<PIUnit> GetCanonicalUnitWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIUnit> GetCanonicalUnitWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get a list of all units belonging to the unit class.
@@ -159,8 +165,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnit</returns>
-		PIUnit GetUnits(string webId, string selectedFields = null);
+		PIUnit GetUnits(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get a list of all units belonging to the unit class.
@@ -171,8 +178,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnit></returns>
-		ApiResponse<PIUnit> GetUnitsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIUnit> GetUnitsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit in the specified Unit Class.
@@ -183,8 +191,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateUnit(string webId, PIUnit unitDTO);
+		Object CreateUnit(string webId, PIUnit unitDTO, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit in the specified Unit Class.
@@ -195,8 +204,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateUnitWithHttpInfo(string webId, PIUnit unitDTO);
+		ApiResponse<Object> CreateUnitWithHttpInfo(string webId, PIUnit unitDTO, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -209,8 +219,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnitClass></returns>
-		System.Threading.Tasks.Task<PIUnitClass> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PIUnitClass> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a unit class by path.
@@ -221,8 +232,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a unit class.
@@ -233,8 +245,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnitClass></returns>
-		System.Threading.Tasks.Task<PIUnitClass> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIUnitClass> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a unit class.
@@ -245,8 +258,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a unit class.
@@ -303,8 +317,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnit></returns>
-		System.Threading.Tasks.Task<PIUnit> GetCanonicalUnitAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIUnit> GetCanonicalUnitAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the canonical unit of a unit class.
@@ -315,8 +330,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnit>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetCanonicalUnitAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetCanonicalUnitAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get a list of all units belonging to the unit class.
@@ -327,8 +343,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnit></returns>
-		System.Threading.Tasks.Task<PIUnit> GetUnitsAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIUnit> GetUnitsAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get a list of all units belonging to the unit class.
@@ -339,8 +356,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnit>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetUnitsAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetUnitsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit in the specified Unit Class.
@@ -351,8 +369,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateUnitAsync(string webId, PIUnit unitDTO);
+		System.Threading.Tasks.Task<Object> CreateUnitAsync(string webId, PIUnit unitDTO, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit in the specified Unit Class.
@@ -363,8 +382,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitAsyncWithHttpInfo(string webId, PIUnit unitDTO);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitAsyncWithHttpInfo(string webId, PIUnit unitDTO, string webIdType = null);
 
 		#endregion
 	}
@@ -411,10 +431,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnitClass</returns>
-		public PIUnitClass GetByPath(string path, string selectedFields = null)
+		public PIUnitClass GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnitClass> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PIUnitClass> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -427,8 +448,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnitClass></returns>
-		public ApiResponse<PIUnitClass> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PIUnitClass> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -452,6 +474,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -478,10 +501,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnitClass</returns>
-		public PIUnitClass Get(string webId, string selectedFields = null)
+		public PIUnitClass Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnitClass> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIUnitClass> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -494,8 +518,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnitClass></returns>
-		public ApiResponse<PIUnitClass> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIUnitClass> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -519,6 +544,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -686,10 +712,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnit</returns>
-		public PIUnit GetCanonicalUnit(string webId, string selectedFields = null)
+		public PIUnit GetCanonicalUnit(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnit> localVarResponse = GetCanonicalUnitWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIUnit> localVarResponse = GetCanonicalUnitWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -702,8 +729,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnit></returns>
-		public ApiResponse<PIUnit> GetCanonicalUnitWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIUnit> GetCanonicalUnitWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -727,6 +755,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -753,10 +782,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIUnit</returns>
-		public PIUnit GetUnits(string webId, string selectedFields = null)
+		public PIUnit GetUnits(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnit> localVarResponse = GetUnitsWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIUnit> localVarResponse = GetUnitsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -769,8 +799,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIUnit></returns>
-		public ApiResponse<PIUnit> GetUnitsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIUnit> GetUnitsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -794,6 +825,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -820,10 +852,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateUnit(string webId, PIUnit unitDTO)
+		public Object CreateUnit(string webId, PIUnit unitDTO, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateUnitWithHttpInfo(webId, unitDTO);
+			ApiResponse<Object> localVarResponse = CreateUnitWithHttpInfo(webId, unitDTO, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -836,8 +869,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateUnitWithHttpInfo(string webId, PIUnit unitDTO)
+		public ApiResponse<Object> CreateUnitWithHttpInfo(string webId, PIUnit unitDTO, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -871,6 +905,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = unitDTO;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -899,10 +934,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnitClass></returns>
-		public async System.Threading.Tasks.Task<PIUnitClass> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIUnitClass> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnitClass> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PIUnitClass> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -915,8 +951,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -940,6 +977,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -966,10 +1004,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnitClass></returns>
-		public async System.Threading.Tasks.Task<PIUnitClass> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIUnitClass> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnitClass> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIUnitClass> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -982,8 +1021,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIUnitClass>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1007,6 +1047,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1174,10 +1215,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnit></returns>
-		public async System.Threading.Tasks.Task<PIUnit> GetCanonicalUnitAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIUnit> GetCanonicalUnitAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnit> localVarResponse = await GetCanonicalUnitAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIUnit> localVarResponse = await GetCanonicalUnitAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1190,8 +1232,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnit>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetCanonicalUnitAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetCanonicalUnitAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1215,6 +1258,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1241,10 +1285,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUnit></returns>
-		public async System.Threading.Tasks.Task<PIUnit> GetUnitsAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIUnit> GetUnitsAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIUnit> localVarResponse = await GetUnitsAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIUnit> localVarResponse = await GetUnitsAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1257,8 +1302,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of unit class.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUnit>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetUnitsAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIUnit>> GetUnitsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1282,6 +1328,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1308,10 +1355,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateUnitAsync(string webId, PIUnit unitDTO)
+		public async System.Threading.Tasks.Task<Object> CreateUnitAsync(string webId, PIUnit unitDTO, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateUnitAsyncWithHttpInfo(webId, unitDTO);
+			ApiResponse<Object> localVarResponse = await CreateUnitAsyncWithHttpInfo(webId, unitDTO, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1324,8 +1372,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitDTO">The new unit definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitAsyncWithHttpInfo(string webId, PIUnit unitDTO)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitAsyncWithHttpInfo(string webId, PIUnit unitDTO, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1359,6 +1408,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = unitDTO;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

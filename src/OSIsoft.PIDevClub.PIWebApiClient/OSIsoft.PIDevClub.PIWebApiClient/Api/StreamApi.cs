@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -40,9 +40,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetChannel(string webId, bool? includeInitialValues = null);
+		PIItemsStreamValues GetChannel(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the specified stream.
@@ -52,9 +54,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetChannelWithHttpInfo(string webId, bool? includeInitialValues = null);
+		ApiResponse<PIItemsStreamValues> GetChannelWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns the end-of-stream value of the stream.
@@ -86,7 +90,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -97,15 +101,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>PITimedValues</returns>
-		PITimedValues GetInterpolated(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PITimedValues GetInterpolated(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null);
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -116,15 +122,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>ApiResponse<PITimedValues></returns>
-		ApiResponse<PITimedValues> GetInterpolatedWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponse<PITimedValues> GetInterpolatedWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null);
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -142,7 +150,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -160,7 +168,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -177,7 +185,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -194,7 +202,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -214,7 +222,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -294,7 +302,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -311,7 +319,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -409,8 +417,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null);
+		Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates a value for the specified stream.
@@ -423,8 +432,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null);
+		ApiResponse<Object> UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -436,9 +446,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, bool? includeInitialValues = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the specified stream.
@@ -448,9 +460,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, bool? includeInitialValues = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns the end-of-stream value of the stream.
@@ -482,7 +496,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -493,15 +507,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null);
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -512,15 +528,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null);
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -538,7 +556,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -556,7 +574,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -573,7 +591,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -590,7 +608,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -610,7 +628,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -690,7 +708,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -707,7 +725,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -805,8 +823,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null);
+		System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates a value for the specified stream.
@@ -819,8 +838,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null);
 
 		#endregion
 	}
@@ -866,11 +886,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetChannel(string webId, bool? includeInitialValues = null)
+		public PIItemsStreamValues GetChannel(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetChannelWithHttpInfo(webId, includeInitialValues);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetChannelWithHttpInfo(webId, heartbeatRate, includeInitialValues, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -882,9 +904,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetChannelWithHttpInfo(string webId, bool? includeInitialValues = null)
+		public ApiResponse<PIItemsStreamValues> GetChannelWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -907,7 +931,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -999,7 +1025,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1010,11 +1036,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>PITimedValues</returns>
-		public PITimedValues GetInterpolated(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PITimedValues GetInterpolated(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null)
 		{
-			ApiResponse<PITimedValues> localVarResponse = GetInterpolatedWithHttpInfo(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
+			ApiResponse<PITimedValues> localVarResponse = GetInterpolatedWithHttpInfo(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone);
 			return localVarResponse.Data;
 		}
 
@@ -1022,7 +1050,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1033,9 +1061,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>ApiResponse<PITimedValues></returns>
-		public ApiResponse<PITimedValues> GetInterpolatedWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponse<PITimedValues> GetInterpolatedWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1065,6 +1095,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1087,7 +1119,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1109,7 +1141,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1172,7 +1204,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1193,7 +1225,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1254,7 +1286,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1278,7 +1310,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1510,7 +1542,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1531,7 +1563,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1772,10 +1804,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null)
+		public Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = UpdateValueWithHttpInfo(webId, value, bufferOption, updateOption);
+			ApiResponse<Object> localVarResponse = UpdateValueWithHttpInfo(webId, value, bufferOption, updateOption, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1790,8 +1823,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null)
+		public ApiResponse<Object> UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1827,6 +1861,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
 			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1854,11 +1889,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, bool? includeInitialValues = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetChannelAsyncWithHttpInfo(webId, includeInitialValues);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetChannelAsyncWithHttpInfo(webId, heartbeatRate, includeInitialValues, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1870,9 +1907,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
+		/// <param name="heartbeatRate">HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, bool? includeInitialValues = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1895,7 +1934,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1987,7 +2028,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -1998,11 +2039,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null)
 		{
-			ApiResponse<PITimedValues> localVarResponse = await GetInterpolatedAsyncWithHttpInfo(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
+			ApiResponse<PITimedValues> localVarResponse = await GetInterpolatedAsyncWithHttpInfo(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone);
 			return localVarResponse.Data;
 		}
 
@@ -2010,7 +2053,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2021,9 +2064,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2053,6 +2098,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -2075,7 +2122,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2097,7 +2144,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2160,7 +2207,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2181,7 +2228,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2242,7 +2289,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2266,7 +2313,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns a list of compressed values for the requested time range from the source provider.
 		/// </summary>
 		/// <remarks>
-		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
+		/// Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time. Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2498,7 +2545,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2519,7 +2566,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Retrieves recorded values at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the stream.</param>
@@ -2760,10 +2807,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null)
+		public async System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await UpdateValueAsyncWithHttpInfo(webId, value, bufferOption, updateOption);
+			ApiResponse<Object> localVarResponse = await UpdateValueAsyncWithHttpInfo(webId, value, bufferOption, updateOption, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2778,8 +2826,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="value">The value to add or update.</param>
 		/// <param name="bufferOption">The desired AFBufferOption. The default is 'BufferIfPossible'.</param>
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2815,6 +2864,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
 			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

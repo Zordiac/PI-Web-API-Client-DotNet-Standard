@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -41,8 +41,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityMapping</returns>
-		PISecurityMapping GetByPath(string path, string selectedFields = null);
+		PISecurityMapping GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a security mapping by path.
@@ -53,8 +54,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityMapping></returns>
-		ApiResponse<PISecurityMapping> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PISecurityMapping> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a security mapping.
@@ -65,8 +67,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityMapping</returns>
-		PISecurityMapping Get(string webId, string selectedFields = null);
+		PISecurityMapping Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a security mapping.
@@ -77,8 +80,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityMapping></returns>
-		ApiResponse<PISecurityMapping> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PISecurityMapping> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a security mapping by replacing items in its definition.
@@ -137,8 +141,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityRights</returns>
-		PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the security mapping for a specified user.
@@ -151,8 +156,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityRights></returns>
-		ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the security mapping based on the specified criteria. By default, all security entries for this security mapping are returned.
@@ -164,8 +170,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityEntry</returns>
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the security mapping based on the specified criteria. By default, all security entries for this security mapping are returned.
@@ -177,8 +184,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityEntry></returns>
-		ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the security mapping with the specified name.
@@ -190,8 +198,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityEntry</returns>
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the security mapping with the specified name.
@@ -203,8 +212,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityEntry></returns>
-		ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -217,8 +227,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityMapping></returns>
-		System.Threading.Tasks.Task<PISecurityMapping> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PISecurityMapping> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a security mapping by path.
@@ -229,8 +240,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a security mapping.
@@ -241,8 +253,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityMapping></returns>
-		System.Threading.Tasks.Task<PISecurityMapping> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PISecurityMapping> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a security mapping.
@@ -253,8 +266,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a security mapping by replacing items in its definition.
@@ -313,8 +327,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the security mapping for a specified user.
@@ -327,8 +342,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the security mapping based on the specified criteria. By default, all security entries for this security mapping are returned.
@@ -340,8 +356,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the security mapping based on the specified criteria. By default, all security entries for this security mapping are returned.
@@ -353,8 +370,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the security mapping with the specified name.
@@ -366,8 +384,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the security mapping with the specified name.
@@ -379,8 +398,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		#endregion
 	}
@@ -427,10 +447,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityMapping</returns>
-		public PISecurityMapping GetByPath(string path, string selectedFields = null)
+		public PISecurityMapping GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityMapping> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PISecurityMapping> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -443,8 +464,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityMapping></returns>
-		public ApiResponse<PISecurityMapping> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PISecurityMapping> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -468,6 +490,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -494,10 +517,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityMapping</returns>
-		public PISecurityMapping Get(string webId, string selectedFields = null)
+		public PISecurityMapping Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityMapping> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PISecurityMapping> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -510,8 +534,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityMapping></returns>
-		public ApiResponse<PISecurityMapping> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PISecurityMapping> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -535,6 +560,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -704,10 +730,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityRights</returns>
-		public PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityRights> localVarResponse = GetSecurityWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields);
+			ApiResponse<PIItemsSecurityRights> localVarResponse = GetSecurityWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -722,8 +749,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityRights></returns>
-		public ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -752,6 +780,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -779,10 +808,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityEntry</returns>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityEntry> localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponse<PIItemsSecurityEntry> localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -796,8 +826,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityEntry></returns>
-		public ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -822,6 +853,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -849,10 +881,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityEntry</returns>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityEntry> localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponse<PISecurityEntry> localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -866,8 +899,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityEntry></returns>
-		public ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -895,6 +929,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -923,10 +958,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityMapping></returns>
-		public async System.Threading.Tasks.Task<PISecurityMapping> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PISecurityMapping> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityMapping> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PISecurityMapping> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -939,8 +975,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -964,6 +1001,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -990,10 +1028,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityMapping></returns>
-		public async System.Threading.Tasks.Task<PISecurityMapping> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PISecurityMapping> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityMapping> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PISecurityMapping> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1006,8 +1045,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISecurityMapping>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1031,6 +1071,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1200,10 +1241,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields);
+			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1218,8 +1260,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1248,6 +1291,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1275,10 +1319,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1292,8 +1337,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1318,6 +1364,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1345,10 +1392,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, selectedFields);
+			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1362,8 +1410,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the security mapping.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -1391,6 +1440,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

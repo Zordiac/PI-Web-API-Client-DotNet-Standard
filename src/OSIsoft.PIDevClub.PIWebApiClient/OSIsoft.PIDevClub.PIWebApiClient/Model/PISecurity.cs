@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PISecurity
 	{
-		public PISecurity(bool? CanAnnotate = null, bool? CanDelete = null, bool? CanExecute = null, bool? CanRead = null, bool? CanReadData = null, bool? CanSubscribe = null, bool? CanSubscribeOthers = null, bool? CanWrite = null, bool? CanWriteData = null, bool? HasAdmin = null, List<string> Rights = null)
+		public PISecurity(bool? CanAnnotate = null, bool? CanDelete = null, bool? CanExecute = null, bool? CanRead = null, bool? CanReadData = null, bool? CanSubscribe = null, bool? CanSubscribeOthers = null, bool? CanWrite = null, bool? CanWriteData = null, bool? HasAdmin = null, List<string> Rights = null, PIWebException WebException = null)
 		{
 			this.CanAnnotate = CanAnnotate;
 			this.CanDelete = CanDelete;
@@ -52,6 +52,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.CanWriteData = CanWriteData;
 			this.HasAdmin = HasAdmin;
 			this.Rights = Rights;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -119,6 +120,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Rights", EmitDefaultValue = false)]
 		public List<string> Rights { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PISecurity
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

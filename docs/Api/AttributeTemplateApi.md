@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **GetByPath**
-> GetByPath(string path, string selectedFields = null)
+> GetByPath(string path, string selectedFields = null, string webIdType = null)
 
 Retrieve an attribute template by path.
 
@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| The path to the attribute template.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -31,7 +32,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **Get**
-> Get(string webId, string selectedFields = null)
+> Get(string webId, string selectedFields = null, string webIdType = null)
 
 Retrieve an attribute template.
 
@@ -41,6 +42,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the attribute template.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -87,7 +89,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **GetAttributeTemplates**
-> GetAttributeTemplates(string webId, string selectedFields = null)
+> GetAttributeTemplates(string webId, string selectedFields = null, string webIdType = null)
 
 Retrieve an attribute template's child attribute templates.
 
@@ -97,6 +99,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the attribute template.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -106,7 +109,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **CreateAttributeTemplate**
-> CreateAttributeTemplate(string webId, PIAttributeTemplate template)
+> CreateAttributeTemplate(string webId, PIAttributeTemplate template, string webIdType = null)
 
 Create an attribute template as a child of another attribute template.
 
@@ -116,6 +119,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the parent attribute template on which to create the attribute template.. | [required]
  **template** | **PIAttributeTemplate**| The attribute template definition.. | [required]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -125,7 +129,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **GetCategories**
-> GetCategories(string webId, string selectedFields = null)
+> GetCategories(string webId, string selectedFields = null, string webIdType = null)
 
 Get an attribute template's categories.
 
@@ -135,6 +139,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the attribute template.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type

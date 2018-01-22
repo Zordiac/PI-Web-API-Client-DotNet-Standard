@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -41,8 +41,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIEventFrame</returns>
-		PIEventFrame GetByPath(string path, string selectedFields = null);
+		PIEventFrame GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an event frame by path.
@@ -53,8 +54,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIEventFrame></returns>
-		ApiResponse<PIEventFrame> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PIEventFrame> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an event frame.
@@ -65,8 +67,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIEventFrame</returns>
-		PIEventFrame Get(string webId, string selectedFields = null);
+		PIEventFrame Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an event frame.
@@ -77,8 +80,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIEventFrame></returns>
-		ApiResponse<PIEventFrame> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIEventFrame> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update an event frame by replacing items in its definition.
@@ -157,8 +161,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAnnotation</returns>
-		PIItemsAnnotation GetAnnotations(string webId, string selectedFields = null);
+		PIItemsAnnotation GetAnnotations(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get an event frame's annotations.
@@ -169,8 +174,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAnnotation></returns>
-		ApiResponse<PIItemsAnnotation> GetAnnotationsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsAnnotation> GetAnnotationsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an annotation on an event frame.
@@ -181,8 +187,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateAnnotation(string webId, PIAnnotation annotation);
+		Object CreateAnnotation(string webId, PIAnnotation annotation, string webIdType = null);
 
 		/// <summary>
 		/// Create an annotation on an event frame.
@@ -193,8 +200,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateAnnotationWithHttpInfo(string webId, PIAnnotation annotation);
+		ApiResponse<Object> CreateAnnotationWithHttpInfo(string webId, PIAnnotation annotation, string webIdType = null);
 
 		/// <summary>
 		/// Get a specific annotation on an event frame.
@@ -206,8 +214,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAnnotation</returns>
-		PIAnnotation GetAnnotationById(string id, string webId, string selectedFields = null);
+		PIAnnotation GetAnnotationById(string id, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get a specific annotation on an event frame.
@@ -219,8 +228,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAnnotation></returns>
-		ApiResponse<PIAnnotation> GetAnnotationByIdWithHttpInfo(string id, string webId, string selectedFields = null);
+		ApiResponse<PIAnnotation> GetAnnotationByIdWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update an annotation on an event frame by replacing items in its definition.
@@ -292,8 +302,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttribute</returns>
-		PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null);
+		PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the attributes of the specified event frame.
@@ -315,8 +326,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttribute></returns>
-		ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null);
+		ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a new attribute of the specified event frame.
@@ -327,8 +339,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateAttribute(string webId, PIAttribute attribute);
+		Object CreateAttribute(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>
 		/// Create a new attribute of the specified event frame.
@@ -339,8 +352,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateAttributeWithHttpInfo(string webId, PIAttribute attribute);
+		ApiResponse<Object> CreateAttributeWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>
 		/// Calls the EventFrame's CaptureValues method.
@@ -373,8 +387,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsElementCategory</returns>
-		PIItemsElementCategory GetCategories(string webId, string selectedFields = null);
+		PIItemsElementCategory GetCategories(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get an event frame's categories.
@@ -385,8 +400,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsElementCategory></returns>
-		ApiResponse<PIItemsElementCategory> GetCategoriesWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsElementCategory> GetCategoriesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Executes the create configuration function of the data references found within the attributes of the event frame, and optionally, its children.
@@ -432,14 +448,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttribute</returns>
-		PIItemsAttribute FindEventFrameAttributes(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		PIItemsAttribute FindEventFrameAttributes(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieves a list of event frame attributes matching the specified filters from the specified event frame.
@@ -461,17 +478,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttribute></returns>
-		ApiResponse<PIItemsAttribute> FindEventFrameAttributesWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		ApiResponse<PIItemsAttribute> FindEventFrameAttributesWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -495,11 +513,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsEventFrame</returns>
-		PIItemsEventFrame GetEventFrames(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null);
+		PIItemsEventFrame GetEventFrames(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -523,8 +542,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsEventFrame></returns>
-		ApiResponse<PIItemsEventFrame> GetEventFramesWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null);
+		ApiResponse<PIItemsEventFrame> GetEventFramesWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an event frame as a child of the specified event frame.
@@ -535,8 +555,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateEventFrame(string webId, PIEventFrame eventFrame);
+		Object CreateEventFrame(string webId, PIEventFrame eventFrame, string webIdType = null);
 
 		/// <summary>
 		/// Create an event frame as a child of the specified event frame.
@@ -547,8 +568,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateEventFrameWithHttpInfo(string webId, PIEventFrame eventFrame);
+		ApiResponse<Object> CreateEventFrameWithHttpInfo(string webId, PIEventFrame eventFrame, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the event frame's referenced elements.
@@ -559,8 +581,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsElement</returns>
-		PIItemsElement GetReferencedElements(string webId, string selectedFields = null);
+		PIItemsElement GetReferencedElements(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the event frame's referenced elements.
@@ -571,8 +594,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsElement></returns>
-		ApiResponse<PIItemsElement> GetReferencedElementsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsElement> GetReferencedElementsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the event frame for a specified user.
@@ -585,8 +609,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityRights</returns>
-		PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the event frame for a specified user.
@@ -599,8 +624,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityRights></returns>
-		ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the event frame based on the specified criteria. By default, all security entries for this event frame are returned.
@@ -612,8 +638,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityEntry</returns>
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the event frame based on the specified criteria. By default, all security entries for this event frame are returned.
@@ -625,8 +652,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityEntry></returns>
-		ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the event frame.
@@ -638,8 +666,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null);
+		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the event frame.
@@ -651,8 +680,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null);
+		ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the event frame with the specified name.
@@ -664,8 +694,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityEntry</returns>
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the event frame with the specified name.
@@ -677,8 +708,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityEntry></returns>
-		ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a security entry owned by the event frame.
@@ -746,8 +778,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsItemEventFrame</returns>
-		PIItemsItemEventFrame GetMultiple(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null);
+		PIItemsItemEventFrame GetMultiple(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve multiple event frames by web ids or paths.
@@ -761,8 +794,41 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsItemEventFrame></returns>
-		ApiResponse<PIItemsItemEventFrame> GetMultipleWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null);
+		ApiResponse<PIItemsItemEventFrame> GetMultipleWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsEventFrame</returns>
+		PIItemsEventFrame GetEventFramesQuery(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsEventFrame></returns>
+		ApiResponse<PIItemsEventFrame> GetEventFramesQueryWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -771,9 +837,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>Object</returns>
-		Object CreateSearchByAttribute(PISearchByAttributeEventFrame search);
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsEventFrame</returns>
+		PIItemsEventFrame CreateSearchByAttribute(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -782,9 +851,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateSearchByAttributeWithHttpInfo(PISearchByAttributeEventFrame search);
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsEventFrame></returns>
+		ApiResponse<PIItemsEventFrame> CreateSearchByAttributeWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Execute a "Search EventFrames By Attribute Value" operation.
@@ -808,8 +880,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>Object</returns>
-		Object ExecuteSearchByAttribute(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsEventFrame</returns>
+		PIItemsEventFrame ExecuteSearchByAttribute(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		/// <summary>
 		/// Execute a "Search EventFrames By Attribute Value" operation.
@@ -833,8 +906,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> ExecuteSearchByAttributeWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsEventFrame></returns>
+		ApiResponse<PIItemsEventFrame> ExecuteSearchByAttributeWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -847,8 +921,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEventFrame></returns>
-		System.Threading.Tasks.Task<PIEventFrame> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PIEventFrame> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an event frame by path.
@@ -859,8 +934,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an event frame.
@@ -871,8 +947,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEventFrame></returns>
-		System.Threading.Tasks.Task<PIEventFrame> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIEventFrame> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an event frame.
@@ -883,8 +960,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update an event frame by replacing items in its definition.
@@ -963,8 +1041,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnnotation></returns>
-		System.Threading.Tasks.Task<PIItemsAnnotation> GetAnnotationsAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsAnnotation> GetAnnotationsAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get an event frame's annotations.
@@ -975,8 +1054,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnnotation>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAnnotation>> GetAnnotationsAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAnnotation>> GetAnnotationsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an annotation on an event frame.
@@ -987,8 +1067,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAnnotationAsync(string webId, PIAnnotation annotation);
+		System.Threading.Tasks.Task<Object> CreateAnnotationAsync(string webId, PIAnnotation annotation, string webIdType = null);
 
 		/// <summary>
 		/// Create an annotation on an event frame.
@@ -999,8 +1080,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnnotationAsyncWithHttpInfo(string webId, PIAnnotation annotation);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnnotationAsyncWithHttpInfo(string webId, PIAnnotation annotation, string webIdType = null);
 
 		/// <summary>
 		/// Get a specific annotation on an event frame.
@@ -1012,8 +1094,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnnotation></returns>
-		System.Threading.Tasks.Task<PIAnnotation> GetAnnotationByIdAsync(string id, string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIAnnotation> GetAnnotationByIdAsync(string id, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get a specific annotation on an event frame.
@@ -1025,8 +1108,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnnotation>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAnnotation>> GetAnnotationByIdAsyncWithHttpInfo(string id, string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAnnotation>> GetAnnotationByIdAsyncWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update an annotation on an event frame by replacing items in its definition.
@@ -1098,8 +1182,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null);
+		System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the attributes of the specified event frame.
@@ -1121,8 +1206,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a new attribute of the specified event frame.
@@ -1133,8 +1219,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute);
+		System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>
 		/// Create a new attribute of the specified event frame.
@@ -1145,8 +1232,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>
 		/// Calls the EventFrame's CaptureValues method.
@@ -1179,8 +1267,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElementCategory></returns>
-		System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get an event frame's categories.
@@ -1191,8 +1280,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Executes the create configuration function of the data references found within the attributes of the event frame, and optionally, its children.
@@ -1238,14 +1328,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		System.Threading.Tasks.Task<PIItemsAttribute> FindEventFrameAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		System.Threading.Tasks.Task<PIItemsAttribute> FindEventFrameAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieves a list of event frame attributes matching the specified filters from the specified event frame.
@@ -1267,17 +1358,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindEventFrameAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindEventFrameAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -1301,11 +1393,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
-		System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null);
+		System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -1329,8 +1422,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an event frame as a child of the specified event frame.
@@ -1341,8 +1435,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateEventFrameAsync(string webId, PIEventFrame eventFrame);
+		System.Threading.Tasks.Task<Object> CreateEventFrameAsync(string webId, PIEventFrame eventFrame, string webIdType = null);
 
 		/// <summary>
 		/// Create an event frame as a child of the specified event frame.
@@ -1353,8 +1448,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateEventFrameAsyncWithHttpInfo(string webId, PIEventFrame eventFrame);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateEventFrameAsyncWithHttpInfo(string webId, PIEventFrame eventFrame, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the event frame's referenced elements.
@@ -1365,8 +1461,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the event frame's referenced elements.
@@ -1377,8 +1474,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the event frame for a specified user.
@@ -1391,8 +1489,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the event frame for a specified user.
@@ -1405,8 +1504,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the event frame based on the specified criteria. By default, all security entries for this event frame are returned.
@@ -1418,8 +1518,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries associated with the event frame based on the specified criteria. By default, all security entries for this event frame are returned.
@@ -1431,8 +1532,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the event frame.
@@ -1444,8 +1546,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null);
+		System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the event frame.
@@ -1457,8 +1560,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the event frame with the specified name.
@@ -1470,8 +1574,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry associated with the event frame with the specified name.
@@ -1483,8 +1588,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a security entry owned by the event frame.
@@ -1552,8 +1658,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsItemEventFrame></returns>
-		System.Threading.Tasks.Task<PIItemsItemEventFrame> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null);
+		System.Threading.Tasks.Task<PIItemsItemEventFrame> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve multiple event frames by web ids or paths.
@@ -1567,8 +1674,41 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsItemEventFrame>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsItemEventFrame>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsItemEventFrame>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
+		System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesQueryAsync(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesQueryAsyncWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -1577,9 +1717,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateSearchByAttributeAsync(PISearchByAttributeEventFrame search);
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
+		System.Threading.Tasks.Task<PIItemsEventFrame> CreateSearchByAttributeAsync(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -1588,9 +1731,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttributeEventFrame search);
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Execute a "Search EventFrames By Attribute Value" operation.
@@ -1614,8 +1760,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> ExecuteSearchByAttributeAsync(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
+		System.Threading.Tasks.Task<PIItemsEventFrame> ExecuteSearchByAttributeAsync(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		/// <summary>
 		/// Execute a "Search EventFrames By Attribute Value" operation.
@@ -1639,8 +1786,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null);
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null);
 
 		#endregion
 	}
@@ -1687,10 +1835,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIEventFrame</returns>
-		public PIEventFrame GetByPath(string path, string selectedFields = null)
+		public PIEventFrame GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIEventFrame> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PIEventFrame> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1703,8 +1852,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIEventFrame></returns>
-		public ApiResponse<PIEventFrame> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PIEventFrame> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -1728,6 +1878,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1754,10 +1905,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIEventFrame</returns>
-		public PIEventFrame Get(string webId, string selectedFields = null)
+		public PIEventFrame Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIEventFrame> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIEventFrame> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1770,8 +1922,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIEventFrame></returns>
-		public ApiResponse<PIEventFrame> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIEventFrame> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1795,6 +1948,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2026,10 +2180,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAnnotation</returns>
-		public PIItemsAnnotation GetAnnotations(string webId, string selectedFields = null)
+		public PIItemsAnnotation GetAnnotations(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAnnotation> localVarResponse = GetAnnotationsWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsAnnotation> localVarResponse = GetAnnotationsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2042,8 +2197,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAnnotation></returns>
-		public ApiResponse<PIItemsAnnotation> GetAnnotationsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsAnnotation> GetAnnotationsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2067,6 +2223,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2093,10 +2250,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateAnnotation(string webId, PIAnnotation annotation)
+		public Object CreateAnnotation(string webId, PIAnnotation annotation, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateAnnotationWithHttpInfo(webId, annotation);
+			ApiResponse<Object> localVarResponse = CreateAnnotationWithHttpInfo(webId, annotation, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2109,8 +2267,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateAnnotationWithHttpInfo(string webId, PIAnnotation annotation)
+		public ApiResponse<Object> CreateAnnotationWithHttpInfo(string webId, PIAnnotation annotation, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2144,6 +2303,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = annotation;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2171,10 +2331,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAnnotation</returns>
-		public PIAnnotation GetAnnotationById(string id, string webId, string selectedFields = null)
+		public PIAnnotation GetAnnotationById(string id, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAnnotation> localVarResponse = GetAnnotationByIdWithHttpInfo(id, webId, selectedFields);
+			ApiResponse<PIAnnotation> localVarResponse = GetAnnotationByIdWithHttpInfo(id, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2188,8 +2349,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAnnotation></returns>
-		public ApiResponse<PIAnnotation> GetAnnotationByIdWithHttpInfo(string id, string webId, string selectedFields = null)
+		public ApiResponse<PIAnnotation> GetAnnotationByIdWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'id' is set
 			if (id == null)
@@ -2217,6 +2379,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (id!= null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2407,10 +2570,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttribute</returns>
-		public PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null)
+		public PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAttribute> localVarResponse = GetAttributesWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType);
+			ApiResponse<PIItemsAttribute> localVarResponse = GetAttributesWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2434,8 +2598,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttribute></returns>
-		public ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null)
+		public ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2470,6 +2635,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (valueType!= null) localVarQueryParams.Add("valueType", Configuration.ApiClient.ParameterToString(valueType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2496,10 +2662,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateAttribute(string webId, PIAttribute attribute)
+		public Object CreateAttribute(string webId, PIAttribute attribute, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateAttributeWithHttpInfo(webId, attribute);
+			ApiResponse<Object> localVarResponse = CreateAttributeWithHttpInfo(webId, attribute, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2512,8 +2679,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateAttributeWithHttpInfo(string webId, PIAttribute attribute)
+		public ApiResponse<Object> CreateAttributeWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2547,6 +2715,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = attribute;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2637,10 +2806,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsElementCategory</returns>
-		public PIItemsElementCategory GetCategories(string webId, string selectedFields = null)
+		public PIItemsElementCategory GetCategories(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsElementCategory> localVarResponse = GetCategoriesWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsElementCategory> localVarResponse = GetCategoriesWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2653,8 +2823,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsElementCategory></returns>
-		public ApiResponse<PIItemsElementCategory> GetCategoriesWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsElementCategory> GetCategoriesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2678,6 +2849,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2782,16 +2954,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttribute</returns>
-		public PIItemsAttribute FindEventFrameAttributes(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		public PIItemsAttribute FindEventFrameAttributes(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAttribute> localVarResponse = FindEventFrameAttributesWithHttpInfo(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime);
+			ApiResponse<PIItemsAttribute> localVarResponse = FindEventFrameAttributesWithHttpInfo(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2815,14 +2988,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttribute></returns>
-		public ApiResponse<PIItemsAttribute> FindEventFrameAttributesWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		public ApiResponse<PIItemsAttribute> FindEventFrameAttributesWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2863,6 +3037,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2881,7 +3056,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -2905,15 +3080,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsEventFrame</returns>
-		public PIItemsEventFrame GetEventFrames(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null)
+		public PIItemsEventFrame GetEventFrames(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsEventFrame> localVarResponse = GetEventFramesWithHttpInfo(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName);
+			ApiResponse<PIItemsEventFrame> localVarResponse = GetEventFramesWithHttpInfo(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -2937,8 +3113,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsEventFrame></returns>
-		public ApiResponse<PIItemsEventFrame> GetEventFramesWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null)
+		public ApiResponse<PIItemsEventFrame> GetEventFramesWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2978,6 +3155,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3004,10 +3182,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateEventFrame(string webId, PIEventFrame eventFrame)
+		public Object CreateEventFrame(string webId, PIEventFrame eventFrame, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateEventFrameWithHttpInfo(webId, eventFrame);
+			ApiResponse<Object> localVarResponse = CreateEventFrameWithHttpInfo(webId, eventFrame, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3020,8 +3199,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateEventFrameWithHttpInfo(string webId, PIEventFrame eventFrame)
+		public ApiResponse<Object> CreateEventFrameWithHttpInfo(string webId, PIEventFrame eventFrame, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3055,6 +3235,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = eventFrame;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3081,10 +3262,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsElement</returns>
-		public PIItemsElement GetReferencedElements(string webId, string selectedFields = null)
+		public PIItemsElement GetReferencedElements(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsElement> localVarResponse = GetReferencedElementsWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsElement> localVarResponse = GetReferencedElementsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3097,8 +3279,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsElement></returns>
-		public ApiResponse<PIItemsElement> GetReferencedElementsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsElement> GetReferencedElementsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3122,6 +3305,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3150,10 +3334,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityRights</returns>
-		public PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityRights> localVarResponse = GetSecurityWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields);
+			ApiResponse<PIItemsSecurityRights> localVarResponse = GetSecurityWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3168,8 +3353,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityRights></returns>
-		public ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3198,6 +3384,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3225,10 +3412,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityEntry</returns>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityEntry> localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponse<PIItemsSecurityEntry> localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3242,8 +3430,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityEntry></returns>
-		public ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3268,6 +3457,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3295,10 +3485,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null)
+		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren);
+			ApiResponse<Object> localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3312,8 +3503,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null)
+		public ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3348,6 +3540,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				localVarPostBody = securityEntry;
 			}
 			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3375,10 +3568,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityEntry</returns>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityEntry> localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponse<PISecurityEntry> localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3392,8 +3586,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityEntry></returns>
-		public ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -3421,6 +3616,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3609,10 +3805,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsItemEventFrame</returns>
-		public PIItemsItemEventFrame GetMultiple(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null)
+		public PIItemsItemEventFrame GetMultiple(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsItemEventFrame> localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, path, selectedFields, webId);
+			ApiResponse<PIItemsItemEventFrame> localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, path, selectedFields, webId, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3628,8 +3825,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsItemEventFrame></returns>
-		public ApiResponse<PIItemsItemEventFrame> GetMultipleWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null)
+		public ApiResponse<PIItemsItemEventFrame> GetMultipleWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null)
 		{
 
 			var localVarPath = "/eventframes/multiple";
@@ -3653,6 +3851,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3671,17 +3870,96 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsEventFrame</returns>
+		public PIItemsEventFrame GetEventFramesQuery(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
+		{
+			ApiResponse<PIItemsEventFrame> localVarResponse = GetEventFramesQueryWithHttpInfo(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsEventFrame></returns>
+		public ApiResponse<PIItemsEventFrame> GetEventFramesQueryWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
+		{
+
+			var localVarPath = "/eventframes/search";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+			localVarPathParams.Add("format", "json");
+
+			if (databaseWebId!= null) localVarQueryParams.Add("databaseWebId", Configuration.ApiClient.ParameterToString(databaseWebId));
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
+			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetEventFramesQueryWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsEventFrame>(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIItemsEventFrame)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsEventFrame)));
+		}
+
+		/// <summary>
 		/// Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
 		/// </summary>
 		/// <remarks>
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>Object</returns>
-		public Object CreateSearchByAttribute(PISearchByAttributeEventFrame search)
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsEventFrame</returns>
+		public PIItemsEventFrame CreateSearchByAttribute(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateSearchByAttributeWithHttpInfo(search);
+			ApiResponse<PIItemsEventFrame> localVarResponse = CreateSearchByAttributeWithHttpInfo(query, noResults, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3692,13 +3970,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateSearchByAttributeWithHttpInfo(PISearchByAttributeEventFrame search)
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsEventFrame></returns>
+		public ApiResponse<PIItemsEventFrame> CreateSearchByAttributeWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null)
 		{
-			// verify the required parameter 'search' is set
-			if (search == null)
-				throw new ApiException(400, "Missing required parameter 'search'");
+			// verify the required parameter 'query' is set
+			if (query == null)
+				throw new ApiException(400, "Missing required parameter 'query'");
 
 			var localVarPath = "/eventframes/searchbyattribute";
 			var localVarPathParams = new Dictionary<String, String>();
@@ -3716,14 +3997,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 			localVarPathParams.Add("format", "json");
 
-			if (search != null && search.GetType() != typeof(byte[]))
+			if (query != null && query.GetType() != typeof(byte[]))
 			{
-				localVarPostBody = Configuration.ApiClient.Serialize(search);
+				localVarPostBody = Configuration.ApiClient.Serialize(query);
 			}
 			else
 			{
-				localVarPostBody = search;
+				localVarPostBody = query;
 			}
+			if (noResults!= null) localVarQueryParams.Add("noResults", Configuration.ApiClient.ParameterToString(noResults));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3736,9 +4020,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponse<Object>(localVarStatusCode,
+			return new ApiResponse<PIItemsEventFrame>(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsEventFrame)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsEventFrame)));
 		}
 
 		/// <summary>
@@ -3763,10 +4047,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>Object</returns>
-		public Object ExecuteSearchByAttribute(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsEventFrame</returns>
+		public PIItemsEventFrame ExecuteSearchByAttribute(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = ExecuteSearchByAttributeWithHttpInfo(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime);
+			ApiResponse<PIItemsEventFrame> localVarResponse = ExecuteSearchByAttributeWithHttpInfo(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3792,8 +4077,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> ExecuteSearchByAttributeWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsEventFrame></returns>
+		public ApiResponse<PIItemsEventFrame> ExecuteSearchByAttributeWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
 			// verify the required parameter 'searchId' is set
 			if (searchId == null)
@@ -3830,6 +4116,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3842,9 +4129,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponse<Object>(localVarStatusCode,
+			return new ApiResponse<PIItemsEventFrame>(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsEventFrame)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsEventFrame)));
 		}
 
 		#endregion
@@ -3858,10 +4145,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEventFrame></returns>
-		public async System.Threading.Tasks.Task<PIEventFrame> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIEventFrame> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIEventFrame> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PIEventFrame> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3874,8 +4162,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -3899,6 +4188,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3925,10 +4215,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEventFrame></returns>
-		public async System.Threading.Tasks.Task<PIEventFrame> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIEventFrame> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIEventFrame> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIEventFrame> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3941,8 +4232,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIEventFrame>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3966,6 +4258,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4197,10 +4490,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnnotation></returns>
-		public async System.Threading.Tasks.Task<PIItemsAnnotation> GetAnnotationsAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsAnnotation> GetAnnotationsAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAnnotation> localVarResponse = await GetAnnotationsAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsAnnotation> localVarResponse = await GetAnnotationsAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4213,8 +4507,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnnotation>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnnotation>> GetAnnotationsAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnnotation>> GetAnnotationsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4238,6 +4533,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4264,10 +4560,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAnnotationAsync(string webId, PIAnnotation annotation)
+		public async System.Threading.Tasks.Task<Object> CreateAnnotationAsync(string webId, PIAnnotation annotation, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateAnnotationAsyncWithHttpInfo(webId, annotation);
+			ApiResponse<Object> localVarResponse = await CreateAnnotationAsyncWithHttpInfo(webId, annotation, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4280,8 +4577,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the owner event frame on which to create the annotation.</param>
 		/// <param name="annotation">The new annotation definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnnotationAsyncWithHttpInfo(string webId, PIAnnotation annotation)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnnotationAsyncWithHttpInfo(string webId, PIAnnotation annotation, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4315,6 +4613,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = annotation;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4342,10 +4641,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnnotation></returns>
-		public async System.Threading.Tasks.Task<PIAnnotation> GetAnnotationByIdAsync(string id, string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIAnnotation> GetAnnotationByIdAsync(string id, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAnnotation> localVarResponse = await GetAnnotationByIdAsyncWithHttpInfo(id, webId, selectedFields);
+			ApiResponse<PIAnnotation> localVarResponse = await GetAnnotationByIdAsyncWithHttpInfo(id, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4359,8 +4659,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="id">The Annotation identifier of the specific annotation.</param>
 		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnnotation>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAnnotation>> GetAnnotationByIdAsyncWithHttpInfo(string id, string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAnnotation>> GetAnnotationByIdAsyncWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'id' is set
 			if (id == null)
@@ -4388,6 +4689,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (id!= null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4578,10 +4880,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null)
+		public async System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAttribute> localVarResponse = await GetAttributesAsyncWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType);
+			ApiResponse<PIItemsAttribute> localVarResponse = await GetAttributesAsyncWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4605,8 +4908,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4641,6 +4945,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (valueType!= null) localVarQueryParams.Add("valueType", Configuration.ApiClient.ParameterToString(valueType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4667,10 +4972,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute)
+		public async System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateAttributeAsyncWithHttpInfo(webId, attribute);
+			ApiResponse<Object> localVarResponse = await CreateAttributeAsyncWithHttpInfo(webId, attribute, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4683,8 +4989,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame on which to create the attribute.</param>
 		/// <param name="attribute">The definition of the new attribute.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4718,6 +5025,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = attribute;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4808,10 +5116,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElementCategory></returns>
-		public async System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsElementCategory> localVarResponse = await GetCategoriesAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsElementCategory> localVarResponse = await GetCategoriesAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4824,8 +5133,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4849,6 +5159,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4953,16 +5264,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttribute> FindEventFrameAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		public async System.Threading.Tasks.Task<PIItemsAttribute> FindEventFrameAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAttribute> localVarResponse = await FindEventFrameAttributesAsyncWithHttpInfo(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime);
+			ApiResponse<PIItemsAttribute> localVarResponse = await FindEventFrameAttributesAsyncWithHttpInfo(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4986,14 +5298,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="maxCount">The maximum number of objects to be returned (the page size). The default is 1000.</param>
 		/// <param name="referencedElementNameFilter">The name query string which must match the name of a referenced element. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.</param>
-		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.</param>
+		/// <param name="searchMode">Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindEventFrameAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindEventFrameAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string endTime = null, string eventFrameCategory = null, string eventFrameDescriptionFilter = null, string eventFrameNameFilter = null, string eventFrameTemplate = null, int? maxCount = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5034,6 +5347,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5052,7 +5366,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -5076,15 +5390,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
-		public async System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null)
+		public async System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsEventFrame> localVarResponse = await GetEventFramesAsyncWithHttpInfo(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName);
+			ApiResponse<PIItemsEventFrame> localVarResponse = await GetEventFramesAsyncWithHttpInfo(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>
-		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+		/// Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -5108,8 +5423,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
 		/// <param name="templateName">Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, string referencedElementTemplateName = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5149,6 +5465,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5175,10 +5492,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateEventFrameAsync(string webId, PIEventFrame eventFrame)
+		public async System.Threading.Tasks.Task<Object> CreateEventFrameAsync(string webId, PIEventFrame eventFrame, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateEventFrameAsyncWithHttpInfo(webId, eventFrame);
+			ApiResponse<Object> localVarResponse = await CreateEventFrameAsyncWithHttpInfo(webId, eventFrame, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5191,8 +5509,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent event frame on which to create the event frame.</param>
 		/// <param name="eventFrame">The new event frame definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateEventFrameAsyncWithHttpInfo(string webId, PIEventFrame eventFrame)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateEventFrameAsyncWithHttpInfo(string webId, PIEventFrame eventFrame, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5226,6 +5545,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = eventFrame;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5252,10 +5572,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsElement> localVarResponse = await GetReferencedElementsAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsElement> localVarResponse = await GetReferencedElementsAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5268,8 +5589,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the event frame whose referenced elements should be retrieved.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5293,6 +5615,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5321,10 +5644,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields);
+			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5339,8 +5663,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5369,6 +5694,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5396,10 +5722,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5413,8 +5740,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5439,6 +5767,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5466,10 +5795,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null)
+		public async System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateSecurityEntryAsyncWithHttpInfo(webId, securityEntry, applyToChildren);
+			ApiResponse<Object> localVarResponse = await CreateSecurityEntryAsyncWithHttpInfo(webId, securityEntry, applyToChildren, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5483,8 +5813,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the event frame where the security entry will be created.</param>
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5519,6 +5850,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				localVarPostBody = securityEntry;
 			}
 			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5546,10 +5878,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, selectedFields);
+			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5563,8 +5896,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="name">The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.</param>
 		/// <param name="webId">The ID of the event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -5592,6 +5926,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5780,10 +6115,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsItemEventFrame></returns>
-		public async System.Threading.Tasks.Task<PIItemsItemEventFrame> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null)
+		public async System.Threading.Tasks.Task<PIItemsItemEventFrame> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsItemEventFrame> localVarResponse = await GetMultipleAsyncWithHttpInfo(asParallel, includeMode, path, selectedFields, webId);
+			ApiResponse<PIItemsItemEventFrame> localVarResponse = await GetMultipleAsyncWithHttpInfo(asParallel, includeMode, path, selectedFields, webId, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5799,8 +6135,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="path">The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webId">The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsItemEventFrame>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsItemEventFrame>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsItemEventFrame>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null)
 		{
 
 			var localVarPath = "/eventframes/multiple";
@@ -5824,6 +6161,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5842,17 +6180,96 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
+		public async System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesQueryAsync(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
+		{
+			ApiResponse<PIItemsEventFrame> localVarResponse = await GetEventFramesQueryAsyncWithHttpInfo(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="databaseWebId">The ID of the asset database to use as the root of the query.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="query">The query string is a list of filters used to perform an AFSearch for the eventframes in the asset database. An example would be: "query=Name:=MyEventFrame* Category:=MyCategory Template:=EFTemplate*".</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesQueryAsyncWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
+		{
+
+			var localVarPath = "/eventframes/search";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+			localVarPathParams.Add("format", "json");
+
+			if (databaseWebId!= null) localVarQueryParams.Add("databaseWebId", Configuration.ApiClient.ParameterToString(databaseWebId));
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
+			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetEventFramesQueryAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsEventFrame>(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIItemsEventFrame)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsEventFrame)));
+		}
+
+		/// <summary>
 		/// Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
 		/// </summary>
 		/// <remarks>
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateSearchByAttributeAsync(PISearchByAttributeEventFrame search)
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
+		public async System.Threading.Tasks.Task<PIItemsEventFrame> CreateSearchByAttributeAsync(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateSearchByAttributeAsyncWithHttpInfo(search);
+			ApiResponse<PIItemsEventFrame> localVarResponse = await CreateSearchByAttributeAsyncWithHttpInfo(query, noResults, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5863,13 +6280,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="search"></param>
-		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttributeEventFrame search)
+		/// <param name="query">The query of search by attribute.</param>
+		/// <param name="noResults">If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string selectedFields = null, string webIdType = null)
 		{
-			// verify the required parameter 'search' is set
-			if (search == null)
-				throw new ApiException(400, "Missing required parameter 'search'");
+			// verify the required parameter 'query' is set
+			if (query == null)
+				throw new ApiException(400, "Missing required parameter 'query'");
 
 			var localVarPath = "/eventframes/searchbyattribute";
 			var localVarPathParams = new Dictionary<String, String>();
@@ -5887,14 +6307,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 			localVarPathParams.Add("format", "json");
 
-			if (search != null && search.GetType() != typeof(byte[]))
+			if (query != null && query.GetType() != typeof(byte[]))
 			{
-				localVarPostBody = Configuration.ApiClient.Serialize(search);
+				localVarPostBody = Configuration.ApiClient.Serialize(query);
 			}
 			else
 			{
-				localVarPostBody = search;
+				localVarPostBody = query;
 			}
+			if (noResults!= null) localVarQueryParams.Add("noResults", Configuration.ApiClient.ParameterToString(noResults));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5907,9 +6330,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponse<Object>(localVarStatusCode,
+			return new ApiResponse<PIItemsEventFrame>(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsEventFrame)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsEventFrame)));
 		}
 
 		/// <summary>
@@ -5934,10 +6357,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> ExecuteSearchByAttributeAsync(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
+		public async System.Threading.Tasks.Task<PIItemsEventFrame> ExecuteSearchByAttributeAsync(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await ExecuteSearchByAttributeAsyncWithHttpInfo(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime);
+			ApiResponse<PIItemsEventFrame> localVarResponse = await ExecuteSearchByAttributeAsyncWithHttpInfo(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5963,8 +6387,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="startTime">The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.</param>
-		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null)
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, bool? canBeAcknowledged = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string referencedElementNameFilter = null, bool? searchFullHierarchy = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string webIdType = null)
 		{
 			// verify the required parameter 'searchId' is set
 			if (searchId == null)
@@ -6001,6 +6426,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -6013,9 +6439,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponse<Object>(localVarStatusCode,
+			return new ApiResponse<PIItemsEventFrame>(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsEventFrame)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsEventFrame)));
 		}
 
 		#endregion

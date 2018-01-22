@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,10 +39,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PITableData
 	{
-		public PITableData(Dictionary<string, string> Columns = null, List<Dictionary<string, object>> Rows = null)
+		public PITableData(Dictionary<string, string> Columns = null, List<Dictionary<string, object>> Rows = null, PIWebException WebException = null)
 		{
 			this.Columns = Columns;
 			this.Rows = Rows;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -56,6 +57,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Rows", EmitDefaultValue = false)]
 		public List<Dictionary<string, object>> Rows { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PITableData
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,11 +39,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PISystemStatus
 	{
-		public PISystemStatus(double? UpTimeInMinutes = null, string State = null, int? CacheInstances = null)
+		public PISystemStatus(double? UpTimeInMinutes = null, string State = null, int? CacheInstances = null, PIWebException WebException = null)
 		{
 			this.UpTimeInMinutes = UpTimeInMinutes;
 			this.State = State;
 			this.CacheInstances = CacheInstances;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -63,6 +64,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "CacheInstances", EmitDefaultValue = false)]
 		public int? CacheInstances { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PISystemStatus
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

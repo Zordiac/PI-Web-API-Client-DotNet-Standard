@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,13 +39,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIStreamValue
 	{
-		public PIStreamValue(string WebId = null, string Name = null, string Path = null, PITimedValue Value = null, Dictionary<string, string> Links = null)
+		public PIStreamValue(string WebId = null, string Name = null, string Path = null, PITimedValue Value = null, PIStreamValueLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Name = Name;
 			this.Path = Path;
 			this.Value = Value;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -76,7 +77,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIStreamValue
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIStreamValueLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIStreamValue
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

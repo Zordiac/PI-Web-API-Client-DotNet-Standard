@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIElementTemplate
 	{
-		public PIElementTemplate(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, bool? AllowElementToExtend = null, string BaseTemplate = null, string InstanceType = null, string NamingPattern = null, List<string> CategoryNames = null, Dictionary<string, PIValue> ExtendedProperties = null, string Severity = null, bool? CanBeAcknowledged = null, Dictionary<string, string> Links = null)
+		public PIElementTemplate(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, bool? AllowElementToExtend = null, string BaseTemplate = null, string InstanceType = null, string NamingPattern = null, List<string> CategoryNames = null, Dictionary<string, PIValue> ExtendedProperties = null, string Severity = null, bool? CanBeAcknowledged = null, PIElementTemplateLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -55,6 +55,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Severity = Severity;
 			this.CanBeAcknowledged = CanBeAcknowledged;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -139,7 +140,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIElementTemplate
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIElementTemplateLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIElementTemplate
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

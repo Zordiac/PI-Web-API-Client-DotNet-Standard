@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAnnotation
 	{
-		public PIAnnotation(string Id = null, string Name = null, string Description = null, object Value = null, string Creator = null, string CreationDate = null, string Modifier = null, string ModifyDate = null, Dictionary<string, string> Links = null)
+		public PIAnnotation(string Id = null, string Name = null, string Description = null, object Value = null, string Creator = null, string CreationDate = null, string Modifier = null, string ModifyDate = null, PIAnnotationLinks Links = null, PIWebException WebException = null)
 		{
 			this.Id = Id;
 			this.Name = Name;
@@ -50,6 +50,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Modifier = Modifier;
 			this.ModifyDate = ModifyDate;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -104,7 +105,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIAnnotation
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIAnnotationLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnnotation
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

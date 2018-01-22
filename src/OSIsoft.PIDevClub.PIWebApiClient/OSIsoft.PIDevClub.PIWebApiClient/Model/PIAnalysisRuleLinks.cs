@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -33,43 +33,57 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 {
 
 	/// <summary>
-	/// PIAttributeValueQuery
+	/// PIAnalysisRuleLinks
 	/// </summary>
 	[DataContract]
 
-	public class PIAttributeValueQuery
+	public class PIAnalysisRuleLinks
 	{
-		public PIAttributeValueQuery(string AttributeName = null, object AttributeValue = null, string AttributeUOM = null, string SearchOperator = null)
+		public PIAnalysisRuleLinks(string Self = null, string AnalysisRules = null, string Analysis = null, string AnalysisTemplate = null, string Parent = null, string PlugIn = null)
 		{
-			this.AttributeName = AttributeName;
-			this.AttributeValue = AttributeValue;
-			this.AttributeUOM = AttributeUOM;
-			this.SearchOperator = SearchOperator;
+			this.Self = Self;
+			this.AnalysisRules = AnalysisRules;
+			this.Analysis = Analysis;
+			this.AnalysisTemplate = AnalysisTemplate;
+			this.Parent = Parent;
+			this.PlugIn = PlugIn;
 		}
 
 		/// <summary>
-		/// Gets or Sets PIAttributeValueQuery
+		/// Gets or Sets PIAnalysisRuleLinks
 		/// </summary>
-		[DataMember(Name = "AttributeName", EmitDefaultValue = false)]
-		public string AttributeName { get; set; }
+		[DataMember(Name = "Self", EmitDefaultValue = false)]
+		public string Self { get; set; }
 
 		/// <summary>
-		/// Gets or Sets PIAttributeValueQuery
+		/// Gets or Sets PIAnalysisRuleLinks
 		/// </summary>
-		[DataMember(Name = "AttributeValue", EmitDefaultValue = false)]
-		public object AttributeValue { get; set; }
+		[DataMember(Name = "AnalysisRules", EmitDefaultValue = false)]
+		public string AnalysisRules { get; set; }
 
 		/// <summary>
-		/// Gets or Sets PIAttributeValueQuery
+		/// Gets or Sets PIAnalysisRuleLinks
 		/// </summary>
-		[DataMember(Name = "AttributeUOM", EmitDefaultValue = false)]
-		public string AttributeUOM { get; set; }
+		[DataMember(Name = "Analysis", EmitDefaultValue = false)]
+		public string Analysis { get; set; }
 
 		/// <summary>
-		/// Gets or Sets PIAttributeValueQuery
+		/// Gets or Sets PIAnalysisRuleLinks
 		/// </summary>
-		[DataMember(Name = "SearchOperator", EmitDefaultValue = false)]
-		public string SearchOperator { get; set; }
+		[DataMember(Name = "AnalysisTemplate", EmitDefaultValue = false)]
+		public string AnalysisTemplate { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnalysisRuleLinks
+		/// </summary>
+		[DataMember(Name = "Parent", EmitDefaultValue = false)]
+		public string Parent { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnalysisRuleLinks
+		/// </summary>
+		[DataMember(Name = "PlugIn", EmitDefaultValue = false)]
+		public string PlugIn { get; set; }
 
 	}
 }

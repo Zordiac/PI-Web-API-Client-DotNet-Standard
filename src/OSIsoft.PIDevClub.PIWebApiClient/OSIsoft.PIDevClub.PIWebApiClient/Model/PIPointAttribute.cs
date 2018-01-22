@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,11 +39,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIPointAttribute
 	{
-		public PIPointAttribute(string Name = null, object Value = null, Dictionary<string, string> Links = null)
+		public PIPointAttribute(string Name = null, object Value = null, PIPointAttributeLinks Links = null, PIWebException WebException = null)
 		{
 			this.Name = Name;
 			this.Value = Value;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -62,7 +63,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIPointAttribute
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIPointAttributeLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIPointAttribute
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

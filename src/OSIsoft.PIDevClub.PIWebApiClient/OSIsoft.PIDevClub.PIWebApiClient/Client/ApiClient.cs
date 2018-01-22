@@ -119,6 +119,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Client
             foreach (var param in headerParams)
                 request.AddHeader(param.Key, param.Value);
 
+            // add X-Requested-With header to work with CSRF defences
+            // https://techsupport.osisoft.com/Troubleshooting/KB/KB01650/
+            request.AddHeader("X-Requested-With", "PIWebApiWrapper");
+
             // add query parameter, if any
             foreach (var param in queryParams)
                 request.AddQueryParameter(param.Key, param.Value);

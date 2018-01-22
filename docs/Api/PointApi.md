@@ -8,12 +8,11 @@ Method | HTTP request | Description
 [**Delete**](PointApi.md#delete) | **DELETE** /points/{webId} | Delete a point.
 [**GetAttributes**](PointApi.md#getattributes) | **GET** /points/{webId}/attributes | Get point attributes.
 [**GetAttributeByName**](PointApi.md#getattributebyname) | **GET** /points/{webId}/attributes/{name} | Get a point attribute by name.
-[**UpdateAttributeValue**](PointApi.md#updateattributevalue) | **PUT** /points/{webId}/attributes/{name} | Update a point attribute value.
 [**GetMultiple**](PointApi.md#getmultiple) | **GET** /points/multiple | Retrieve multiple points by web id or path.
 
 
 # **GetByPath**
-> GetByPath(string path, string selectedFields = null)
+> GetByPath(string path, string selectedFields = null, string webIdType = null)
 
 Get a point by path.
 
@@ -23,6 +22,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| The path to the point.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **Get**
-> Get(string webId, string selectedFields = null)
+> Get(string webId, string selectedFields = null, string webIdType = null)
 
 Get a point.
 
@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the point.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -88,7 +89,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **GetAttributes**
-> GetAttributes(string webId, List<string> name = null, string nameFilter = null, string selectedFields = null)
+> GetAttributes(string webId, List<string> name = null, string nameFilter = null, string selectedFields = null, string webIdType = null)
 
 Get point attributes.
 
@@ -100,6 +101,7 @@ Name | Type | Description | Notes
  **name** | **List<string>**| The name of a point attribute to be returned. Multiple attributes may be specified with multiple instances of the parameter.. | [optional]
  **nameFilter** | **string**| The filter to the names of the list of point attributes to be returned. The default is no filter.. | [optional]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -109,7 +111,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **GetAttributeByName**
-> GetAttributeByName(string name, string webId, string selectedFields = null)
+> GetAttributeByName(string name, string webId, string selectedFields = null, string webIdType = null)
 
 Get a point attribute by name.
 
@@ -120,6 +122,7 @@ Name | Type | Description | Notes
  **name** | **string**| The name of the attribute.. | [required]
  **webId** | **string**| The ID of the point.. | [required]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type
@@ -128,28 +131,8 @@ Name | Type | Description | Notes
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
-# **UpdateAttributeValue**
-> UpdateAttributeValue(string webId, string name, Object value)
-
-Update a point attribute value.
-
-### Parameters
-
-Name | Type | Description | Notes
-------------- | ------------- | ------------- | -------------
- **webId** | **string**| The ID of the point.. | [required]
- **name** | **string**| The name of the attribute to be updated.. | [required]
- **value** | **Object**| The new value of the attribute to be updated.. | [required]
-
-
-### Return type
-
-[**Object**](../Model/Object.md)
-
-[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
-
 # **GetMultiple**
-> GetMultiple(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null)
+> GetMultiple(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null)
 
 Retrieve multiple points by web id or path.
 
@@ -162,6 +145,7 @@ Name | Type | Description | Notes
  **path** | **List<string>**| The path of a point. Multiple points may be specified with multiple instances of the parameter.. | [optional]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
  **webId** | **List<string>**| The ID of a point. Multiple points may be specified with multiple instances of the parameter.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
 ### Return type

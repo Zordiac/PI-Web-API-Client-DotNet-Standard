@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,8 +39,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>Object</returns>
-		Object Instances();
+		/// <returns>PIItemsChannelInstance</returns>
+		PIItemsChannelInstance Instances();
 
 		/// <summary>
 		/// Retrieves a list of currently running channel instances.
@@ -49,8 +49,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> InstancesWithHttpInfo();
+		/// <returns>ApiResponse<PIItemsChannelInstance></returns>
+		ApiResponse<PIItemsChannelInstance> InstancesWithHttpInfo();
 
 		#endregion
 		#region Asynchronous Operations
@@ -61,8 +61,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> InstancesAsync();
+		/// <returns>async System.Threading.Tasks.Task<PIItemsChannelInstance></returns>
+		System.Threading.Tasks.Task<PIItemsChannelInstance> InstancesAsync();
 
 		/// <summary>
 		/// Retrieves a list of currently running channel instances.
@@ -71,8 +71,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> InstancesAsyncWithHttpInfo();
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo();
 
 		#endregion
 	}
@@ -117,10 +117,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>Object</returns>
-		public Object Instances()
+		/// <returns>PIItemsChannelInstance</returns>
+		public PIItemsChannelInstance Instances()
 		{
-			ApiResponse<Object> localVarResponse = InstancesWithHttpInfo();
+			ApiResponse<PIItemsChannelInstance> localVarResponse = InstancesWithHttpInfo();
 			return localVarResponse.Data;
 		}
 
@@ -131,8 +131,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> InstancesWithHttpInfo()
+		/// <returns>ApiResponse<PIItemsChannelInstance></returns>
+		public ApiResponse<PIItemsChannelInstance> InstancesWithHttpInfo()
 		{
 
 			var localVarPath = "/channels/instances";
@@ -163,9 +163,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponse<Object>(localVarStatusCode,
+			return new ApiResponse<PIItemsChannelInstance>(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsChannelInstance)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsChannelInstance)));
 		}
 
 		#endregion
@@ -177,10 +177,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> InstancesAsync()
+		/// <returns>async System.Threading.Tasks.Task<PIItemsChannelInstance></returns>
+		public async System.Threading.Tasks.Task<PIItemsChannelInstance> InstancesAsync()
 		{
-			ApiResponse<Object> localVarResponse = await InstancesAsyncWithHttpInfo();
+			ApiResponse<PIItemsChannelInstance> localVarResponse = await InstancesAsyncWithHttpInfo();
 			return localVarResponse.Data;
 		}
 
@@ -191,8 +191,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> InstancesAsyncWithHttpInfo()
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo()
 		{
 
 			var localVarPath = "/channels/instances";
@@ -223,9 +223,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponse<Object>(localVarStatusCode,
+			return new ApiResponse<PIItemsChannelInstance>(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsChannelInstance)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsChannelInstance)));
 		}
 
 		#endregion

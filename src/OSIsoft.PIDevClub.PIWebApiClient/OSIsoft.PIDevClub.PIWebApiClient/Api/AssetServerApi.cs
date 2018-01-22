@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -40,8 +40,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAssetServer</returns>
-		PIItemsAssetServer List(string selectedFields = null);
+		PIItemsAssetServer List(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Asset Servers known to this service.
@@ -51,8 +52,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAssetServer></returns>
-		ApiResponse<PIItemsAssetServer> ListWithHttpInfo(string selectedFields = null);
+		ApiResponse<PIItemsAssetServer> ListWithHttpInfo(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by name.
@@ -63,8 +65,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAssetServer</returns>
-		PIAssetServer GetByName(string name, string selectedFields = null);
+		PIAssetServer GetByName(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by name.
@@ -75,8 +78,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAssetServer></returns>
-		ApiResponse<PIAssetServer> GetByNameWithHttpInfo(string name, string selectedFields = null);
+		ApiResponse<PIAssetServer> GetByNameWithHttpInfo(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by path.
@@ -87,8 +91,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAssetServer</returns>
-		PIAssetServer GetByPath(string path, string selectedFields = null);
+		PIAssetServer GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by path.
@@ -99,8 +104,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAssetServer></returns>
-		ApiResponse<PIAssetServer> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PIAssetServer> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server.
@@ -111,8 +117,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAssetServer</returns>
-		PIAssetServer Get(string webId, string selectedFields = null);
+		PIAssetServer Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server.
@@ -123,8 +130,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAssetServer></returns>
-		ApiResponse<PIAssetServer> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIAssetServer> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Analysis Rule Plug-in's.
@@ -135,8 +143,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAnalysisRulePlugIn</returns>
-		PIItemsAnalysisRulePlugIn GetAnalysisRulePlugIns(string webId, string selectedFields = null);
+		PIItemsAnalysisRulePlugIn GetAnalysisRulePlugIns(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Analysis Rule Plug-in's.
@@ -147,8 +156,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAnalysisRulePlugIn></returns>
-		ApiResponse<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Asset Databases on the specified Asset Server.
@@ -159,8 +169,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAssetDatabase</returns>
-		PIItemsAssetDatabase GetDatabases(string webId, string selectedFields = null);
+		PIItemsAssetDatabase GetDatabases(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Asset Databases on the specified Asset Server.
@@ -171,8 +182,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAssetDatabase></returns>
-		ApiResponse<PIItemsAssetDatabase> GetDatabasesWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsAssetDatabase> GetDatabasesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an asset database.
@@ -183,8 +195,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateAssetDatabase(string webId, PIAssetDatabase database);
+		Object CreateAssetDatabase(string webId, PIAssetDatabase database, string webIdType = null);
 
 		/// <summary>
 		/// Create an asset database.
@@ -195,8 +208,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateAssetDatabaseWithHttpInfo(string webId, PIAssetDatabase database);
+		ApiResponse<Object> CreateAssetDatabaseWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the asset server for a specified user.
@@ -210,8 +224,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityRights</returns>
-		PIItemsSecurityRights GetSecurity(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the asset server for a specified user.
@@ -225,8 +240,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityRights></returns>
-		ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.
@@ -239,8 +255,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityEntry</returns>
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.
@@ -253,8 +270,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityEntry></returns>
-		ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null);
+		ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the asset server.
@@ -267,8 +285,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null);
+		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the asset server.
@@ -281,8 +300,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null);
+		ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry of the specified security item associated with the asset server with the specified name.
@@ -295,8 +315,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityEntry</returns>
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string securityItem = null, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry of the specified security item associated with the asset server with the specified name.
@@ -309,8 +330,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityEntry></returns>
-		ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null);
+		ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a security entry owned by the asset server.
@@ -384,8 +406,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityIdentity</returns>
-		PIItemsSecurityIdentity GetSecurityIdentities(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		PIItemsSecurityIdentity GetSecurityIdentities(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security identities based on the specified criteria. By default, all security identities in the specified Asset Server are returned.
@@ -401,8 +424,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityIdentity></returns>
-		ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security identity.
@@ -413,8 +437,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateSecurityIdentity(string webId, PISecurityIdentity securityIdentity);
+		Object CreateSecurityIdentity(string webId, PISecurityIdentity securityIdentity, string webIdType = null);
 
 		/// <summary>
 		/// Create a security identity.
@@ -425,8 +450,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateSecurityIdentityWithHttpInfo(string webId, PISecurityIdentity securityIdentity);
+		ApiResponse<Object> CreateSecurityIdentityWithHttpInfo(string webId, PISecurityIdentity securityIdentity, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security identities for a specific user.
@@ -438,8 +464,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityIdentity</returns>
-		PIItemsSecurityIdentity GetSecurityIdentitiesForUser(string webId, string userIdentity, string selectedFields = null);
+		PIItemsSecurityIdentity GetSecurityIdentitiesForUser(string webId, string userIdentity, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security identities for a specific user.
@@ -451,8 +478,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityIdentity></returns>
-		ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserWithHttpInfo(string webId, string userIdentity, string selectedFields = null);
+		ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserWithHttpInfo(string webId, string userIdentity, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.
@@ -468,8 +496,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityMapping</returns>
-		PIItemsSecurityMapping GetSecurityMappings(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		PIItemsSecurityMapping GetSecurityMappings(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.
@@ -485,8 +514,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityMapping></returns>
-		ApiResponse<PIItemsSecurityMapping> GetSecurityMappingsWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		ApiResponse<PIItemsSecurityMapping> GetSecurityMappingsWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security mapping.
@@ -497,8 +527,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateSecurityMapping(string webId, PISecurityMapping securityMapping);
+		Object CreateSecurityMapping(string webId, PISecurityMapping securityMapping, string webIdType = null);
 
 		/// <summary>
 		/// Create a security mapping.
@@ -509,8 +540,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateSecurityMappingWithHttpInfo(string webId, PISecurityMapping securityMapping);
+		ApiResponse<Object> CreateSecurityMappingWithHttpInfo(string webId, PISecurityMapping securityMapping, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Time Rule Plug-in's.
@@ -521,8 +553,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsTimeRulePlugIn</returns>
-		PIItemsTimeRulePlugIn GetTimeRulePlugIns(string webId, string selectedFields = null);
+		PIItemsTimeRulePlugIn GetTimeRulePlugIns(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Time Rule Plug-in's.
@@ -533,8 +566,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsTimeRulePlugIn></returns>
-		ApiResponse<PIItemsTimeRulePlugIn> GetTimeRulePlugInsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsTimeRulePlugIn> GetTimeRulePlugInsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all unit classes on the specified Asset Server.
@@ -545,8 +579,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsUnitClass</returns>
-		PIItemsUnitClass GetUnitClasses(string webId, string selectedFields = null);
+		PIItemsUnitClass GetUnitClasses(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all unit classes on the specified Asset Server.
@@ -557,8 +592,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsUnitClass></returns>
-		ApiResponse<PIItemsUnitClass> GetUnitClassesWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsUnitClass> GetUnitClassesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit class in the specified Asset Server.
@@ -569,8 +605,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateUnitClass(string webId, PIUnitClass unitClass);
+		Object CreateUnitClass(string webId, PIUnitClass unitClass, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit class in the specified Asset Server.
@@ -581,8 +618,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateUnitClassWithHttpInfo(string webId, PIUnitClass unitClass);
+		ApiResponse<Object> CreateUnitClassWithHttpInfo(string webId, PIUnitClass unitClass, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -594,8 +632,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAssetServer></returns>
-		System.Threading.Tasks.Task<PIItemsAssetServer> ListAsync(string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsAssetServer> ListAsync(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Asset Servers known to this service.
@@ -605,8 +644,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAssetServer>> ListAsyncWithHttpInfo(string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAssetServer>> ListAsyncWithHttpInfo(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by name.
@@ -617,8 +657,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAssetServer></returns>
-		System.Threading.Tasks.Task<PIAssetServer> GetByNameAsync(string name, string selectedFields = null);
+		System.Threading.Tasks.Task<PIAssetServer> GetByNameAsync(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by name.
@@ -629,8 +670,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by path.
@@ -641,8 +683,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAssetServer></returns>
-		System.Threading.Tasks.Task<PIAssetServer> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PIAssetServer> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server by path.
@@ -653,8 +696,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server.
@@ -665,8 +709,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAssetServer></returns>
-		System.Threading.Tasks.Task<PIAssetServer> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIAssetServer> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Asset Server.
@@ -677,8 +722,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Analysis Rule Plug-in's.
@@ -689,8 +735,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysisRulePlugIn></returns>
-		System.Threading.Tasks.Task<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Analysis Rule Plug-in's.
@@ -701,8 +748,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRulePlugIn>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRulePlugIn>> GetAnalysisRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRulePlugIn>> GetAnalysisRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Asset Databases on the specified Asset Server.
@@ -713,8 +761,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAssetDatabase></returns>
-		System.Threading.Tasks.Task<PIItemsAssetDatabase> GetDatabasesAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsAssetDatabase> GetDatabasesAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Asset Databases on the specified Asset Server.
@@ -725,8 +774,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetDatabase>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAssetDatabase>> GetDatabasesAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAssetDatabase>> GetDatabasesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an asset database.
@@ -737,8 +787,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAssetDatabaseAsync(string webId, PIAssetDatabase database);
+		System.Threading.Tasks.Task<Object> CreateAssetDatabaseAsync(string webId, PIAssetDatabase database, string webIdType = null);
 
 		/// <summary>
 		/// Create an asset database.
@@ -749,8 +800,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAssetDatabaseAsyncWithHttpInfo(string webId, PIAssetDatabase database);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAssetDatabaseAsyncWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the asset server for a specified user.
@@ -764,8 +816,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the asset server for a specified user.
@@ -779,8 +832,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.
@@ -793,8 +847,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.
@@ -807,8 +862,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the asset server.
@@ -821,8 +877,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null);
+		System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security entry owned by the asset server.
@@ -835,8 +892,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry of the specified security item associated with the asset server with the specified name.
@@ -849,8 +907,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string securityItem = null, string selectedFields = null);
+		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve the security entry of the specified security item associated with the asset server with the specified name.
@@ -863,8 +922,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update a security entry owned by the asset server.
@@ -938,8 +998,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityIdentity></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security identities based on the specified criteria. By default, all security identities in the specified Asset Server are returned.
@@ -955,8 +1016,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security identity.
@@ -967,8 +1029,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateSecurityIdentityAsync(string webId, PISecurityIdentity securityIdentity);
+		System.Threading.Tasks.Task<Object> CreateSecurityIdentityAsync(string webId, PISecurityIdentity securityIdentity, string webIdType = null);
 
 		/// <summary>
 		/// Create a security identity.
@@ -979,8 +1042,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityIdentityAsyncWithHttpInfo(string webId, PISecurityIdentity securityIdentity);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityIdentityAsyncWithHttpInfo(string webId, PISecurityIdentity securityIdentity, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security identities for a specific user.
@@ -992,8 +1056,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityIdentity></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserAsync(string webId, string userIdentity, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserAsync(string webId, string userIdentity, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security identities for a specific user.
@@ -1005,8 +1070,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesForUserAsyncWithHttpInfo(string webId, string userIdentity, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesForUserAsyncWithHttpInfo(string webId, string userIdentity, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.
@@ -1022,8 +1088,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityMapping></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityMapping> GetSecurityMappingsAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		System.Threading.Tasks.Task<PIItemsSecurityMapping> GetSecurityMappingsAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.
@@ -1039,8 +1106,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityMapping>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityMapping>> GetSecurityMappingsAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityMapping>> GetSecurityMappingsAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a security mapping.
@@ -1051,8 +1119,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateSecurityMappingAsync(string webId, PISecurityMapping securityMapping);
+		System.Threading.Tasks.Task<Object> CreateSecurityMappingAsync(string webId, PISecurityMapping securityMapping, string webIdType = null);
 
 		/// <summary>
 		/// Create a security mapping.
@@ -1063,8 +1132,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityMappingAsyncWithHttpInfo(string webId, PISecurityMapping securityMapping);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityMappingAsyncWithHttpInfo(string webId, PISecurityMapping securityMapping, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Time Rule Plug-in's.
@@ -1075,8 +1145,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsTimeRulePlugIn></returns>
-		System.Threading.Tasks.Task<PIItemsTimeRulePlugIn> GetTimeRulePlugInsAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsTimeRulePlugIn> GetTimeRulePlugInsAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all Time Rule Plug-in's.
@@ -1087,8 +1158,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsTimeRulePlugIn>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsTimeRulePlugIn>> GetTimeRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsTimeRulePlugIn>> GetTimeRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all unit classes on the specified Asset Server.
@@ -1099,8 +1171,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsUnitClass></returns>
-		System.Threading.Tasks.Task<PIItemsUnitClass> GetUnitClassesAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsUnitClass> GetUnitClassesAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of all unit classes on the specified Asset Server.
@@ -1111,8 +1184,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsUnitClass>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsUnitClass>> GetUnitClassesAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsUnitClass>> GetUnitClassesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit class in the specified Asset Server.
@@ -1123,8 +1197,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateUnitClassAsync(string webId, PIUnitClass unitClass);
+		System.Threading.Tasks.Task<Object> CreateUnitClassAsync(string webId, PIUnitClass unitClass, string webIdType = null);
 
 		/// <summary>
 		/// Create a unit class in the specified Asset Server.
@@ -1135,8 +1210,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitClassAsyncWithHttpInfo(string webId, PIUnitClass unitClass);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitClassAsyncWithHttpInfo(string webId, PIUnitClass unitClass, string webIdType = null);
 
 		#endregion
 	}
@@ -1182,10 +1258,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAssetServer</returns>
-		public PIItemsAssetServer List(string selectedFields = null)
+		public PIItemsAssetServer List(string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAssetServer> localVarResponse = ListWithHttpInfo(selectedFields);
+			ApiResponse<PIItemsAssetServer> localVarResponse = ListWithHttpInfo(selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1197,8 +1274,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAssetServer></returns>
-		public ApiResponse<PIItemsAssetServer> ListWithHttpInfo(string selectedFields = null)
+		public ApiResponse<PIItemsAssetServer> ListWithHttpInfo(string selectedFields = null, string webIdType = null)
 		{
 
 			var localVarPath = "/assetservers";
@@ -1218,6 +1296,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1244,10 +1323,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAssetServer</returns>
-		public PIAssetServer GetByName(string name, string selectedFields = null)
+		public PIAssetServer GetByName(string name, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAssetServer> localVarResponse = GetByNameWithHttpInfo(name, selectedFields);
+			ApiResponse<PIAssetServer> localVarResponse = GetByNameWithHttpInfo(name, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1260,8 +1340,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAssetServer></returns>
-		public ApiResponse<PIAssetServer> GetByNameWithHttpInfo(string name, string selectedFields = null)
+		public ApiResponse<PIAssetServer> GetByNameWithHttpInfo(string name, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -1285,6 +1366,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1311,10 +1393,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAssetServer</returns>
-		public PIAssetServer GetByPath(string path, string selectedFields = null)
+		public PIAssetServer GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAssetServer> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PIAssetServer> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1327,8 +1410,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAssetServer></returns>
-		public ApiResponse<PIAssetServer> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PIAssetServer> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -1352,6 +1436,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1378,10 +1463,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAssetServer</returns>
-		public PIAssetServer Get(string webId, string selectedFields = null)
+		public PIAssetServer Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAssetServer> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIAssetServer> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1394,8 +1480,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAssetServer></returns>
-		public ApiResponse<PIAssetServer> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIAssetServer> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1419,6 +1506,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1445,10 +1533,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAnalysisRulePlugIn</returns>
-		public PIItemsAnalysisRulePlugIn GetAnalysisRulePlugIns(string webId, string selectedFields = null)
+		public PIItemsAnalysisRulePlugIn GetAnalysisRulePlugIns(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAnalysisRulePlugIn> localVarResponse = GetAnalysisRulePlugInsWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsAnalysisRulePlugIn> localVarResponse = GetAnalysisRulePlugInsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1461,8 +1550,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAnalysisRulePlugIn></returns>
-		public ApiResponse<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1486,6 +1576,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1512,10 +1603,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAssetDatabase</returns>
-		public PIItemsAssetDatabase GetDatabases(string webId, string selectedFields = null)
+		public PIItemsAssetDatabase GetDatabases(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAssetDatabase> localVarResponse = GetDatabasesWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsAssetDatabase> localVarResponse = GetDatabasesWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1528,8 +1620,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAssetDatabase></returns>
-		public ApiResponse<PIItemsAssetDatabase> GetDatabasesWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsAssetDatabase> GetDatabasesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1553,6 +1646,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1579,10 +1673,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateAssetDatabase(string webId, PIAssetDatabase database)
+		public Object CreateAssetDatabase(string webId, PIAssetDatabase database, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateAssetDatabaseWithHttpInfo(webId, database);
+			ApiResponse<Object> localVarResponse = CreateAssetDatabaseWithHttpInfo(webId, database, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1595,8 +1690,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateAssetDatabaseWithHttpInfo(string webId, PIAssetDatabase database)
+		public ApiResponse<Object> CreateAssetDatabaseWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1630,6 +1726,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = database;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1659,10 +1756,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityRights</returns>
-		public PIItemsSecurityRights GetSecurity(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityRights> localVarResponse = GetSecurityWithHttpInfo(webId, securityItem, userIdentity, forceRefresh, selectedFields);
+			ApiResponse<PIItemsSecurityRights> localVarResponse = GetSecurityWithHttpInfo(webId, securityItem, userIdentity, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1678,8 +1776,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityRights></returns>
-		public ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityRights> GetSecurityWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1712,6 +1811,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1740,10 +1840,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityEntry</returns>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityEntry> localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, securityItem, selectedFields);
+			ApiResponse<PIItemsSecurityEntry> localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, securityItem, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1758,8 +1859,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityEntry></returns>
-		public ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityEntry> GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1785,6 +1887,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1813,10 +1916,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null)
+		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren, securityItem);
+			ApiResponse<Object> localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren, securityItem, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1831,8 +1935,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null)
+		public ApiResponse<Object> CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1868,6 +1973,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
 			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1896,10 +2002,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PISecurityEntry</returns>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string securityItem = null, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityEntry> localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, securityItem, selectedFields);
+			ApiResponse<PISecurityEntry> localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, securityItem, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1914,8 +2021,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PISecurityEntry></returns>
-		public ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null)
+		public ApiResponse<PISecurityEntry> GetSecurityEntryByNameWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -1944,6 +2052,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2140,10 +2249,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityIdentity</returns>
-		public PIItemsSecurityIdentity GetSecurityIdentities(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public PIItemsSecurityIdentity GetSecurityIdentities(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityIdentity> localVarResponse = GetSecurityIdentitiesWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder);
+			ApiResponse<PIItemsSecurityIdentity> localVarResponse = GetSecurityIdentitiesWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2161,8 +2271,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityIdentity></returns>
-		public ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2191,6 +2302,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2217,10 +2329,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateSecurityIdentity(string webId, PISecurityIdentity securityIdentity)
+		public Object CreateSecurityIdentity(string webId, PISecurityIdentity securityIdentity, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateSecurityIdentityWithHttpInfo(webId, securityIdentity);
+			ApiResponse<Object> localVarResponse = CreateSecurityIdentityWithHttpInfo(webId, securityIdentity, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2233,8 +2346,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateSecurityIdentityWithHttpInfo(string webId, PISecurityIdentity securityIdentity)
+		public ApiResponse<Object> CreateSecurityIdentityWithHttpInfo(string webId, PISecurityIdentity securityIdentity, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2268,6 +2382,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = securityIdentity;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2295,10 +2410,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityIdentity</returns>
-		public PIItemsSecurityIdentity GetSecurityIdentitiesForUser(string webId, string userIdentity, string selectedFields = null)
+		public PIItemsSecurityIdentity GetSecurityIdentitiesForUser(string webId, string userIdentity, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityIdentity> localVarResponse = GetSecurityIdentitiesForUserWithHttpInfo(webId, userIdentity, selectedFields);
+			ApiResponse<PIItemsSecurityIdentity> localVarResponse = GetSecurityIdentitiesForUserWithHttpInfo(webId, userIdentity, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2312,8 +2428,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityIdentity></returns>
-		public ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserWithHttpInfo(string webId, string userIdentity, string selectedFields = null)
+		public ApiResponse<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserWithHttpInfo(string webId, string userIdentity, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2341,6 +2458,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2372,10 +2490,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsSecurityMapping</returns>
-		public PIItemsSecurityMapping GetSecurityMappings(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public PIItemsSecurityMapping GetSecurityMappings(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityMapping> localVarResponse = GetSecurityMappingsWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder);
+			ApiResponse<PIItemsSecurityMapping> localVarResponse = GetSecurityMappingsWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2393,8 +2512,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsSecurityMapping></returns>
-		public ApiResponse<PIItemsSecurityMapping> GetSecurityMappingsWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public ApiResponse<PIItemsSecurityMapping> GetSecurityMappingsWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2423,6 +2543,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2449,10 +2570,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateSecurityMapping(string webId, PISecurityMapping securityMapping)
+		public Object CreateSecurityMapping(string webId, PISecurityMapping securityMapping, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateSecurityMappingWithHttpInfo(webId, securityMapping);
+			ApiResponse<Object> localVarResponse = CreateSecurityMappingWithHttpInfo(webId, securityMapping, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2465,8 +2587,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateSecurityMappingWithHttpInfo(string webId, PISecurityMapping securityMapping)
+		public ApiResponse<Object> CreateSecurityMappingWithHttpInfo(string webId, PISecurityMapping securityMapping, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2500,6 +2623,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = securityMapping;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2526,10 +2650,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsTimeRulePlugIn</returns>
-		public PIItemsTimeRulePlugIn GetTimeRulePlugIns(string webId, string selectedFields = null)
+		public PIItemsTimeRulePlugIn GetTimeRulePlugIns(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsTimeRulePlugIn> localVarResponse = GetTimeRulePlugInsWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsTimeRulePlugIn> localVarResponse = GetTimeRulePlugInsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2542,8 +2667,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsTimeRulePlugIn></returns>
-		public ApiResponse<PIItemsTimeRulePlugIn> GetTimeRulePlugInsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsTimeRulePlugIn> GetTimeRulePlugInsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2567,6 +2693,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2593,10 +2720,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsUnitClass</returns>
-		public PIItemsUnitClass GetUnitClasses(string webId, string selectedFields = null)
+		public PIItemsUnitClass GetUnitClasses(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsUnitClass> localVarResponse = GetUnitClassesWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsUnitClass> localVarResponse = GetUnitClassesWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2609,8 +2737,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsUnitClass></returns>
-		public ApiResponse<PIItemsUnitClass> GetUnitClassesWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsUnitClass> GetUnitClassesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2634,6 +2763,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2660,10 +2790,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateUnitClass(string webId, PIUnitClass unitClass)
+		public Object CreateUnitClass(string webId, PIUnitClass unitClass, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateUnitClassWithHttpInfo(webId, unitClass);
+			ApiResponse<Object> localVarResponse = CreateUnitClassWithHttpInfo(webId, unitClass, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2676,8 +2807,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateUnitClassWithHttpInfo(string webId, PIUnitClass unitClass)
+		public ApiResponse<Object> CreateUnitClassWithHttpInfo(string webId, PIUnitClass unitClass, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2711,6 +2843,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = unitClass;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2738,10 +2871,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAssetServer></returns>
-		public async System.Threading.Tasks.Task<PIItemsAssetServer> ListAsync(string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsAssetServer> ListAsync(string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAssetServer> localVarResponse = await ListAsyncWithHttpInfo(selectedFields);
+			ApiResponse<PIItemsAssetServer> localVarResponse = await ListAsyncWithHttpInfo(selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2753,8 +2887,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetServer>> ListAsyncWithHttpInfo(string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetServer>> ListAsyncWithHttpInfo(string selectedFields = null, string webIdType = null)
 		{
 
 			var localVarPath = "/assetservers";
@@ -2774,6 +2909,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2800,10 +2936,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAssetServer></returns>
-		public async System.Threading.Tasks.Task<PIAssetServer> GetByNameAsync(string name, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIAssetServer> GetByNameAsync(string name, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAssetServer> localVarResponse = await GetByNameAsyncWithHttpInfo(name, selectedFields);
+			ApiResponse<PIAssetServer> localVarResponse = await GetByNameAsyncWithHttpInfo(name, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2816,8 +2953,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -2841,6 +2979,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2867,10 +3006,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAssetServer></returns>
-		public async System.Threading.Tasks.Task<PIAssetServer> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIAssetServer> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAssetServer> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PIAssetServer> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2883,8 +3023,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -2908,6 +3049,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2934,10 +3076,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAssetServer></returns>
-		public async System.Threading.Tasks.Task<PIAssetServer> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIAssetServer> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAssetServer> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIAssetServer> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2950,8 +3093,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAssetServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2975,6 +3119,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3001,10 +3146,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysisRulePlugIn></returns>
-		public async System.Threading.Tasks.Task<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsAnalysisRulePlugIn> GetAnalysisRulePlugInsAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAnalysisRulePlugIn> localVarResponse = await GetAnalysisRulePlugInsAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsAnalysisRulePlugIn> localVarResponse = await GetAnalysisRulePlugInsAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3017,8 +3163,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Analysis Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRulePlugIn>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRulePlugIn>> GetAnalysisRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRulePlugIn>> GetAnalysisRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3042,6 +3189,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3068,10 +3216,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAssetDatabase></returns>
-		public async System.Threading.Tasks.Task<PIItemsAssetDatabase> GetDatabasesAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsAssetDatabase> GetDatabasesAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAssetDatabase> localVarResponse = await GetDatabasesAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsAssetDatabase> localVarResponse = await GetDatabasesAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3084,8 +3233,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetDatabase>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetDatabase>> GetDatabasesAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAssetDatabase>> GetDatabasesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3109,6 +3259,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3135,10 +3286,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAssetDatabaseAsync(string webId, PIAssetDatabase database)
+		public async System.Threading.Tasks.Task<Object> CreateAssetDatabaseAsync(string webId, PIAssetDatabase database, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateAssetDatabaseAsyncWithHttpInfo(webId, database);
+			ApiResponse<Object> localVarResponse = await CreateAssetDatabaseAsyncWithHttpInfo(webId, database, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3151,8 +3303,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the database.</param>
 		/// <param name="database">The new database definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAssetDatabaseAsyncWithHttpInfo(string webId, PIAssetDatabase database)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAssetDatabaseAsyncWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3186,6 +3339,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = database;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3215,10 +3369,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, securityItem, userIdentity, forceRefresh, selectedFields);
+			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, securityItem, userIdentity, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3234,8 +3389,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="userIdentity">The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.</param>
 		/// <param name="forceRefresh">Indicates if the security cache should be refreshed before getting security information. The default is 'false'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> securityItem, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3268,6 +3424,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3296,10 +3453,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, securityItem, selectedFields);
+			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, securityItem, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3314,8 +3472,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">The name query string used for filtering security entries. The default is no filter.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3341,6 +3500,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3369,10 +3529,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null)
+		public async System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateSecurityEntryAsyncWithHttpInfo(webId, securityEntry, applyToChildren, securityItem);
+			ApiResponse<Object> localVarResponse = await CreateSecurityEntryAsyncWithHttpInfo(webId, securityEntry, applyToChildren, securityItem, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3387,8 +3548,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="securityEntry">The new security entry definition. The full list of allow and deny rights must be supplied.</param>
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="securityItem">The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string securityItem = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3424,6 +3586,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
 			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3452,10 +3615,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string securityItem = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, securityItem, selectedFields);
+			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, securityItem, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3470,8 +3634,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the asset server.</param>
 		/// <param name="securityItem">The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -3500,6 +3665,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3696,10 +3862,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityIdentity></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityIdentity> localVarResponse = await GetSecurityIdentitiesAsyncWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder);
+			ApiResponse<PIItemsSecurityIdentity> localVarResponse = await GetSecurityIdentitiesAsyncWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3717,8 +3884,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3747,6 +3915,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3773,10 +3942,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateSecurityIdentityAsync(string webId, PISecurityIdentity securityIdentity)
+		public async System.Threading.Tasks.Task<Object> CreateSecurityIdentityAsync(string webId, PISecurityIdentity securityIdentity, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateSecurityIdentityAsyncWithHttpInfo(webId, securityIdentity);
+			ApiResponse<Object> localVarResponse = await CreateSecurityIdentityAsyncWithHttpInfo(webId, securityIdentity, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3789,8 +3959,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security identity.</param>
 		/// <param name="securityIdentity">The new security identity definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityIdentityAsyncWithHttpInfo(string webId, PISecurityIdentity securityIdentity)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityIdentityAsyncWithHttpInfo(string webId, PISecurityIdentity securityIdentity, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3824,6 +3995,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = securityIdentity;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3851,10 +4023,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityIdentity></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserAsync(string webId, string userIdentity, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityIdentity> GetSecurityIdentitiesForUserAsync(string webId, string userIdentity, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityIdentity> localVarResponse = await GetSecurityIdentitiesForUserAsyncWithHttpInfo(webId, userIdentity, selectedFields);
+			ApiResponse<PIItemsSecurityIdentity> localVarResponse = await GetSecurityIdentitiesForUserAsyncWithHttpInfo(webId, userIdentity, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3868,8 +4041,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="userIdentity">The user identity to search for.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesForUserAsyncWithHttpInfo(string webId, string userIdentity, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityIdentity>> GetSecurityIdentitiesForUserAsyncWithHttpInfo(string webId, string userIdentity, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3897,6 +4071,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3928,10 +4103,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityMapping></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityMapping> GetSecurityMappingsAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityMapping> GetSecurityMappingsAsync(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsSecurityMapping> localVarResponse = await GetSecurityMappingsAsyncWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder);
+			ApiResponse<PIItemsSecurityMapping> localVarResponse = await GetSecurityMappingsAsyncWithHttpInfo(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3949,8 +4125,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityMapping>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityMapping>> GetSecurityMappingsAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityMapping>> GetSecurityMappingsAsyncWithHttpInfo(string webId, string field = null, int? maxCount = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3979,6 +4156,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4005,10 +4183,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateSecurityMappingAsync(string webId, PISecurityMapping securityMapping)
+		public async System.Threading.Tasks.Task<Object> CreateSecurityMappingAsync(string webId, PISecurityMapping securityMapping, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateSecurityMappingAsyncWithHttpInfo(webId, securityMapping);
+			ApiResponse<Object> localVarResponse = await CreateSecurityMappingAsyncWithHttpInfo(webId, securityMapping, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4021,8 +4200,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server on which to create the security mapping.</param>
 		/// <param name="securityMapping">The new security mapping definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityMappingAsyncWithHttpInfo(string webId, PISecurityMapping securityMapping)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityMappingAsyncWithHttpInfo(string webId, PISecurityMapping securityMapping, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4056,6 +4236,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = securityMapping;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4082,10 +4263,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsTimeRulePlugIn></returns>
-		public async System.Threading.Tasks.Task<PIItemsTimeRulePlugIn> GetTimeRulePlugInsAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsTimeRulePlugIn> GetTimeRulePlugInsAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsTimeRulePlugIn> localVarResponse = await GetTimeRulePlugInsAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsTimeRulePlugIn> localVarResponse = await GetTimeRulePlugInsAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4098,8 +4280,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the asset server, where the Time Rule Plug-in's are installed.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsTimeRulePlugIn>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsTimeRulePlugIn>> GetTimeRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsTimeRulePlugIn>> GetTimeRulePlugInsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4123,6 +4306,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4149,10 +4333,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsUnitClass></returns>
-		public async System.Threading.Tasks.Task<PIItemsUnitClass> GetUnitClassesAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsUnitClass> GetUnitClassesAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsUnitClass> localVarResponse = await GetUnitClassesAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsUnitClass> localVarResponse = await GetUnitClassesAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4165,8 +4350,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsUnitClass>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsUnitClass>> GetUnitClassesAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsUnitClass>> GetUnitClassesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4190,6 +4376,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4216,10 +4403,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateUnitClassAsync(string webId, PIUnitClass unitClass)
+		public async System.Threading.Tasks.Task<Object> CreateUnitClassAsync(string webId, PIUnitClass unitClass, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateUnitClassAsyncWithHttpInfo(webId, unitClass);
+			ApiResponse<Object> localVarResponse = await CreateUnitClassAsyncWithHttpInfo(webId, unitClass, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4232,8 +4420,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="unitClass">The new unit class definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitClassAsyncWithHttpInfo(string webId, PIUnitClass unitClass)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnitClassAsyncWithHttpInfo(string webId, PIUnitClass unitClass, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4267,6 +4456,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = unitClass;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

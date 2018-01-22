@@ -1,4 +1,4 @@
-PI Web API Client libraries for .NET Core
+PI Web API Client libraries for .NET Core (2017 R2)
 ===
 
 
@@ -11,11 +11,13 @@ Nevertheless, PI AF SDK is not compatible with .NET Core yet. Therefore, this li
 
 We have tested it on Windows, but it should work on Linux and OS X as well.
 
+This version was developed on top of the PI Web API 2017 R2 swagger specification. 
+
 
 ## Requirements
 
- - PI Web API 2017 installed within your domain using Kerberos or Basic Authentication.
- - .NET Core 1.1
+ - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
+ - .NET Core 2.0
 
  
 ## Installation
@@ -33,6 +35,11 @@ Create a new .NET Core project (Console Application for instance). Open the Pack
 ## Documentation
 
 All classes and methods are described on the [DOCUMENTATION](DOCUMENTATION.md).
+
+## Notes
+
+ - Is is highly recommended to turn debug mode on in case you are using PI Web API 2017 R2+ in order to receive more detailed exception errors. This can be achieved by creating or editing the DebugMode attribute's value to TRUE from the System Configuration element.
+ - The X-Requested-With header is added to work with CSRF defences.
 
 ## Feedback 
 
@@ -156,7 +163,7 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 
 
 ## Licensing
-Copyright 2017 OSIsoft, LLC.
+Copyright 2018 OSIsoft, LLC.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

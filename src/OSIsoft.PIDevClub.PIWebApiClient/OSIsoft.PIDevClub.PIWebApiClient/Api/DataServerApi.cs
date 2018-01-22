@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -40,8 +40,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsDataServer</returns>
-		PIItemsDataServer List(string selectedFields = null);
+		PIItemsDataServer List(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of Data Servers known to this service.
@@ -51,8 +52,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsDataServer></returns>
-		ApiResponse<PIItemsDataServer> ListWithHttpInfo(string selectedFields = null);
+		ApiResponse<PIItemsDataServer> ListWithHttpInfo(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by name.
@@ -63,8 +65,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServer</returns>
-		PIDataServer GetByName(string name, string selectedFields = null);
+		PIDataServer GetByName(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by name.
@@ -75,8 +78,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServer></returns>
-		ApiResponse<PIDataServer> GetByNameWithHttpInfo(string name, string selectedFields = null);
+		ApiResponse<PIDataServer> GetByNameWithHttpInfo(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by path.
@@ -87,8 +91,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServer</returns>
-		PIDataServer GetByPath(string path, string selectedFields = null);
+		PIDataServer GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by path.
@@ -99,8 +104,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServer></returns>
-		ApiResponse<PIDataServer> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PIDataServer> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server.
@@ -111,8 +117,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServer</returns>
-		PIDataServer Get(string webId, string selectedFields = null);
+		PIDataServer Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server.
@@ -123,8 +130,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServer></returns>
-		ApiResponse<PIDataServer> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIDataServer> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve enumeration sets for given Data Server.
@@ -135,8 +143,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsEnumerationSet</returns>
-		PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null);
+		PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve enumeration sets for given Data Server.
@@ -147,8 +156,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsEnumerationSet></returns>
-		ApiResponse<PIItemsEnumerationSet> GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIItemsEnumerationSet> GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an enumeration set on the Data Server.
@@ -159,8 +169,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet);
+		Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet, string webIdType = null);
 
 		/// <summary>
 		/// Create an enumeration set on the Data Server.
@@ -171,8 +182,37 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet);
+		ApiResponse<Object> CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet, string webIdType = null);
+
+		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIDataServerLicense</returns>
+		PIDataServerLicense GetLicense(string webId, string module, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIDataServerLicense></returns>
+		ApiResponse<PIDataServerLicense> GetLicenseWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
@@ -186,8 +226,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsPoint</returns>
-		PIItemsPoint GetPoints(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null);
+		PIItemsPoint GetPoints(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
@@ -201,8 +242,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsPoint></returns>
-		ApiResponse<PIItemsPoint> GetPointsWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null);
+		ApiResponse<PIItemsPoint> GetPointsWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a point in the specified Data Server.
@@ -213,8 +255,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreatePoint(string webId, PIPoint pointDTO);
+		Object CreatePoint(string webId, PIPoint pointDTO, string webIdType = null);
 
 		/// <summary>
 		/// Create a point in the specified Data Server.
@@ -225,8 +268,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreatePointWithHttpInfo(string webId, PIPoint pointDTO);
+		ApiResponse<Object> CreatePointWithHttpInfo(string webId, PIPoint pointDTO, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -238,8 +282,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsDataServer></returns>
-		System.Threading.Tasks.Task<PIItemsDataServer> ListAsync(string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsDataServer> ListAsync(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of Data Servers known to this service.
@@ -249,8 +294,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsDataServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsDataServer>> ListAsyncWithHttpInfo(string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsDataServer>> ListAsyncWithHttpInfo(string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by name.
@@ -261,8 +307,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServer></returns>
-		System.Threading.Tasks.Task<PIDataServer> GetByNameAsync(string name, string selectedFields = null);
+		System.Threading.Tasks.Task<PIDataServer> GetByNameAsync(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by name.
@@ -273,8 +320,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by path.
@@ -285,8 +333,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServer></returns>
-		System.Threading.Tasks.Task<PIDataServer> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PIDataServer> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server by path.
@@ -297,8 +346,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server.
@@ -309,8 +359,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServer></returns>
-		System.Threading.Tasks.Task<PIDataServer> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIDataServer> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a Data Server.
@@ -321,8 +372,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServer>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve enumeration sets for given Data Server.
@@ -333,8 +385,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsEnumerationSet></returns>
-		System.Threading.Tasks.Task<PIItemsEnumerationSet> GetEnumerationSetsAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsEnumerationSet> GetEnumerationSetsAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve enumeration sets for given Data Server.
@@ -345,8 +398,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEnumerationSet>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsEnumerationSet>> GetEnumerationSetsAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsEnumerationSet>> GetEnumerationSetsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an enumeration set on the Data Server.
@@ -357,8 +411,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateEnumerationSetAsync(string webId, PIEnumerationSet enumerationSet);
+		System.Threading.Tasks.Task<Object> CreateEnumerationSetAsync(string webId, PIEnumerationSet enumerationSet, string webIdType = null);
 
 		/// <summary>
 		/// Create an enumeration set on the Data Server.
@@ -369,8 +424,37 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateEnumerationSetAsyncWithHttpInfo(string webId, PIEnumerationSet enumerationSet);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateEnumerationSetAsyncWithHttpInfo(string webId, PIEnumerationSet enumerationSet, string webIdType = null);
+
+		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIDataServerLicense></returns>
+		System.Threading.Tasks.Task<PIDataServerLicense> GetLicenseAsync(string webId, string module, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>> GetLicenseAsyncWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
@@ -384,8 +468,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsPoint></returns>
-		System.Threading.Tasks.Task<PIItemsPoint> GetPointsAsync(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null);
+		System.Threading.Tasks.Task<PIItemsPoint> GetPointsAsync(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
@@ -399,8 +484,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsPoint>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsPoint>> GetPointsAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsPoint>> GetPointsAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a point in the specified Data Server.
@@ -411,8 +497,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreatePointAsync(string webId, PIPoint pointDTO);
+		System.Threading.Tasks.Task<Object> CreatePointAsync(string webId, PIPoint pointDTO, string webIdType = null);
 
 		/// <summary>
 		/// Create a point in the specified Data Server.
@@ -423,8 +510,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreatePointAsyncWithHttpInfo(string webId, PIPoint pointDTO);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreatePointAsyncWithHttpInfo(string webId, PIPoint pointDTO, string webIdType = null);
 
 		#endregion
 	}
@@ -470,10 +558,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsDataServer</returns>
-		public PIItemsDataServer List(string selectedFields = null)
+		public PIItemsDataServer List(string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsDataServer> localVarResponse = ListWithHttpInfo(selectedFields);
+			ApiResponse<PIItemsDataServer> localVarResponse = ListWithHttpInfo(selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -485,8 +574,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsDataServer></returns>
-		public ApiResponse<PIItemsDataServer> ListWithHttpInfo(string selectedFields = null)
+		public ApiResponse<PIItemsDataServer> ListWithHttpInfo(string selectedFields = null, string webIdType = null)
 		{
 
 			var localVarPath = "/dataservers";
@@ -506,6 +596,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -532,10 +623,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServer</returns>
-		public PIDataServer GetByName(string name, string selectedFields = null)
+		public PIDataServer GetByName(string name, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIDataServer> localVarResponse = GetByNameWithHttpInfo(name, selectedFields);
+			ApiResponse<PIDataServer> localVarResponse = GetByNameWithHttpInfo(name, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -548,8 +640,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServer></returns>
-		public ApiResponse<PIDataServer> GetByNameWithHttpInfo(string name, string selectedFields = null)
+		public ApiResponse<PIDataServer> GetByNameWithHttpInfo(string name, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -573,6 +666,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -599,10 +693,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServer</returns>
-		public PIDataServer GetByPath(string path, string selectedFields = null)
+		public PIDataServer GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIDataServer> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PIDataServer> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -615,8 +710,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServer></returns>
-		public ApiResponse<PIDataServer> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PIDataServer> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -640,6 +736,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -666,10 +763,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServer</returns>
-		public PIDataServer Get(string webId, string selectedFields = null)
+		public PIDataServer Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIDataServer> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIDataServer> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -682,8 +780,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServer></returns>
-		public ApiResponse<PIDataServer> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIDataServer> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -707,6 +806,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -733,10 +833,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsEnumerationSet</returns>
-		public PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null)
+		public PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsEnumerationSet> localVarResponse = GetEnumerationSetsWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsEnumerationSet> localVarResponse = GetEnumerationSetsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -749,8 +850,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsEnumerationSet></returns>
-		public ApiResponse<PIItemsEnumerationSet> GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIItemsEnumerationSet> GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -774,6 +876,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -800,10 +903,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet)
+		public Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateEnumerationSetWithHttpInfo(webId, enumerationSet);
+			ApiResponse<Object> localVarResponse = CreateEnumerationSetWithHttpInfo(webId, enumerationSet, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -816,8 +920,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet)
+		public ApiResponse<Object> CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -851,6 +956,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = enumerationSet;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -869,6 +975,82 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIDataServerLicense</returns>
+		public PIDataServerLicense GetLicense(string webId, string module, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponse<PIDataServerLicense> localVarResponse = GetLicenseWithHttpInfo(webId, module, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIDataServerLicense></returns>
+		public ApiResponse<PIDataServerLicense> GetLicenseWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+			// verify the required parameter 'module' is set
+			if (module == null)
+				throw new ApiException(400, "Missing required parameter 'module'");
+
+			var localVarPath = "/dataservers/{webId}/license";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+			localVarPathParams.Add("format", "json");
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (module!= null) localVarQueryParams.Add("module", Configuration.ApiClient.ParameterToString(module));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetLicenseWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIDataServerLicense>(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIDataServerLicense)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIDataServerLicense)));
+		}
+
+		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
 		/// </summary>
 		/// <remarks>
@@ -880,10 +1062,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsPoint</returns>
-		public PIItemsPoint GetPoints(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null)
+		public PIItemsPoint GetPoints(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsPoint> localVarResponse = GetPointsWithHttpInfo(webId, maxCount, nameFilter, selectedFields, startIndex);
+			ApiResponse<PIItemsPoint> localVarResponse = GetPointsWithHttpInfo(webId, maxCount, nameFilter, selectedFields, startIndex, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -899,8 +1082,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsPoint></returns>
-		public ApiResponse<PIItemsPoint> GetPointsWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null)
+		public ApiResponse<PIItemsPoint> GetPointsWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -927,6 +1111,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -953,10 +1138,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreatePoint(string webId, PIPoint pointDTO)
+		public Object CreatePoint(string webId, PIPoint pointDTO, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreatePointWithHttpInfo(webId, pointDTO);
+			ApiResponse<Object> localVarResponse = CreatePointWithHttpInfo(webId, pointDTO, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -969,8 +1155,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreatePointWithHttpInfo(string webId, PIPoint pointDTO)
+		public ApiResponse<Object> CreatePointWithHttpInfo(string webId, PIPoint pointDTO, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1004,6 +1191,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = pointDTO;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1031,10 +1219,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsDataServer></returns>
-		public async System.Threading.Tasks.Task<PIItemsDataServer> ListAsync(string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsDataServer> ListAsync(string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsDataServer> localVarResponse = await ListAsyncWithHttpInfo(selectedFields);
+			ApiResponse<PIItemsDataServer> localVarResponse = await ListAsyncWithHttpInfo(selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1046,8 +1235,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsDataServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsDataServer>> ListAsyncWithHttpInfo(string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsDataServer>> ListAsyncWithHttpInfo(string selectedFields = null, string webIdType = null)
 		{
 
 			var localVarPath = "/dataservers";
@@ -1067,6 +1257,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1093,10 +1284,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServer></returns>
-		public async System.Threading.Tasks.Task<PIDataServer> GetByNameAsync(string name, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIDataServer> GetByNameAsync(string name, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIDataServer> localVarResponse = await GetByNameAsyncWithHttpInfo(name, selectedFields);
+			ApiResponse<PIDataServer> localVarResponse = await GetByNameAsyncWithHttpInfo(name, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1109,8 +1301,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="name">The name of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByNameAsyncWithHttpInfo(string name, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -1134,6 +1327,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1160,10 +1354,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServer></returns>
-		public async System.Threading.Tasks.Task<PIDataServer> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIDataServer> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIDataServer> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PIDataServer> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1176,8 +1371,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the server. Note that the path supplied to this method must be of the form '\\servername'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -1201,6 +1397,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1227,10 +1424,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServer></returns>
-		public async System.Threading.Tasks.Task<PIDataServer> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIDataServer> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIDataServer> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIDataServer> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1243,8 +1441,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServer>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIDataServer>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1268,6 +1467,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1294,10 +1494,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsEnumerationSet></returns>
-		public async System.Threading.Tasks.Task<PIItemsEnumerationSet> GetEnumerationSetsAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsEnumerationSet> GetEnumerationSetsAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsEnumerationSet> localVarResponse = await GetEnumerationSetsAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsEnumerationSet> localVarResponse = await GetEnumerationSetsAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1310,8 +1511,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEnumerationSet>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEnumerationSet>> GetEnumerationSetsAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEnumerationSet>> GetEnumerationSetsAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1335,6 +1537,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1361,10 +1564,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateEnumerationSetAsync(string webId, PIEnumerationSet enumerationSet)
+		public async System.Threading.Tasks.Task<Object> CreateEnumerationSetAsync(string webId, PIEnumerationSet enumerationSet, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateEnumerationSetAsyncWithHttpInfo(webId, enumerationSet);
+			ApiResponse<Object> localVarResponse = await CreateEnumerationSetAsyncWithHttpInfo(webId, enumerationSet, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1377,8 +1581,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server on which to create the enumeration set.</param>
 		/// <param name="enumerationSet">The new enumeration set definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateEnumerationSetAsyncWithHttpInfo(string webId, PIEnumerationSet enumerationSet)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateEnumerationSetAsyncWithHttpInfo(string webId, PIEnumerationSet enumerationSet, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1412,6 +1617,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = enumerationSet;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1430,6 +1636,82 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<PIDataServerLicense></returns>
+		public async System.Threading.Tasks.Task<PIDataServerLicense> GetLicenseAsync(string webId, string module, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponse<PIDataServerLicense> localVarResponse = await GetLicenseAsyncWithHttpInfo(webId, module, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="module">The case-sensitive name of the module.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>> GetLicenseAsyncWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+			// verify the required parameter 'module' is set
+			if (module == null)
+				throw new ApiException(400, "Missing required parameter 'module'");
+
+			var localVarPath = "/dataservers/{webId}/license";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+			localVarPathParams.Add("format", "json");
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (module!= null) localVarQueryParams.Add("module", Configuration.ApiClient.ParameterToString(module));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetLicenseAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIDataServerLicense>(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIDataServerLicense)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIDataServerLicense)));
+		}
+
+		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
 		/// </summary>
 		/// <remarks>
@@ -1441,10 +1723,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsPoint></returns>
-		public async System.Threading.Tasks.Task<PIItemsPoint> GetPointsAsync(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null)
+		public async System.Threading.Tasks.Task<PIItemsPoint> GetPointsAsync(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsPoint> localVarResponse = await GetPointsAsyncWithHttpInfo(webId, maxCount, nameFilter, selectedFields, startIndex);
+			ApiResponse<PIItemsPoint> localVarResponse = await GetPointsAsyncWithHttpInfo(webId, maxCount, nameFilter, selectedFields, startIndex, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1460,8 +1743,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="nameFilter">A query string for filtering by point name. The default is no filter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is '0'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsPoint>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsPoint>> GetPointsAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsPoint>> GetPointsAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, string selectedFields = null, int? startIndex = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1488,6 +1772,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1514,10 +1799,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreatePointAsync(string webId, PIPoint pointDTO)
+		public async System.Threading.Tasks.Task<Object> CreatePointAsync(string webId, PIPoint pointDTO, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreatePointAsyncWithHttpInfo(webId, pointDTO);
+			ApiResponse<Object> localVarResponse = await CreatePointAsyncWithHttpInfo(webId, pointDTO, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1530,8 +1816,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the server.</param>
 		/// <param name="pointDTO">The new point definition.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreatePointAsyncWithHttpInfo(string webId, PIPoint pointDTO)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreatePointAsyncWithHttpInfo(string webId, PIPoint pointDTO, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1565,6 +1852,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = pointDTO;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

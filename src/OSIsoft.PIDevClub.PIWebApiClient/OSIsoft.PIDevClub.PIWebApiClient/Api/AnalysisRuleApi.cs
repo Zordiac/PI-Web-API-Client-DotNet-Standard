@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -41,8 +41,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAnalysisRule</returns>
-		PIAnalysisRule GetByPath(string path, string selectedFields = null);
+		PIAnalysisRule GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Analysis Rule by path.
@@ -53,8 +54,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAnalysisRule></returns>
-		ApiResponse<PIAnalysisRule> GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponse<PIAnalysisRule> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Analysis Rule.
@@ -65,8 +67,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAnalysisRule</returns>
-		PIAnalysisRule Get(string webId, string selectedFields = null);
+		PIAnalysisRule Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Analysis Rule.
@@ -77,8 +80,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAnalysisRule></returns>
-		ApiResponse<PIAnalysisRule> GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponse<PIAnalysisRule> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update an Analysis Rule by replacing items in its definition.
@@ -141,8 +145,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAnalysisRule</returns>
-		PIItemsAnalysisRule GetAnalysisRules(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null);
+		PIItemsAnalysisRule GetAnalysisRules(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the child Analysis Rules of the Analysis Rule.
@@ -159,8 +164,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAnalysisRule></returns>
-		ApiResponse<PIItemsAnalysisRule> GetAnalysisRulesWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null);
+		ApiResponse<PIItemsAnalysisRule> GetAnalysisRulesWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -171,8 +177,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule);
+		Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule, string webIdType = null);
 
 		/// <summary>
 		/// Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -183,8 +190,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		ApiResponse<Object> CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule);
+		ApiResponse<Object> CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null);
 
 		#endregion
 		#region Asynchronous Operations
@@ -197,8 +205,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Analysis Rule by path.
@@ -209,8 +218,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Analysis Rule.
@@ -221,8 +231,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve an Analysis Rule.
@@ -233,8 +244,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Update an Analysis Rule by replacing items in its definition.
@@ -297,8 +309,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysisRule></returns>
-		System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null);
+		System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the child Analysis Rules of the Analysis Rule.
@@ -315,8 +328,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -327,8 +341,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule);
+		System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule, string webIdType = null);
 
 		/// <summary>
 		/// Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -339,8 +354,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null);
 
 		#endregion
 	}
@@ -387,10 +403,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAnalysisRule</returns>
-		public PIAnalysisRule GetByPath(string path, string selectedFields = null)
+		public PIAnalysisRule GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAnalysisRule> localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponse<PIAnalysisRule> localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -403,8 +420,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAnalysisRule></returns>
-		public ApiResponse<PIAnalysisRule> GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponse<PIAnalysisRule> GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -428,6 +446,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -454,10 +473,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIAnalysisRule</returns>
-		public PIAnalysisRule Get(string webId, string selectedFields = null)
+		public PIAnalysisRule Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAnalysisRule> localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIAnalysisRule> localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -470,8 +490,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIAnalysisRule></returns>
-		public ApiResponse<PIAnalysisRule> GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponse<PIAnalysisRule> GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -495,6 +516,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -668,10 +690,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAnalysisRule</returns>
-		public PIItemsAnalysisRule GetAnalysisRules(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null)
+		public PIItemsAnalysisRule GetAnalysisRules(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAnalysisRule> localVarResponse = GetAnalysisRulesWithHttpInfo(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex);
+			ApiResponse<PIItemsAnalysisRule> localVarResponse = GetAnalysisRulesWithHttpInfo(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -690,8 +713,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAnalysisRule></returns>
-		public ApiResponse<PIItemsAnalysisRule> GetAnalysisRulesWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null)
+		public ApiResponse<PIItemsAnalysisRule> GetAnalysisRulesWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -721,6 +745,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -747,10 +772,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>Object</returns>
-		public Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule)
+		public Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = CreateAnalysisRuleWithHttpInfo(webId, analysisRule);
+			ApiResponse<Object> localVarResponse = CreateAnalysisRuleWithHttpInfo(webId, analysisRule, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -763,8 +789,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<Object></returns>
-		public ApiResponse<Object> CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule)
+		public ApiResponse<Object> CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -798,6 +825,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = analysisRule;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -826,10 +854,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		public async System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAnalysisRule> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields);
+			ApiResponse<PIAnalysisRule> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -842,8 +871,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="path">The path to the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -867,6 +897,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -893,10 +924,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		public async System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponse<PIAnalysisRule> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIAnalysisRule> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -909,8 +941,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -934,6 +967,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1107,10 +1141,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysisRule></returns>
-		public async System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null)
+		public async System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAnalysisRule> localVarResponse = await GetAnalysisRulesAsyncWithHttpInfo(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex);
+			ApiResponse<PIItemsAnalysisRule> localVarResponse = await GetAnalysisRulesAsyncWithHttpInfo(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1129,8 +1164,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1160,6 +1196,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1186,10 +1223,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule)
+		public async System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule, string webIdType = null)
 		{
-			ApiResponse<Object> localVarResponse = await CreateAnalysisRuleAsyncWithHttpInfo(webId, analysisRule);
+			ApiResponse<Object> localVarResponse = await CreateAnalysisRuleAsyncWithHttpInfo(webId, analysisRule, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1202,8 +1240,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the parent Analysis Rule, on which to create the child Analysis Rule.</param>
 		/// <param name="analysisRule">The definition of the new Analysis Rule.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1237,6 +1276,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			{
 				localVarPostBody = analysisRule;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

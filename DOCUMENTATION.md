@@ -18,6 +18,7 @@ Class | Method | HTTP request | Description
 *AnalysisApi* | [**GetSecurityEntryByName**](docs/Api/AnalysisApi.md#getsecurityentrybyname) | **GET** /analyses/{webId}/securityentries/{name} | Retrieve the security entry associated with the analysis with the specified name.
 *AnalysisApi* | [**UpdateSecurityEntry**](docs/Api/AnalysisApi.md#updatesecurityentry) | **PUT** /analyses/{webId}/securityentries/{name} | Update a security entry owned by the analysis.
 *AnalysisApi* | [**DeleteSecurityEntry**](docs/Api/AnalysisApi.md#deletesecurityentry) | **DELETE** /analyses/{webId}/securityentries/{name} | Delete a security entry owned by the analysis.
+*AnalysisApi* | [**GetAnalysesQuery**](docs/Api/AnalysisApi.md#getanalysesquery) | **GET** /analyses/search | Retrieve analyses based on the specified conditions. By default, returns all analyses.
 *AnalysisCategoryApi* | [**GetByPath**](docs/Api/AnalysisCategoryApi.md#getbypath) | **GET** /analysiscategories | Retrieve an analysis category by path.
 *AnalysisCategoryApi* | [**Get**](docs/Api/AnalysisCategoryApi.md#get) | **GET** /analysiscategories/{webId} | Retrieve an analysis category.
 *AnalysisCategoryApi* | [**Update**](docs/Api/AnalysisCategoryApi.md#update) | **PATCH** /analysiscategories/{webId} | Update an analysis category by replacing items in its definition.
@@ -48,6 +49,7 @@ Class | Method | HTTP request | Description
 *AnalysisTemplateApi* | [**GetSecurityEntryByName**](docs/Api/AnalysisTemplateApi.md#getsecurityentrybyname) | **GET** /analysistemplates/{webId}/securityentries/{name} | Retrieve the security entry associated with the analysis template with the specified name.
 *AnalysisTemplateApi* | [**UpdateSecurityEntry**](docs/Api/AnalysisTemplateApi.md#updatesecurityentry) | **PUT** /analysistemplates/{webId}/securityentries/{name} | Update a security entry owned by the analysis template.
 *AnalysisTemplateApi* | [**DeleteSecurityEntry**](docs/Api/AnalysisTemplateApi.md#deletesecurityentry) | **DELETE** /analysistemplates/{webId}/securityentries/{name} | Delete a security entry owned by the analysis template.
+*AnalysisTemplateApi* | [**GetAnalysisTemplatesQuery**](docs/Api/AnalysisTemplateApi.md#getanalysistemplatesquery) | **GET** /analysistemplates/search | Retrieve analysis templates based on the specified conditions. By default, returns all analysis templates.
 *AssetDatabaseApi* | [**GetByPath**](docs/Api/AssetDatabaseApi.md#getbypath) | **GET** /assetdatabases | Retrieve an Asset Database by path.
 *AssetDatabaseApi* | [**Get**](docs/Api/AssetDatabaseApi.md#get) | **GET** /assetdatabases/{webId} | Retrieve an Asset Database.
 *AssetDatabaseApi* | [**Update**](docs/Api/AssetDatabaseApi.md#update) | **PATCH** /assetdatabases/{webId} | Update an asset database by replacing items in its definition.
@@ -69,7 +71,7 @@ Class | Method | HTTP request | Description
 *AssetDatabaseApi* | [**GetEnumerationSets**](docs/Api/AssetDatabaseApi.md#getenumerationsets) | **GET** /assetdatabases/{webId}/enumerationsets | Retrieve enumeration sets for given asset database.
 *AssetDatabaseApi* | [**CreateEnumerationSet**](docs/Api/AssetDatabaseApi.md#createenumerationset) | **POST** /assetdatabases/{webId}/enumerationsets | Create an enumeration set at the Asset Database.
 *AssetDatabaseApi* | [**FindEventFrameAttributes**](docs/Api/AssetDatabaseApi.md#findeventframeattributes) | **GET** /assetdatabases/{webId}/eventframeattributes | Retrieves a list of event frame attributes matching the specified filters from the specified asset database.
-*AssetDatabaseApi* | [**GetEventFrames**](docs/Api/AssetDatabaseApi.md#geteventframes) | **GET** /assetdatabases/{webId}/eventframes | Retrieve event frames based on the specified conditions. By default, returns all children of the specified root resource with a start time in the past 8 hours.
+*AssetDatabaseApi* | [**GetEventFrames**](docs/Api/AssetDatabaseApi.md#geteventframes) | **GET** /assetdatabases/{webId}/eventframes | Retrieve event frames based on the specified conditions. By default, returns all children of the specified root resource that have been active in the past 8 hours.
 *AssetDatabaseApi* | [**CreateEventFrame**](docs/Api/AssetDatabaseApi.md#createeventframe) | **POST** /assetdatabases/{webId}/eventframes | Create an event frame.
 *AssetDatabaseApi* | [**Export**](docs/Api/AssetDatabaseApi.md#export) | **GET** /assetdatabases/{webId}/export | Export the asset database.
 *AssetDatabaseApi* | [**Import**](docs/Api/AssetDatabaseApi.md#import) | **POST** /assetdatabases/{webId}/import | Import an asset database.
@@ -128,6 +130,7 @@ Class | Method | HTTP request | Description
 *AttributeApi* | [**GetValue**](docs/Api/AttributeApi.md#getvalue) | **GET** /attributes/{webId}/value | Get the attribute's value. This call is intended for use with attributes that have no data reference only. For attributes with a data reference, consult the documentation for Streams.
 *AttributeApi* | [**SetValue**](docs/Api/AttributeApi.md#setvalue) | **PUT** /attributes/{webId}/value | Set the value of a configuration item attribute. For attributes with a data reference or non-configuration item attributes, consult the documentation for streams.
 *AttributeApi* | [**GetMultiple**](docs/Api/AttributeApi.md#getmultiple) | **GET** /attributes/multiple | Retrieve multiple attributes by web id or path.
+*AttributeApi* | [**GetAttributesQuery**](docs/Api/AttributeApi.md#getattributesquery) | **GET** /attributes/search | Retrieve attributes based on the specified conditions. Returns attributes using the specified search query string.
 *AttributeTemplateApi* | [**GetByPath**](docs/Api/AttributeTemplateApi.md#getbypath) | **GET** /attributetemplates | Retrieve an attribute template by path.
 *AttributeTemplateApi* | [**Get**](docs/Api/AttributeTemplateApi.md#get) | **GET** /attributetemplates/{webId} | Retrieve an attribute template.
 *AttributeTemplateApi* | [**Update**](docs/Api/AttributeTemplateApi.md#update) | **PATCH** /attributetemplates/{webId} | Update an existing attribute template by replacing items in its definition.
@@ -149,6 +152,7 @@ Class | Method | HTTP request | Description
 *DataServerApi* | [**Get**](docs/Api/DataServerApi.md#get) | **GET** /dataservers/{webId} | Retrieve a Data Server.
 *DataServerApi* | [**GetEnumerationSets**](docs/Api/DataServerApi.md#getenumerationsets) | **GET** /dataservers/{webId}/enumerationsets | Retrieve enumeration sets for given Data Server.
 *DataServerApi* | [**CreateEnumerationSet**](docs/Api/DataServerApi.md#createenumerationset) | **POST** /dataservers/{webId}/enumerationsets | Create an enumeration set on the Data Server.
+*DataServerApi* | [**GetLicense**](docs/Api/DataServerApi.md#getlicense) | **GET** /dataservers/{webId}/license | Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
 *DataServerApi* | [**GetPoints**](docs/Api/DataServerApi.md#getpoints) | **GET** /dataservers/{webId}/points | Retrieve a list of points on a specified Data Server.
 *DataServerApi* | [**CreatePoint**](docs/Api/DataServerApi.md#createpoint) | **POST** /dataservers/{webId}/points | Create a point in the specified Data Server.
 *ElementCategoryApi* | [**GetByPath**](docs/Api/ElementCategoryApi.md#getbypath) | **GET** /elementcategories | Retrieve an element category by path.
@@ -174,7 +178,7 @@ Class | Method | HTTP request | Description
 *ElementApi* | [**FindElementAttributes**](docs/Api/ElementApi.md#findelementattributes) | **GET** /elements/{webId}/elementattributes | Retrieves a list of element attributes matching the specified filters from the specified element.
 *ElementApi* | [**GetElements**](docs/Api/ElementApi.md#getelements) | **GET** /elements/{webId}/elements | Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.
 *ElementApi* | [**CreateElement**](docs/Api/ElementApi.md#createelement) | **POST** /elements/{webId}/elements | Create a child element.
-*ElementApi* | [**GetEventFrames**](docs/Api/ElementApi.md#geteventframes) | **GET** /elements/{webId}/eventframes | Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.
+*ElementApi* | [**GetEventFrames**](docs/Api/ElementApi.md#geteventframes) | **GET** /elements/{webId}/eventframes | Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.
 *ElementApi* | [**GetReferencedElements**](docs/Api/ElementApi.md#getreferencedelements) | **GET** /elements/{webId}/referencedelements | Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.
 *ElementApi* | [**AddReferencedElement**](docs/Api/ElementApi.md#addreferencedelement) | **POST** /elements/{webId}/referencedelements | Add a reference to an existing element to the child elements collection.
 *ElementApi* | [**RemoveReferencedElement**](docs/Api/ElementApi.md#removereferencedelement) | **DELETE** /elements/{webId}/referencedelements | Remove a reference to an existing element from the child elements collection.
@@ -185,6 +189,7 @@ Class | Method | HTTP request | Description
 *ElementApi* | [**UpdateSecurityEntry**](docs/Api/ElementApi.md#updatesecurityentry) | **PUT** /elements/{webId}/securityentries/{name} | Update a security entry owned by the element.
 *ElementApi* | [**DeleteSecurityEntry**](docs/Api/ElementApi.md#deletesecurityentry) | **DELETE** /elements/{webId}/securityentries/{name} | Delete a security entry owned by the element.
 *ElementApi* | [**GetMultiple**](docs/Api/ElementApi.md#getmultiple) | **GET** /elements/multiple | Retrieve multiple elements by web id or path.
+*ElementApi* | [**GetElementsQuery**](docs/Api/ElementApi.md#getelementsquery) | **GET** /elements/search | Retrieve elements based on the specified conditions. By default, returns all the elements.
 *ElementApi* | [**CreateSearchByAttribute**](docs/Api/ElementApi.md#createsearchbyattribute) | **POST** /elements/searchbyattribute | Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
 *ElementApi* | [**ExecuteSearchByAttribute**](docs/Api/ElementApi.md#executesearchbyattribute) | **GET** /elements/searchbyattribute/{searchId} | Execute a "Search Elements By Attribute Value" operation.
 *ElementTemplateApi* | [**GetByPath**](docs/Api/ElementTemplateApi.md#getbypath) | **GET** /elementtemplates | Retrieve an element template by path.
@@ -233,7 +238,7 @@ Class | Method | HTTP request | Description
 *EventFrameApi* | [**GetCategories**](docs/Api/EventFrameApi.md#getcategories) | **GET** /eventframes/{webId}/categories | Get an event frame's categories.
 *EventFrameApi* | [**CreateConfig**](docs/Api/EventFrameApi.md#createconfig) | **POST** /eventframes/{webId}/config | Executes the create configuration function of the data references found within the attributes of the event frame, and optionally, its children.
 *EventFrameApi* | [**FindEventFrameAttributes**](docs/Api/EventFrameApi.md#findeventframeattributes) | **GET** /eventframes/{webId}/eventframeattributes | Retrieves a list of event frame attributes matching the specified filters from the specified event frame.
-*EventFrameApi* | [**GetEventFrames**](docs/Api/EventFrameApi.md#geteventframes) | **GET** /eventframes/{webId}/eventframes | Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+*EventFrameApi* | [**GetEventFrames**](docs/Api/EventFrameApi.md#geteventframes) | **GET** /eventframes/{webId}/eventframes | Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 *EventFrameApi* | [**CreateEventFrame**](docs/Api/EventFrameApi.md#createeventframe) | **POST** /eventframes/{webId}/eventframes | Create an event frame as a child of the specified event frame.
 *EventFrameApi* | [**GetReferencedElements**](docs/Api/EventFrameApi.md#getreferencedelements) | **GET** /eventframes/{webId}/referencedelements | Retrieve the event frame's referenced elements.
 *EventFrameApi* | [**GetSecurity**](docs/Api/EventFrameApi.md#getsecurity) | **GET** /eventframes/{webId}/security | Get the security information of the specified security item associated with the event frame for a specified user.
@@ -243,6 +248,7 @@ Class | Method | HTTP request | Description
 *EventFrameApi* | [**UpdateSecurityEntry**](docs/Api/EventFrameApi.md#updatesecurityentry) | **PUT** /eventframes/{webId}/securityentries/{name} | Update a security entry owned by the event frame.
 *EventFrameApi* | [**DeleteSecurityEntry**](docs/Api/EventFrameApi.md#deletesecurityentry) | **DELETE** /eventframes/{webId}/securityentries/{name} | Delete a security entry owned by the event frame.
 *EventFrameApi* | [**GetMultiple**](docs/Api/EventFrameApi.md#getmultiple) | **GET** /eventframes/multiple | Retrieve multiple event frames by web ids or paths.
+*EventFrameApi* | [**GetEventFramesQuery**](docs/Api/EventFrameApi.md#geteventframesquery) | **GET** /eventframes/search | Retrieve event frames based on the specified conditions. Returns event frames using the specified search query string.
 *EventFrameApi* | [**CreateSearchByAttribute**](docs/Api/EventFrameApi.md#createsearchbyattribute) | **POST** /eventframes/searchbyattribute | Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
 *EventFrameApi* | [**ExecuteSearchByAttribute**](docs/Api/EventFrameApi.md#executesearchbyattribute) | **GET** /eventframes/searchbyattribute/{searchId} | Execute a "Search EventFrames By Attribute Value" operation.
 *PointApi* | [**GetByPath**](docs/Api/PointApi.md#getbypath) | **GET** /points | Get a point by path.
@@ -251,7 +257,6 @@ Class | Method | HTTP request | Description
 *PointApi* | [**Delete**](docs/Api/PointApi.md#delete) | **DELETE** /points/{webId} | Delete a point.
 *PointApi* | [**GetAttributes**](docs/Api/PointApi.md#getattributes) | **GET** /points/{webId}/attributes | Get point attributes.
 *PointApi* | [**GetAttributeByName**](docs/Api/PointApi.md#getattributebyname) | **GET** /points/{webId}/attributes/{name} | Get a point attribute by name.
-*PointApi* | [**UpdateAttributeValue**](docs/Api/PointApi.md#updateattributevalue) | **PUT** /points/{webId}/attributes/{name} | Update a point attribute value.
 *PointApi* | [**GetMultiple**](docs/Api/PointApi.md#getmultiple) | **GET** /points/multiple | Retrieve multiple points by web id or path.
 *SecurityIdentityApi* | [**GetByPath**](docs/Api/SecurityIdentityApi.md#getbypath) | **GET** /securityidentities | Retrieve a security identity by path.
 *SecurityIdentityApi* | [**Get**](docs/Api/SecurityIdentityApi.md#get) | **GET** /securityidentities/{webId} | Retrieve a security identity.
@@ -312,7 +317,6 @@ Class | Method | HTTP request | Description
 *ConfigurationApi* | [**List**](docs/Api/ConfigurationApi.md#list) | **GET** /system/configuration | Get the current system configuration.
 *ConfigurationApi* | [**Get**](docs/Api/ConfigurationApi.md#get) | **GET** /system/configuration/{key} | Get the value of a configuration item.
 *ConfigurationApi* | [**Delete**](docs/Api/ConfigurationApi.md#delete) | **DELETE** /system/configuration/{key} | Delete a configuration item.
-*ConfigurationApi* | [**Put**](docs/Api/ConfigurationApi.md#put) | **PUT** /system/configuration/{key} | Create or update a configuration item.
 *TableCategoryApi* | [**GetByPath**](docs/Api/TableCategoryApi.md#getbypath) | **GET** /tablecategories | Retrieve a table category by path.
 *TableCategoryApi* | [**Get**](docs/Api/TableCategoryApi.md#get) | **GET** /tablecategories/{webId} | Retrieve a table category.
 *TableCategoryApi* | [**Update**](docs/Api/TableCategoryApi.md#update) | **PATCH** /tablecategories/{webId} | Update a table category by replacing items in its definition.
@@ -358,25 +362,47 @@ Class | Method | HTTP request | Description
 
 - [PIAnalysis](docs/Model/PIAnalysis.md)
 - [PIAnalysisCategory](docs/Model/PIAnalysisCategory.md)
+- [PIAnalysisCategoryLinks](docs/Model/PIAnalysisCategoryLinks.md)
+- [PIAnalysisLinks](docs/Model/PIAnalysisLinks.md)
 - [PIAnalysisRule](docs/Model/PIAnalysisRule.md)
+- [PIAnalysisRuleLinks](docs/Model/PIAnalysisRuleLinks.md)
 - [PIAnalysisRulePlugIn](docs/Model/PIAnalysisRulePlugIn.md)
+- [PIAnalysisRulePlugInLinks](docs/Model/PIAnalysisRulePlugInLinks.md)
 - [PIAnalysisTemplate](docs/Model/PIAnalysisTemplate.md)
+- [PIAnalysisTemplateLinks](docs/Model/PIAnalysisTemplateLinks.md)
 - [PIAnnotation](docs/Model/PIAnnotation.md)
+- [PIAnnotationLinks](docs/Model/PIAnnotationLinks.md)
 - [PIAssetDatabase](docs/Model/PIAssetDatabase.md)
+- [PIAssetDatabaseLinks](docs/Model/PIAssetDatabaseLinks.md)
 - [PIAssetServer](docs/Model/PIAssetServer.md)
+- [PIAssetServerLinks](docs/Model/PIAssetServerLinks.md)
 - [PIAttribute](docs/Model/PIAttribute.md)
 - [PIAttributeCategory](docs/Model/PIAttributeCategory.md)
+- [PIAttributeCategoryLinks](docs/Model/PIAttributeCategoryLinks.md)
+- [PIAttributeLinks](docs/Model/PIAttributeLinks.md)
 - [PIAttributeTemplate](docs/Model/PIAttributeTemplate.md)
+- [PIAttributeTemplateLinks](docs/Model/PIAttributeTemplateLinks.md)
 - [PIAttributeTrait](docs/Model/PIAttributeTrait.md)
+- [PIAttributeTraitLinks](docs/Model/PIAttributeTraitLinks.md)
 - [PICacheInstance](docs/Model/PICacheInstance.md)
+- [PIChannelInstance](docs/Model/PIChannelInstance.md)
 - [PIDataServer](docs/Model/PIDataServer.md)
+- [PIDataServerLicense](docs/Model/PIDataServerLicense.md)
+- [PIDataServerLicenseLinks](docs/Model/PIDataServerLicenseLinks.md)
+- [PIDataServerLinks](docs/Model/PIDataServerLinks.md)
 - [PIElement](docs/Model/PIElement.md)
 - [PIElementCategory](docs/Model/PIElementCategory.md)
+- [PIElementCategoryLinks](docs/Model/PIElementCategoryLinks.md)
+- [PIElementLinks](docs/Model/PIElementLinks.md)
 - [PIElementTemplate](docs/Model/PIElementTemplate.md)
+- [PIElementTemplateLinks](docs/Model/PIElementTemplateLinks.md)
 - [PIEnumerationSet](docs/Model/PIEnumerationSet.md)
+- [PIEnumerationSetLinks](docs/Model/PIEnumerationSetLinks.md)
 - [PIEnumerationValue](docs/Model/PIEnumerationValue.md)
+- [PIEnumerationValueLinks](docs/Model/PIEnumerationValueLinks.md)
 - [PIErrors](docs/Model/PIErrors.md)
 - [PIEventFrame](docs/Model/PIEventFrame.md)
+- [PIEventFrameLinks](docs/Model/PIEventFrameLinks.md)
 - [PIItemAttribute](docs/Model/PIItemAttribute.md)
 - [PIItemElement](docs/Model/PIItemElement.md)
 - [PIItemEventFrame](docs/Model/PIItemEventFrame.md)
@@ -394,6 +420,7 @@ Class | Method | HTTP request | Description
 - [PIItemsAttributeTemplate](docs/Model/PIItemsAttributeTemplate.md)
 - [PIItemsAttributeTrait](docs/Model/PIItemsAttributeTrait.md)
 - [PIItemsCacheInstance](docs/Model/PIItemsCacheInstance.md)
+- [PIItemsChannelInstance](docs/Model/PIItemsChannelInstance.md)
 - [PIItemsDataServer](docs/Model/PIItemsDataServer.md)
 - [PIItemsElement](docs/Model/PIItemsElement.md)
 - [PIItemsElementCategory](docs/Model/PIItemsElementCategory.md)
@@ -422,35 +449,54 @@ Class | Method | HTTP request | Description
 - [PIItemsTimeRulePlugIn](docs/Model/PIItemsTimeRulePlugIn.md)
 - [PIItemsUnitClass](docs/Model/PIItemsUnitClass.md)
 - [PILanding](docs/Model/PILanding.md)
+- [PILandingLinks](docs/Model/PILandingLinks.md)
+- [PIPaginationLinks](docs/Model/PIPaginationLinks.md)
 - [PIPoint](docs/Model/PIPoint.md)
 - [PIPointAttribute](docs/Model/PIPointAttribute.md)
+- [PIPointAttributeLinks](docs/Model/PIPointAttributeLinks.md)
+- [PIPointLinks](docs/Model/PIPointLinks.md)
+- [PIPropertyError](docs/Model/PIPropertyError.md)
 - [PIRequest](docs/Model/PIRequest.md)
 - [PIRequestTemplate](docs/Model/PIRequestTemplate.md)
 - [PIResponse](docs/Model/PIResponse.md)
+- [PISearchByAttribute](docs/Model/PISearchByAttribute.md)
 - [PISecurity](docs/Model/PISecurity.md)
 - [PISecurityEntry](docs/Model/PISecurityEntry.md)
+- [PISecurityEntryLinks](docs/Model/PISecurityEntryLinks.md)
 - [PISecurityIdentity](docs/Model/PISecurityIdentity.md)
+- [PISecurityIdentityLinks](docs/Model/PISecurityIdentityLinks.md)
 - [PISecurityMapping](docs/Model/PISecurityMapping.md)
+- [PISecurityMappingLinks](docs/Model/PISecurityMappingLinks.md)
 - [PISecurityRights](docs/Model/PISecurityRights.md)
+- [PISecurityRightsLinks](docs/Model/PISecurityRightsLinks.md)
 - [PIStreamSummaries](docs/Model/PIStreamSummaries.md)
+- [PIStreamSummariesLinks](docs/Model/PIStreamSummariesLinks.md)
 - [PIStreamValue](docs/Model/PIStreamValue.md)
+- [PIStreamValueLinks](docs/Model/PIStreamValueLinks.md)
 - [PIStreamValues](docs/Model/PIStreamValues.md)
+- [PIStreamValuesLinks](docs/Model/PIStreamValuesLinks.md)
 - [PISubstatus](docs/Model/PISubstatus.md)
 - [PISummaryValue](docs/Model/PISummaryValue.md)
 - [PISystemLanding](docs/Model/PISystemLanding.md)
+- [PISystemLandingLinks](docs/Model/PISystemLandingLinks.md)
 - [PISystemStatus](docs/Model/PISystemStatus.md)
 - [PITable](docs/Model/PITable.md)
 - [PITableCategory](docs/Model/PITableCategory.md)
+- [PITableCategoryLinks](docs/Model/PITableCategoryLinks.md)
 - [PITableData](docs/Model/PITableData.md)
+- [PITableLinks](docs/Model/PITableLinks.md)
 - [PITimedValue](docs/Model/PITimedValue.md)
 - [PITimedValues](docs/Model/PITimedValues.md)
 - [PITimeRule](docs/Model/PITimeRule.md)
+- [PITimeRuleLinks](docs/Model/PITimeRuleLinks.md)
 - [PITimeRulePlugIn](docs/Model/PITimeRulePlugIn.md)
+- [PITimeRulePlugInLinks](docs/Model/PITimeRulePlugInLinks.md)
 - [PIUnit](docs/Model/PIUnit.md)
 - [PIUnitClass](docs/Model/PIUnitClass.md)
+- [PIUnitClassLinks](docs/Model/PIUnitClassLinks.md)
+- [PIUnitLinks](docs/Model/PIUnitLinks.md)
 - [PIUserInfo](docs/Model/PIUserInfo.md)
 - [PIValue](docs/Model/PIValue.md)
+- [PIValueQuery](docs/Model/PIValueQuery.md)
 - [PIVersion](docs/Model/PIVersion.md)
-- [PISearchByAttributeEventFrame](docs/Model/PISearchByAttributeEventFrame.md)
-- [PISearchByAttributeElement](docs/Model/PISearchByAttributeElement.md)
-- [PIAttributeValueQuery](docs/Model/PIAttributeValueQuery.md)
+- [PIWebException](docs/Model/PIWebException.md)

@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAnalysis
 	{
-		public PIAnalysis(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string AnalysisRulePlugInName = null, bool? AutoCreated = null, List<string> CategoryNames = null, int? GroupId = null, bool? HasNotification = null, bool? HasTarget = null, bool? HasTemplate = null, bool? IsConfigured = null, bool? IsTimeRuleDefinedByTemplate = null, int? MaximumQueueSize = null, string OutputTime = null, string Priority = null, bool? PublishResults = null, string Status = null, string TargetWebId = null, string TemplateName = null, string TimeRulePlugInName = null, Dictionary<string, string> Links = null)
+		public PIAnalysis(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string AnalysisRulePlugInName = null, bool? AutoCreated = null, List<string> CategoryNames = null, int? GroupId = null, bool? HasNotification = null, bool? HasTarget = null, bool? HasTemplate = null, bool? IsConfigured = null, bool? IsTimeRuleDefinedByTemplate = null, int? MaximumQueueSize = null, string OutputTime = null, string Priority = null, bool? PublishResults = null, string Status = null, string TargetWebId = null, string TemplateName = null, string TimeRulePlugInName = null, PIAnalysisLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -64,6 +64,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.TemplateName = TemplateName;
 			this.TimeRulePlugInName = TimeRulePlugInName;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -202,7 +203,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIAnalysis
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIAnalysisLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnalysis
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,10 +39,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PISummaryValue
 	{
-		public PISummaryValue(string Type = null, PITimedValue Value = null)
+		public PISummaryValue(string Type = null, PITimedValue Value = null, PIWebException WebException = null)
 		{
 			this.Type = Type;
 			this.Value = Value;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -56,6 +57,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Value", EmitDefaultValue = false)]
 		public PITimedValue Value { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PISummaryValue
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

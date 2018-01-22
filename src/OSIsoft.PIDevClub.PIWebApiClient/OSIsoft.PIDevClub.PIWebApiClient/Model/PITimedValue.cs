@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PITimedValue
 	{
-		public PITimedValue(string Timestamp = null, string UnitsAbbreviation = null, bool? Good = null, bool? Questionable = null, bool? Substituted = null, object Value = null, PIErrors Exception = null)
+		public PITimedValue(string Timestamp = null, string UnitsAbbreviation = null, bool? Good = null, bool? Questionable = null, bool? Substituted = null, object Value = null, List<PIPropertyError> Errors = null, PIWebException WebException = null)
 		{
 			this.Timestamp = Timestamp;
 			this.UnitsAbbreviation = UnitsAbbreviation;
@@ -47,7 +47,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Questionable = Questionable;
 			this.Substituted = Substituted;
 			this.Value = Value;
-			this.Exception = Exception;
+			this.Errors = Errors;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -89,8 +90,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// <summary>
 		/// Gets or Sets PITimedValue
 		/// </summary>
-		[DataMember(Name = "Exception", EmitDefaultValue = false)]
-		public PIErrors Exception { get; set; }
+		[DataMember(Name = "Errors", EmitDefaultValue = false)]
+		public List<PIPropertyError> Errors { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PITimedValue
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

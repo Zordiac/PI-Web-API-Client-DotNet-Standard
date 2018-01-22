@@ -20,9 +20,6 @@ using OSIsoft.PIDevClub.PIWebApiClient.Client;
 using OSIsoft.PIDevClub.PIWebApiClient.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryTest
 {
@@ -63,10 +60,10 @@ namespace LibraryTest
             PIPoint point1 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoid");
             PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu");
             PIPoint point3 = client.Point.GetByPath("\\\\marc-pi2016\\cdt158");
-            List<string> webIds = new List<string>() { point1.WebId, point1.WebId, point1.WebId };
+            List<string> webIds = new List<string>() { point1.WebId, point2.WebId, point3.WebId };
 
             //Get recorded values in bulk 
-            PIItemsStreamValues piItemsStreamValues = client.StreamSet.GetRecordedAdHoc(webIds, startTime: "*-3d", endTime: "*");
+            PIItemsStreamValues piItemsStreamValues = client.StreamSet.GetRecordedAdHoc(webId: webIds, startTime: "*-3d", endTime: "*");
 
 
             //Send values in bulk

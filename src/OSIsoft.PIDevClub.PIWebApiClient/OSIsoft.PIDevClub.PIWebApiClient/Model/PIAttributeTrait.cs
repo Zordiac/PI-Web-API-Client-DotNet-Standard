@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAttributeTrait
 	{
-		public PIAttributeTrait(string Name = null, string Abbreviation = null, bool? AllowChildAttributes = null, bool? AllowDuplicates = null, bool? IsAllowedOnRootAttribute = null, bool? IsTypeInherited = null, bool? IsUOMInherited = null, bool? RequireNumeric = null, bool? RequireString = null, Dictionary<string, string> Links = null)
+		public PIAttributeTrait(string Name = null, string Abbreviation = null, bool? AllowChildAttributes = null, bool? AllowDuplicates = null, bool? IsAllowedOnRootAttribute = null, bool? IsTypeInherited = null, bool? IsUOMInherited = null, bool? RequireNumeric = null, bool? RequireString = null, PIAttributeTraitLinks Links = null, PIWebException WebException = null)
 		{
 			this.Name = Name;
 			this.Abbreviation = Abbreviation;
@@ -51,6 +51,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.RequireNumeric = RequireNumeric;
 			this.RequireString = RequireString;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -111,7 +112,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIAttributeTrait
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIAttributeTraitLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttributeTrait
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

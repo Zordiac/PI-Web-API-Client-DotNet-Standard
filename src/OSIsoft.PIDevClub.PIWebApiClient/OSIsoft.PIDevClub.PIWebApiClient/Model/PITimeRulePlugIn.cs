@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PITimeRulePlugIn
 	{
-		public PITimeRulePlugIn(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string AssemblyFileName = null, string AssemblyID = null, List<string> AssemblyLoadProperties = null, string AssemblyTime = null, int? CompatibilityVersion = null, bool? IsBrowsable = null, bool? IsNonEditableConfig = null, string LoadedAssemblyTime = null, string LoadedVersion = null, string Version = null, Dictionary<string, string> Links = null)
+		public PITimeRulePlugIn(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string AssemblyFileName = null, string AssemblyID = null, List<string> AssemblyLoadProperties = null, string AssemblyTime = null, int? CompatibilityVersion = null, bool? IsBrowsable = null, bool? IsNonEditableConfig = null, string LoadedAssemblyTime = null, string LoadedVersion = null, string Version = null, PITimeRulePlugInLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -57,6 +57,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.LoadedVersion = LoadedVersion;
 			this.Version = Version;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -153,7 +154,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PITimeRulePlugIn
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PITimeRulePlugInLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PITimeRulePlugIn
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

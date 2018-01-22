@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,10 +39,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PITimedValues
 	{
-		public PITimedValues(List<PITimedValue> Items = null, string UnitsAbbreviation = null)
+		public PITimedValues(List<PITimedValue> Items = null, string UnitsAbbreviation = null, PIWebException WebException = null)
 		{
 			this.Items = Items;
 			this.UnitsAbbreviation = UnitsAbbreviation;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -56,6 +57,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "UnitsAbbreviation", EmitDefaultValue = false)]
 		public string UnitsAbbreviation { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PITimedValues
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

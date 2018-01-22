@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIEnumerationValue
 	{
-		public PIEnumerationValue(string WebId = null, string Id = null, string Name = null, string Description = null, int? Value = null, string Path = null, Dictionary<string, string> Links = null, bool? SerializeWebId = null, bool? SerializeId = null, bool? SerializeDescription = null, bool? SerializePath = null, bool? SerializeLinks = null)
+		public PIEnumerationValue(string WebId = null, string Id = null, string Name = null, string Description = null, int? Value = null, string Path = null, string Parent = null, PIEnumerationValueLinks Links = null, bool? SerializeWebId = null, bool? SerializeId = null, bool? SerializeDescription = null, bool? SerializePath = null, bool? SerializeLinks = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -47,12 +47,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Description = Description;
 			this.Value = Value;
 			this.Path = Path;
+			this.Parent = Parent;
 			this.Links = Links;
 			this.SerializeWebId = SerializeWebId;
 			this.SerializeId = SerializeId;
 			this.SerializeDescription = SerializeDescription;
 			this.SerializePath = SerializePath;
 			this.SerializeLinks = SerializeLinks;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -94,8 +96,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// <summary>
 		/// Gets or Sets PIEnumerationValue
 		/// </summary>
+		[DataMember(Name = "Parent", EmitDefaultValue = false)]
+		public string Parent { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIEnumerationValue
+		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIEnumerationValueLinks Links { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIEnumerationValue
@@ -126,6 +134,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "SerializeLinks", EmitDefaultValue = false)]
 		public bool? SerializeLinks { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIEnumerationValue
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

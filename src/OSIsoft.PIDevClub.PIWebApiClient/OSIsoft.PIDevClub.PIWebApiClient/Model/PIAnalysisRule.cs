@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAnalysisRule
 	{
-		public PIAnalysisRule(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string ConfigString = null, string DisplayString = null, string EditorType = null, bool? HasChildren = null, bool? IsConfigured = null, bool? IsInitializing = null, string PlugInName = null, List<string> SupportedBehaviors = null, string VariableMapping = null, Dictionary<string, string> Links = null)
+		public PIAnalysisRule(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string ConfigString = null, string DisplayString = null, string EditorType = null, bool? HasChildren = null, bool? IsConfigured = null, bool? IsInitializing = null, string PlugInName = null, List<string> SupportedBehaviors = null, string VariableMapping = null, PIAnalysisRuleLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -56,6 +56,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.SupportedBehaviors = SupportedBehaviors;
 			this.VariableMapping = VariableMapping;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -146,7 +147,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIAnalysisRule
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIAnalysisRuleLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnalysisRule
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

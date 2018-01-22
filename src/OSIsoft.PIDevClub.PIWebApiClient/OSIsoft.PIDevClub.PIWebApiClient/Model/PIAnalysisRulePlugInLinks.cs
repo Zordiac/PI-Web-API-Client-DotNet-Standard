@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -33,36 +33,29 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 {
 
 	/// <summary>
-	/// PISearchByAttributeElement
+	/// PIAnalysisRulePlugInLinks
 	/// </summary>
 	[DataContract]
 
-	public class PISearchByAttributeElement
+	public class PIAnalysisRulePlugInLinks
 	{
-		public PISearchByAttributeElement(object SearchRoot = null, object ElementTemplate = null, List<PIAttributeValueQuery> ValueQueries = null)
+		public PIAnalysisRulePlugInLinks(string Self = null, string AssetServer = null)
 		{
-			this.SearchRoot = SearchRoot;
-			this.ElementTemplate = ElementTemplate;
-			this.ValueQueries = ValueQueries;
+			this.Self = Self;
+			this.AssetServer = AssetServer;
 		}
 
 		/// <summary>
-		/// Gets or Sets PISearchByAttributeElement
+		/// Gets or Sets PIAnalysisRulePlugInLinks
 		/// </summary>
-		[DataMember(Name = "SearchRoot", EmitDefaultValue = false)]
-		public object SearchRoot { get; set; }
+		[DataMember(Name = "Self", EmitDefaultValue = false)]
+		public string Self { get; set; }
 
 		/// <summary>
-		/// Gets or Sets PISearchByAttributeElement
+		/// Gets or Sets PIAnalysisRulePlugInLinks
 		/// </summary>
-		[DataMember(Name = "ElementTemplate", EmitDefaultValue = false)]
-		public object ElementTemplate { get; set; }
-
-		/// <summary>
-		/// Gets or Sets PISearchByAttributeElement
-		/// </summary>
-		[DataMember(Name = "ValueQueries", EmitDefaultValue = false)]
-		public List<PIAttributeValueQuery> ValueQueries { get; set; }
+		[DataMember(Name = "AssetServer", EmitDefaultValue = false)]
+		public string AssetServer { get; set; }
 
 	}
 }

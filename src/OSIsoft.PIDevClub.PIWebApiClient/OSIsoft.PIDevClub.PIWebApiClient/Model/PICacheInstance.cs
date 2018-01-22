@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,13 +39,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PICacheInstance
 	{
-		public PICacheInstance(string Id = null, string LastRefreshTime = null, string WillRefreshAfter = null, string ScheduledExpirationTime = null, string User = null)
+		public PICacheInstance(string Id = null, string LastRefreshTime = null, string WillRefreshAfter = null, string ScheduledExpirationTime = null, string User = null, PIWebException WebException = null)
 		{
 			this.Id = Id;
 			this.LastRefreshTime = LastRefreshTime;
 			this.WillRefreshAfter = WillRefreshAfter;
 			this.ScheduledExpirationTime = ScheduledExpirationTime;
 			this.User = User;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -77,6 +78,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "User", EmitDefaultValue = false)]
 		public string User { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PICacheInstance
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

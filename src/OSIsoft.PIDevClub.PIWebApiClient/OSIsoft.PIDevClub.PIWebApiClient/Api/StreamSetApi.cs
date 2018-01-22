@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -41,14 +41,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		PIItemsStreamValue GetChannel(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		PIItemsStreamValue GetChannel(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.
@@ -59,20 +61,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		ApiResponse<PIItemsStreamValue> GetChannelWithHttpInfo(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		ApiResponse<PIItemsStreamValue> GetChannelWithHttpInfo(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -82,15 +86,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		PIItemsStreamValue GetEnd(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		PIItemsStreamValue GetEnd(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -100,15 +107,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		ApiResponse<PIItemsStreamValue> GetEndWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		ApiResponse<PIItemsStreamValue> GetEndWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -122,17 +132,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetInterpolated(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolated(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -146,17 +161,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetInterpolatedWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetInterpolatedWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -172,14 +192,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetInterpolatedAtTimes(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolatedAtTimes(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -195,14 +216,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -214,17 +236,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetPlot(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetPlot(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -236,17 +261,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetPlotWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetPlotWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -261,17 +289,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetRecorded(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetRecorded(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -286,11 +317,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetRecordedWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetRecordedWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates multiple values for the specified streams.
@@ -324,7 +358,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -338,14 +372,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetRecordedAtTime(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAtTime(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -359,14 +394,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetRecordedAtTimeWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetRecordedAtTimeWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -381,14 +417,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetRecordedAtTimes(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAtTimes(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -403,14 +440,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetRecordedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetRecordedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -431,14 +469,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamSummaries</returns>
-		PIItemsStreamSummaries GetSummaries(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null);
+		PIItemsStreamSummaries GetSummaries(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -459,14 +498,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamSummaries></returns>
-		ApiResponse<PIItemsStreamSummaries> GetSummariesWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null);
+		ApiResponse<PIItemsStreamSummaries> GetSummariesWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -476,17 +516,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		PIItemsStreamValue GetValues(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null);
+		PIItemsStreamValue GetValues(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -496,11 +539,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		ApiResponse<PIItemsStreamValue> GetValuesWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValue> GetValuesWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates a single value for the specified streams.
@@ -537,10 +583,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		PIItemsStreamValue GetChannelAdHoc(List<string> webId, bool? includeInitialValues = null);
+		PIItemsStreamValue GetChannelAdHoc(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the specified streams.
@@ -549,40 +597,48 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		ApiResponse<PIItemsStreamValue> GetChannelAdHocWithHttpInfo(List<string> webId, bool? includeInitialValues = null);
+		ApiResponse<PIItemsStreamValue> GetChannelAdHocWithHttpInfo(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetEndAdHoc(List<string> webId, string selectedFields = null);
+		PIItemsStreamValues GetEndAdHoc(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetEndAdHocWithHttpInfo(List<string> webId, string selectedFields = null);
+		ApiResponse<PIItemsStreamValues> GetEndAdHocWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -591,16 +647,21 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetInterpolatedAdHoc(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolatedAdHoc(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -609,16 +670,21 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetInterpolatedAdHocWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetInterpolatedAdHocWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -628,14 +694,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetInterpolatedAtTimesAdHoc(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolatedAtTimesAdHoc(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -645,78 +712,91 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetPlotAdHoc(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PIItemsStreamValues GetPlotAdHoc(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetPlotAdHocWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetPlotAdHocWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetRecordedAdHoc(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAdHoc(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetRecordedAdHocWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetRecordedAdHocWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates multiple values for the specified streams.
@@ -748,37 +828,39 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null);
+		PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		ApiResponse<PIItemsStreamValue> GetRecordedAtTimeAdHocWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValue> GetRecordedAtTimeAdHocWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -787,14 +869,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		PIItemsStreamValues GetRecordedAtTimesAdHoc(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAtTimesAdHoc(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -803,17 +886,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		ApiResponse<PIItemsStreamValues> GetRecordedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValues> GetRecordedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -825,17 +909,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamSummaries</returns>
-		PIItemsStreamSummaries GetSummariesAdHoc(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null);
+		PIItemsStreamSummaries GetSummariesAdHoc(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -847,36 +932,43 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamSummaries></returns>
-		ApiResponse<PIItemsStreamSummaries> GetSummariesAdHocWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null);
+		ApiResponse<PIItemsStreamSummaries> GetSummariesAdHocWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		PIItemsStreamValue GetValuesAdHoc(List<string> webId, string selectedFields = null, string time = null, string timeZone = null);
+		PIItemsStreamValue GetValuesAdHoc(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		ApiResponse<PIItemsStreamValue> GetValuesAdHocWithHttpInfo(List<string> webId, string selectedFields = null, string time = null, string timeZone = null);
+		ApiResponse<PIItemsStreamValue> GetValuesAdHocWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates a single value for the specified streams.
@@ -915,14 +1007,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAsync(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAsync(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.
@@ -933,20 +1027,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAsyncWithHttpInfo(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAsyncWithHttpInfo(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -956,15 +1052,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValue> GetEndAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		System.Threading.Tasks.Task<PIItemsStreamValue> GetEndAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -974,15 +1073,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetEndAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetEndAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -996,17 +1098,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAsync(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAsync(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1020,17 +1127,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1046,14 +1158,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAsync(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAsync(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1069,14 +1182,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1088,17 +1202,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAsync(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAsync(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1110,17 +1227,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1135,17 +1255,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAsync(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAsync(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1160,11 +1283,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAsyncWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAsyncWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates multiple values for the specified streams.
@@ -1198,7 +1324,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1212,14 +1338,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimeAsync(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimeAsync(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1233,14 +1360,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1255,14 +1383,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAsync(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAsync(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1277,14 +1406,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1305,14 +1435,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamSummaries></returns>
-		System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAsync(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAsync(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1333,14 +1464,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAsyncWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAsyncWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1350,17 +1482,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1370,11 +1505,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates a single value for the specified streams.
@@ -1411,10 +1549,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAdHocAsync(List<string> webId, bool? includeInitialValues = null);
+		System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAdHocAsync(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the specified streams.
@@ -1423,40 +1563,48 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAdHocAsyncWithHttpInfo(List<string> webId, bool? includeInitialValues = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAdHocAsyncWithHttpInfo(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetEndAdHocAsync(List<string> webId, string selectedFields = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetEndAdHocAsync(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetEndAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetEndAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -1465,16 +1613,21 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAdHocAsync(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAdHocAsync(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -1483,16 +1636,21 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -1502,14 +1660,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAdHocAsync(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAdHocAsync(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -1519,78 +1678,91 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAdHocAsync(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAdHocAsync(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAdHocAsync(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAdHocAsync(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAdHocAsyncWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAdHocAsyncWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates multiple values for the specified streams.
@@ -1622,37 +1794,39 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValue> GetRecordedAtTimeAdHocAsync(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValue> GetRecordedAtTimeAdHocAsync(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetRecordedAtTimeAdHocAsyncWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetRecordedAtTimeAdHocAsyncWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -1661,14 +1835,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAdHocAsync(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAdHocAsync(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -1677,17 +1852,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -1699,17 +1875,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamSummaries></returns>
-		System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAdHocAsync(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAdHocAsync(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -1721,36 +1898,43 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAdHocAsyncWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAdHocAsyncWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAdHocAsync(List<string> webId, string selectedFields = null, string time = null, string timeZone = null);
+		System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAdHocAsync(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null, string time = null, string timeZone = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>
 		/// Updates a single value for the specified streams.
@@ -1823,16 +2007,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		public PIItemsStreamValue GetChannel(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public PIItemsStreamValue GetChannel(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = GetChannelWithHttpInfo(webId, categoryName, includeInitialValues, nameFilter, searchFullHierarchy, showExcluded, showHidden, templateName);
+			ApiResponse<PIItemsStreamValue> localVarResponse = GetChannelWithHttpInfo(webId, categoryName, heartbeatRate, includeInitialValues, nameFilter, searchFullHierarchy, showExcluded, showHidden, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1845,14 +2031,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		public ApiResponse<PIItemsStreamValue> GetChannelWithHttpInfo(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public ApiResponse<PIItemsStreamValue> GetChannelWithHttpInfo(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1876,12 +2064,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1903,7 +2093,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1913,11 +2103,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		public PIItemsStreamValue GetEnd(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public PIItemsStreamValue GetEnd(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = GetEndWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName);
+			ApiResponse<PIItemsStreamValue> localVarResponse = GetEndWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1925,7 +2118,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -1935,9 +2128,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		public ApiResponse<PIItemsStreamValue> GetEndWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public ApiResponse<PIItemsStreamValue> GetEndWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1966,7 +2162,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -1988,7 +2187,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2002,13 +2201,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetInterpolated(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolated(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedWithHttpInfo(webId, categoryName, endTime, filterExpression, includeFilteredValues, interval, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedWithHttpInfo(webId, categoryName, endTime, filterExpression, includeFilteredValues, interval, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2016,7 +2220,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2030,11 +2234,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetInterpolatedWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetInterpolatedWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2067,9 +2276,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2091,7 +2305,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2107,10 +2321,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetInterpolatedAtTimes(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolatedAtTimes(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedAtTimesWithHttpInfo(webId, time, categoryName, filterExpression, includeFilteredValues, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedAtTimesWithHttpInfo(webId, time, categoryName, filterExpression, includeFilteredValues, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2118,7 +2333,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2134,8 +2349,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2173,6 +2389,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2194,7 +2411,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2206,13 +2423,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetPlot(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetPlot(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetPlotWithHttpInfo(webId, categoryName, endTime, intervals, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetPlotWithHttpInfo(webId, categoryName, endTime, intervals, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2220,7 +2440,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2232,11 +2452,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetPlotWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetPlotWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2267,9 +2490,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2291,7 +2517,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2306,13 +2532,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetRecorded(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetRecorded(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedWithHttpInfo(webId, boundaryType, categoryName, endTime, filterExpression, includeFilteredValues, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedWithHttpInfo(webId, boundaryType, categoryName, endTime, filterExpression, includeFilteredValues, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2320,7 +2549,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2335,11 +2564,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetRecordedWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetRecordedWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2373,9 +2605,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2480,7 +2715,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2494,10 +2729,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetRecordedAtTime(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAtTime(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAtTimeWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAtTimeWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2505,7 +2741,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2519,8 +2755,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetRecordedAtTimeWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetRecordedAtTimeWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2556,6 +2793,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2577,7 +2815,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2592,10 +2830,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetRecordedAtTimes(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAtTimes(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAtTimesWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAtTimesWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2603,7 +2842,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2618,8 +2857,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetRecordedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetRecordedAtTimesWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2656,6 +2896,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2677,7 +2918,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2698,10 +2939,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamSummaries</returns>
-		public PIItemsStreamSummaries GetSummaries(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null)
+		public PIItemsStreamSummaries GetSummaries(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamSummaries> localVarResponse = GetSummariesWithHttpInfo(webId, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, summaryDuration, summaryType, templateName, timeType, timeZone);
+			ApiResponse<PIItemsStreamSummaries> localVarResponse = GetSummariesWithHttpInfo(webId, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, summaryDuration, summaryType, templateName, timeType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2709,7 +2951,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2730,8 +2972,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamSummaries></returns>
-		public ApiResponse<PIItemsStreamSummaries> GetSummariesWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamSummaries> GetSummariesWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2771,6 +3014,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2792,7 +3036,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2802,13 +3046,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		public PIItemsStreamValue GetValues(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null)
+		public PIItemsStreamValue GetValues(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = GetValuesWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, time, timeZone);
+			ApiResponse<PIItemsStreamValue> localVarResponse = GetValuesWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, templateName, time, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2816,7 +3063,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -2826,11 +3073,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		public ApiResponse<PIItemsStreamValue> GetValuesWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValue> GetValuesWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2859,9 +3109,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -2969,12 +3222,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		public PIItemsStreamValue GetChannelAdHoc(List<string> webId, bool? includeInitialValues = null)
+		public PIItemsStreamValue GetChannelAdHoc(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = GetChannelAdHocWithHttpInfo(webId, includeInitialValues);
+			ApiResponse<PIItemsStreamValue> localVarResponse = GetChannelAdHocWithHttpInfo(webId, heartbeatRate, includeInitialValues, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2985,10 +3240,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		public ApiResponse<PIItemsStreamValue> GetChannelAdHocWithHttpInfo(List<string> webId, bool? includeInitialValues = null)
+		public ApiResponse<PIItemsStreamValue> GetChannelAdHocWithHttpInfo(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3011,7 +3268,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3033,15 +3292,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetEndAdHoc(List<string> webId, string selectedFields = null)
+		public PIItemsStreamValues GetEndAdHoc(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetEndAdHocWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetEndAdHocWithHttpInfo(webId, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3049,13 +3311,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetEndAdHocWithHttpInfo(List<string> webId, string selectedFields = null)
+		public ApiResponse<PIItemsStreamValues> GetEndAdHocWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3079,6 +3344,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3100,7 +3368,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -3109,12 +3377,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetInterpolatedAdHoc(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolatedAdHoc(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedAdHocWithHttpInfo(webId, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedAdHocWithHttpInfo(webId, endTime, filterExpression, includeFilteredValues, interval, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3122,7 +3395,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -3131,10 +3404,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetInterpolatedAdHocWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetInterpolatedAdHocWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3162,8 +3440,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
 			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3185,7 +3468,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -3195,10 +3478,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetInterpolatedAtTimesAdHoc(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolatedAtTimesAdHoc(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedAtTimesAdHocWithHttpInfo(time, webId, filterExpression, includeFilteredValues, selectedFields, sortOrder, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetInterpolatedAtTimesAdHocWithHttpInfo(time, webId, filterExpression, includeFilteredValues, selectedFields, sortOrder, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3206,7 +3490,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -3216,8 +3500,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetInterpolatedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'time' is set
 			if (time == null)
@@ -3249,6 +3534,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3270,19 +3556,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetPlotAdHoc(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PIItemsStreamValues GetPlotAdHoc(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetPlotAdHocWithHttpInfo(webId, endTime, intervals, selectedFields, startTime, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetPlotAdHocWithHttpInfo(webId, endTime, intervals, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3290,17 +3579,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetPlotAdHocWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetPlotAdHocWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3326,8 +3618,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
 			if (intervals!= null) localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3349,22 +3644,25 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetRecordedAdHoc(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAdHoc(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAdHocWithHttpInfo(webId, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAdHocWithHttpInfo(webId, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3372,20 +3670,23 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetRecordedAdHocWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetRecordedAdHocWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3414,8 +3715,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
 			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3514,18 +3818,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		public PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null)
+		public PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = GetRecordedAtTimeAdHocWithHttpInfo(time, webId, retrievalMode, selectedFields, timeZone);
+			ApiResponse<PIItemsStreamValue> localVarResponse = GetRecordedAtTimeAdHocWithHttpInfo(time, webId, retrievalMode, selectedFields, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3533,16 +3838,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		public ApiResponse<PIItemsStreamValue> GetRecordedAtTimeAdHocWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValue> GetRecordedAtTimeAdHocWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'time' is set
 			if (time == null)
@@ -3572,6 +3878,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3593,7 +3900,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -3602,10 +3909,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValues</returns>
-		public PIItemsStreamValues GetRecordedAtTimesAdHoc(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAtTimesAdHoc(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAtTimesAdHocWithHttpInfo(time, webId, retrievalMode, selectedFields, sortOrder, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = GetRecordedAtTimesAdHocWithHttpInfo(time, webId, retrievalMode, selectedFields, sortOrder, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3613,7 +3921,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -3622,8 +3930,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValues></returns>
-		public ApiResponse<PIItemsStreamValues> GetRecordedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValues> GetRecordedAtTimesAdHocWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'time' is set
 			if (time == null)
@@ -3654,6 +3963,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3675,10 +3985,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -3690,10 +4000,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamSummaries</returns>
-		public PIItemsStreamSummaries GetSummariesAdHoc(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null)
+		public PIItemsStreamSummaries GetSummariesAdHoc(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamSummaries> localVarResponse = GetSummariesAdHocWithHttpInfo(webId, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, timeZone);
+			ApiResponse<PIItemsStreamSummaries> localVarResponse = GetSummariesAdHocWithHttpInfo(webId, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3701,10 +4012,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -3716,8 +4027,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamSummaries></returns>
-		public ApiResponse<PIItemsStreamSummaries> GetSummariesAdHocWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamSummaries> GetSummariesAdHocWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3751,6 +4063,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (summaryType!= null) localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
 			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3772,17 +4085,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsStreamValue</returns>
-		public PIItemsStreamValue GetValuesAdHoc(List<string> webId, string selectedFields = null, string time = null, string timeZone = null)
+		public PIItemsStreamValue GetValuesAdHoc(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = GetValuesAdHocWithHttpInfo(webId, selectedFields, time, timeZone);
+			ApiResponse<PIItemsStreamValue> localVarResponse = GetValuesAdHocWithHttpInfo(webId, selectedFields, sortField, sortOrder, time, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3790,15 +4106,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsStreamValue></returns>
-		public ApiResponse<PIItemsStreamValue> GetValuesAdHocWithHttpInfo(List<string> webId, string selectedFields = null, string time = null, string timeZone = null)
+		public ApiResponse<PIItemsStreamValue> GetValuesAdHocWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3822,8 +4141,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -3929,16 +4251,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAsync(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAsync(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = await GetChannelAsyncWithHttpInfo(webId, categoryName, includeInitialValues, nameFilter, searchFullHierarchy, showExcluded, showHidden, templateName);
+			ApiResponse<PIItemsStreamValue> localVarResponse = await GetChannelAsyncWithHttpInfo(webId, categoryName, heartbeatRate, includeInitialValues, nameFilter, searchFullHierarchy, showExcluded, showHidden, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -3951,14 +4275,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
 		/// <param name="categoryName">Specify that included attributes must have this category. The default is no category filter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
 		/// <param name="nameFilter">The name query string used for filtering attributes. The default is no filter.</param>
 		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAsyncWithHttpInfo(string webId, string categoryName = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAsyncWithHttpInfo(string webId, string categoryName = null, int? heartbeatRate = null, bool? includeInitialValues = null, string nameFilter = null, bool? searchFullHierarchy = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -3982,12 +4308,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4009,7 +4337,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4019,11 +4347,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetEndAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetEndAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = await GetEndAsyncWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName);
+			ApiResponse<PIItemsStreamValue> localVarResponse = await GetEndAsyncWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4031,7 +4362,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End of stream values of the attributes for an Element, Event Frame or Attribute
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4041,9 +4372,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetEndAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetEndAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4072,7 +4406,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4094,7 +4431,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4108,13 +4445,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAsync(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAsync(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAsyncWithHttpInfo(webId, categoryName, endTime, filterExpression, includeFilteredValues, interval, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAsyncWithHttpInfo(webId, categoryName, endTime, filterExpression, includeFilteredValues, interval, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4122,7 +4464,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4136,11 +4478,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4173,9 +4520,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4197,7 +4549,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4213,10 +4565,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAsync(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAsync(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAtTimesAsyncWithHttpInfo(webId, time, categoryName, filterExpression, includeFilteredValues, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAtTimesAsyncWithHttpInfo(webId, time, categoryName, filterExpression, includeFilteredValues, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4224,7 +4577,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4240,8 +4593,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string filterExpression = null, bool? includeFilteredValues = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4279,6 +4633,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4300,7 +4655,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4312,13 +4667,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAsync(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAsync(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetPlotAsyncWithHttpInfo(webId, categoryName, endTime, intervals, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetPlotAsyncWithHttpInfo(webId, categoryName, endTime, intervals, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4326,7 +4684,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4338,11 +4696,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAsyncWithHttpInfo(string webId, string categoryName = null, string endTime = null, int? intervals = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4373,9 +4734,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4397,7 +4761,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4412,13 +4776,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAsync(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAsync(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAsyncWithHttpInfo(webId, boundaryType, categoryName, endTime, filterExpression, includeFilteredValues, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAsyncWithHttpInfo(webId, boundaryType, categoryName, endTime, filterExpression, includeFilteredValues, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4426,7 +4793,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4441,11 +4808,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAsyncWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAsyncWithHttpInfo(string webId, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4479,9 +4849,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4586,7 +4959,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4600,10 +4973,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimeAsync(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimeAsync(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAtTimeAsyncWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAtTimeAsyncWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4611,7 +4985,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the attributes for an element, event frame, or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4625,8 +4999,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4662,6 +5037,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4683,7 +5059,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4698,10 +5074,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAsync(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAsync(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAtTimesAsyncWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAtTimesAsyncWithHttpInfo(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4709,7 +5086,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of attributes for an element, event frame or attribute at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4724,8 +5101,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, List<string> time, string categoryName = null, string nameFilter = null, string retrievalMode = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4762,6 +5140,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4783,7 +5162,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4804,10 +5183,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamSummaries></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAsync(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAsync(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamSummaries> localVarResponse = await GetSummariesAsyncWithHttpInfo(webId, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, summaryDuration, summaryType, templateName, timeType, timeZone);
+			ApiResponse<PIItemsStreamSummaries> localVarResponse = await GetSummariesAsyncWithHttpInfo(webId, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, summaryDuration, summaryType, templateName, timeType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4815,7 +5195,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the attributes for an element, event frame or attribute.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4836,8 +5216,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAsyncWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAsyncWithHttpInfo(string webId, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4877,6 +5258,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -4898,7 +5280,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4908,13 +5290,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAsync(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = await GetValuesAsyncWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, time, timeZone);
+			ApiResponse<PIItemsStreamValue> localVarResponse = await GetValuesAsyncWithHttpInfo(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, templateName, time, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -4922,7 +5307,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.</param>
@@ -4932,11 +5317,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
 		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="templateName">Specify that included attributes must be members of this template. The default is no template filter.</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string templateName = null, string time = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAsyncWithHttpInfo(string webId, string categoryName = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4965,9 +5353,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5075,12 +5466,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAdHocAsync(List<string> webId, bool? includeInitialValues = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetChannelAdHocAsync(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = await GetChannelAdHocAsyncWithHttpInfo(webId, includeInitialValues);
+			ApiResponse<PIItemsStreamValue> localVarResponse = await GetChannelAdHocAsyncWithHttpInfo(webId, heartbeatRate, includeInitialValues, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5091,10 +5484,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="heartbeatRate">Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.</param>
 		/// <param name="includeInitialValues">Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAdHocAsyncWithHttpInfo(List<string> webId, bool? includeInitialValues = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetChannelAdHocAsyncWithHttpInfo(List<string> webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5117,7 +5512,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5139,15 +5536,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetEndAdHocAsync(List<string> webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetEndAdHocAsync(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetEndAdHocAsyncWithHttpInfo(webId, selectedFields);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetEndAdHocAsyncWithHttpInfo(webId, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5155,13 +5555,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns End Of Stream values for attributes of the specified streams
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetEndAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetEndAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5185,6 +5588,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5206,7 +5612,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -5215,12 +5621,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAdHocAsync(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAdHocAsync(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAdHocAsyncWithHttpInfo(webId, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAdHocAsyncWithHttpInfo(webId, endTime, filterExpression, includeFilteredValues, interval, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5228,7 +5639,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
@@ -5237,10 +5648,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="interval">The sampling interval, in AFTimeSpan format.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
+		/// <param name="syncTime">An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.</param>
+		/// <param name="syncTimeBoundaryType">An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5268,8 +5684,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
 			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5291,7 +5712,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -5301,10 +5722,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAdHocAsync(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetInterpolatedAtTimesAdHocAsync(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAtTimesAdHocAsyncWithHttpInfo(time, webId, filterExpression, includeFilteredValues, selectedFields, sortOrder, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetInterpolatedAtTimesAdHocAsyncWithHttpInfo(time, webId, filterExpression, includeFilteredValues, selectedFields, sortOrder, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5312,7 +5734,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns interpolated values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -5322,8 +5744,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetInterpolatedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'time' is set
 			if (time == null)
@@ -5355,6 +5778,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5376,19 +5800,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAdHocAsync(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetPlotAdHocAsync(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetPlotAdHocAsyncWithHttpInfo(webId, endTime, intervals, selectedFields, startTime, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetPlotAdHocAsyncWithHttpInfo(webId, endTime, intervals, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5396,17 +5823,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
 		/// </summary>
 		/// <remarks>
-		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+		/// For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state). Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="intervals">The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetPlotAdHocAsyncWithHttpInfo(List<string> webId, string endTime = null, int? intervals = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5432,8 +5862,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
 			if (intervals!= null) localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5455,22 +5888,25 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAdHocAsync(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAdHocAsync(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAdHocAsyncWithHttpInfo(webId, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAdHocAsyncWithHttpInfo(webId, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5478,20 +5914,23 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="boundaryType">An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.</param>
 		/// <param name="includeFilteredValues">Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.</param>
 		/// <param name="maxCount">The maximum number of values to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="startTime">An optional start time. The default is '*-1d'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAdHocAsyncWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAdHocAsyncWithHttpInfo(List<string> webId, string boundaryType = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5520,8 +5959,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
 			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5620,18 +6062,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetRecordedAtTimeAdHocAsync(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetRecordedAtTimeAdHocAsync(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = await GetRecordedAtTimeAdHocAsyncWithHttpInfo(time, webId, retrievalMode, selectedFields, timeZone);
+			ApiResponse<PIItemsStreamValue> localVarResponse = await GetRecordedAtTimeAdHocAsyncWithHttpInfo(time, webId, retrievalMode, selectedFields, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5639,16 +6082,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values based on the passed time and retrieval mode.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which the values are desired.</param>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="retrievalMode">An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetRecordedAtTimeAdHocAsyncWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetRecordedAtTimeAdHocAsyncWithHttpInfo(string time, List<string> webId, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'time' is set
 			if (time == null)
@@ -5678,6 +6122,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5699,7 +6144,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -5708,10 +6153,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAdHocAsync(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetRecordedAtTimesAdHocAsync(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAtTimesAdHocAsyncWithHttpInfo(time, webId, retrievalMode, selectedFields, sortOrder, timeZone);
+			ApiResponse<PIItemsStreamValues> localVarResponse = await GetRecordedAtTimesAdHocAsyncWithHttpInfo(time, webId, retrievalMode, selectedFields, sortOrder, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5719,7 +6165,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns recorded values of the specified streams at the specified times.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="time">The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.</param>
@@ -5728,8 +6174,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetRecordedAtTimesAdHocAsyncWithHttpInfo(List<string> time, List<string> webId, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'time' is set
 			if (time == null)
@@ -5760,6 +6207,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5781,10 +6229,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -5796,10 +6244,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamSummaries></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAdHocAsync(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamSummaries> GetSummariesAdHocAsync(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamSummaries> localVarResponse = await GetSummariesAdHocAsyncWithHttpInfo(webId, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, timeZone);
+			ApiResponse<PIItemsStreamSummaries> localVarResponse = await GetSummariesAdHocAsyncWithHttpInfo(webId, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5807,10 +6256,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns summary values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="calculationBasis">Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.</param>
 		/// <param name="endTime">An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.</param>
 		/// <param name="filterExpression">A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.</param>
@@ -5822,8 +6271,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="summaryType">Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.</param>
 		/// <param name="timeType">Specifies how to calculate the timestamp for each interval. The default is 'Auto'.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAdHocAsyncWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamSummaries>> GetSummariesAdHocAsyncWithHttpInfo(List<string> webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5857,6 +6307,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (summaryType!= null) localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
 			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);
@@ -5878,17 +6329,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAdHocAsync(List<string> webId, string selectedFields = null, string time = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValue> GetValuesAdHocAsync(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsStreamValue> localVarResponse = await GetValuesAdHocAsyncWithHttpInfo(webId, selectedFields, time, timeZone);
+			ApiResponse<PIItemsStreamValue> localVarResponse = await GetValuesAdHocAsyncWithHttpInfo(webId, selectedFields, sortField, sortOrder, time, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -5896,15 +6350,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Returns values of the specified streams.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// Any time series value in the response that contains an 'Errors' property indicates PI Web API encountered a handled error during the transfer of the response stream.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.</param>
+		/// <param name="webId">The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'</param>
 		/// <param name="time">An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.</param>
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null, string time = null, string timeZone = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValue>> GetValuesAdHocAsyncWithHttpInfo(List<string> webId, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5928,8 +6385,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
 				localVarPathParams, localVarHttpContentType);

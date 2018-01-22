@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,13 +39,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PISecurityEntry
 	{
-		public PISecurityEntry(string Name = null, string SecurityIdentityName = null, List<string> AllowRights = null, List<string> DenyRights = null, Dictionary<string, string> Links = null)
+		public PISecurityEntry(string Name = null, string SecurityIdentityName = null, List<string> AllowRights = null, List<string> DenyRights = null, PISecurityEntryLinks Links = null, PIWebException WebException = null)
 		{
 			this.Name = Name;
 			this.SecurityIdentityName = SecurityIdentityName;
 			this.AllowRights = AllowRights;
 			this.DenyRights = DenyRights;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -76,7 +77,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PISecurityEntry
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PISecurityEntryLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PISecurityEntry
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

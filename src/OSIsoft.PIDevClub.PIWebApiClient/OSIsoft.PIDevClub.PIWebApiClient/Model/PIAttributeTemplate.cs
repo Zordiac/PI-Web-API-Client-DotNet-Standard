@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -39,7 +39,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAttributeTemplate
 	{
-		public PIAttributeTemplate(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string Type = null, string TypeQualifier = null, string DefaultUnitsName = null, object DefaultValue = null, string DataReferencePlugIn = null, string ConfigString = null, bool? IsConfigurationItem = null, bool? IsExcluded = null, bool? IsHidden = null, bool? IsManualDataEntry = null, bool? HasChildren = null, List<string> CategoryNames = null, string TraitName = null, Dictionary<string, string> Links = null)
+		public PIAttributeTemplate(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string Type = null, string TypeQualifier = null, string DefaultUnitsName = null, object DefaultValue = null, string DataReferencePlugIn = null, string ConfigString = null, bool? IsConfigurationItem = null, bool? IsExcluded = null, bool? IsHidden = null, bool? IsManualDataEntry = null, bool? HasChildren = null, List<string> CategoryNames = null, string TraitName = null, PIAttributeTemplateLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -60,6 +60,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.CategoryNames = CategoryNames;
 			this.TraitName = TraitName;
 			this.Links = Links;
+			this.WebException = WebException;
 		}
 
 		/// <summary>
@@ -174,7 +175,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// Gets or Sets PIAttributeTemplate
 		/// </summary>
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public Dictionary<string, string> Links { get; set; }
+		public PIAttributeTemplateLinks Links { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttributeTemplate
+		/// </summary>
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }
