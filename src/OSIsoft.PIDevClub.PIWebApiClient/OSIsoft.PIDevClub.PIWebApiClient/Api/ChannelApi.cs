@@ -74,6 +74,42 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
 		System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo();
 
+
+		/// <summary>
+		/// Retrieves continuous updates about a stream. 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		/// 
+		System.Threading.Tasks.Task StartStream(string webId, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken);
+
+
+		/// <summary>
+		/// Retrieves continuous updates about a stream set. 
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		/// 
+		System.Threading.Tasks.Task StartStreamSet(string webId, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken);
+		
+		
+		/// <summary>
+		/// Retrieves continuous updates about multiple streams.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		/// 
+		System.Threading.Tasks.Task StartStreamSets(List<string> webIds, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken);
+		
 		#endregion
 	}
 
@@ -228,6 +264,139 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 				(PIItemsChannelInstance)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsChannelInstance)));
 		}
 
+		public string ChannelsBaseUrl
+		{
+			get
+			{
+				return this.Configuration.ApiClient.RestClient.BaseUrl.ToString().Replace("https", "wss");
+			}
+		}
+		/// <summary>
+		/// Retrieves continuous updates about a stream.
+		/// </summary>
+		/// <remarks>
+
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+
+		public System.Threading.Tasks.Task StartStream(string webId, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken)
+		{
+			string url = string.Format(this.ChannelsBaseUrl + "/streams/{0}/channel", webId);
+			return RunClient(url, observer, cancellationToken);
+		}
+		/// <summary>
+		/// Retrieves continuous updates about a stream set.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		
+		public System.Threading.Tasks.Task StartStreamSet(string webId, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken)
+		{
+			string url = string.Format(this.ChannelsBaseUrl + "/streamsets/{0}/channel", webId);
+			return RunClient(url, observer, cancellationToken);
+		}
+		
+		/// <summary>
+		/// Retrieves continuous updates about multiple streams.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
+		/// 
+		public System.Threading.Tasks.Task StartStreamSets(List<string> webIds, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken)
+		{
+			string url = this.ChannelsBaseUrl + "/streamsets/channel?";
+			foreach (string webId in webIds)
+			{
+				url = url + string.Format("webId={0}&", webId);
+			}
+			url = url.Substring(0, url.Length - 1);
+			return RunClient(url, observer, cancellationToken);
+		}
+		
+		private async System.Threading.Tasks.Task RunClient(string url, IObserver<PIItemsStreamValues> observer, System.Threading.CancellationToken cancellationToken)
+		{
+			Uri uri = new Uri(url);
+			System.Net.WebSockets.WebSocketReceiveResult receiveResult;
+			byte[] receiveBuffer = new byte[65536];
+			ArraySegment<byte> receiveSegment = new ArraySegment<byte>(receiveBuffer);
+			
+			using (System.Net.WebSockets.ClientWebSocket webSocket = new System.Net.WebSockets.ClientWebSocket())
+			{
+				if ((this.Configuration.Username == null) || (this.Configuration.Password == null))
+				{
+					webSocket.Options.UseDefaultCredentials = true;
+				}
+				else
+				{
+					webSocket.Options.Credentials = new System.Net.NetworkCredential(this.Configuration.Username, this.Configuration.Password);
+				}
+		
+				try
+				{
+					await webSocket.ConnectAsync(uri, System.Threading.CancellationToken.None);
+				}
+				catch (System.Net.WebSockets.WebSocketException e)
+				{
+					Console.WriteLine("Could not connect to server.");
+					observer.OnError(e);
+					return;
+				}
+				while (true)
+				{
+					try
+					{
+						receiveResult = await webSocket.ReceiveAsync(receiveSegment, cancellationToken);
+					}
+					catch (OperationCanceledException)
+					{
+						observer.OnCompleted();
+						break;
+					}
+			
+					if (receiveResult.MessageType != System.Net.WebSockets.WebSocketMessageType.Text)
+					{
+						await webSocket.CloseAsync(
+							System.Net.WebSockets.WebSocketCloseStatus.InvalidMessageType,
+							"Message type is not text.",
+							System.Threading.CancellationToken.None);
+						observer.OnError(new Exception("Message type is not text."));
+						return;
+					}
+					else if (receiveResult.Count > receiveBuffer.Length)
+					{
+			
+						await webSocket.CloseAsync(
+							System.Net.WebSockets.WebSocketCloseStatus.InvalidPayloadData,
+							"Message is too long.",
+							System.Threading.CancellationToken.None);
+						observer.OnError(new Exception("Message is too long."));
+						return;
+					}
+					try
+					{
+						string message = System.Text.Encoding.UTF8.GetString(receiveBuffer, 0, receiveResult.Count);
+						PIItemsStreamValues values = Newtonsoft.Json.JsonConvert.DeserializeObject<PIItemsStreamValues>(message);
+						observer.OnNext(values);
+					}
+					catch (Exception e)
+					{
+					observer.OnError(e);
+					}
+				}
+				await webSocket.CloseAsync(
+				System.Net.WebSockets.WebSocketCloseStatus.NormalClosure,
+				"Closing connection.",
+					System.Threading.CancellationToken.None);
+					observer.OnCompleted();
+			}
+		}
 		#endregion
 	}
 }

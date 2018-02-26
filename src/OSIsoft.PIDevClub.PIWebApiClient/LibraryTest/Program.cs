@@ -1,6 +1,6 @@
 ﻿// ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -18,8 +18,11 @@
 using OSIsoft.PIDevClub.PIWebApiClient;
 using OSIsoft.PIDevClub.PIWebApiClient.Client;
 using OSIsoft.PIDevClub.PIWebApiClient.Model;
+using OSIsoft.PIDevClub.PIWebApiClient.WebID;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace LibraryTest
 {
@@ -62,6 +65,11 @@ namespace LibraryTest
             PIPoint point3 = client.Point.GetByPath("\\\\marc-pi2016\\cdt158");
             List<string> webIds = new List<string>() { point1.WebId, point2.WebId, point3.WebId };
 
+
+
+
+
+
             //Get recorded values in bulk 
             PIItemsStreamValues piItemsStreamValues = client.StreamSet.GetRecordedAdHoc(webId: webIds, startTime: "*-3d", endTime: "*");
 
@@ -103,8 +111,12 @@ namespace LibraryTest
             streamValue3.Items.Add(value6);
             ApiResponse<PIItemsItemsSubstatus> response2 = client.StreamSet.UpdateValuesAdHocWithHttpInfo(new List<PIStreamValues>() { streamValue1, streamValue2, streamValue3 });
 
+
+
+
             //Get an element given a path
             PIElement myElement = client.Element.GetByPath("\\\\MARC-PI2016\\CrossPlatformLab\\marc.adm");
+
 
             //Get element's attributes
             PIItemsAttribute attributes = client.Element.GetAttributes(myElement.WebId, null, 1000, null, false);
@@ -112,9 +124,55 @@ namespace LibraryTest
             //Get an attribute given a path
             PIAttribute attribute = client.Attribute.GetByPath(string.Format("{0}|{1}", "\\\\MARC-PI2016\\CrossPlatformLab\\marc.adm", attributes.Items[0].Name));
 
+            WebIdInfo webIdInfo = client.WebIdHelper.GetWebIdInfo(myElement.WebId);
+            WebIdInfo webIdInfo2 = client.WebIdHelper.GetWebIdInfo(attribute.WebId);
+            WebIdInfo webIdInfo4 = client.WebIdHelper.GetWebIdInfo(point1.WebId);
+            WebIdInfo webIdInfo3 = client.WebIdHelper.GetWebIdInfo(dataServer.WebId);
+
             //Get the attribute's end of the stream value
             PITimedValue value = client.Stream.GetEnd(attribute.WebId);
 
+            ChannelsExamples(client, webIds);
+            WebId2Example(client);
+        }
+
+        private static void WebId2Example(PIWebApiClient client)
+        {
+            PIPoint piPoint = client.Point.GetByPath(@"\\marc-pi2016\sinusoid", null, "Full");
+            WebIdInfo piPointWebIdInfo = client.WebIdHelper.GetWebIdInfo(piPoint.WebId);
+            string webId = client.WebIdHelper.GenerateWebIdByPath(@"\\marc-pi2016\sinusoid", typeof(PIPoint));
+        }
+
+        private static void ChannelsExamples(PIWebApiClient client, List<string> webIds)
+        {
+            //Example StartStream
+            CancellationTokenSource cancellationSource1 = new CancellationTokenSource();
+            IObserver<PIItemsStreamValues> observer1 = new CustomChannelObserver();
+            Task channelTask1 = client.Channel.StartStream(webIds[0], observer1, cancellationSource1.Token);
+
+
+            //Example StartStreamSet
+            CancellationTokenSource cancellationSource2 = new CancellationTokenSource();
+            IObserver<PIItemsStreamValues> observer2 = new CustomChannelObserver();
+            PIElement element = client.Element.GetByPath("\\\\MARC-PI2016\\AFSDKTest\\Element2");
+            Task channelTask2 = client.Channel.StartStreamSet(element.WebId, observer2, cancellationSource2.Token);
+
+
+
+            //Example StartStreamSets
+            CancellationTokenSource cancellationSource3 = new CancellationTokenSource();
+            IObserver<PIItemsStreamValues> observer3 = new CustomChannelObserver();
+            Task channelTask3 = client.Channel.StartStreamSets(webIds, observer3, cancellationSource3.Token);
+
+
+
+            System.Threading.Thread.Sleep(120000);
+            cancellationSource3.Cancel();
+            cancellationSource2.Cancel();
+            cancellationSource1.Cancel();
+            channelTask1.Wait();
+            channelTask2.Wait();
+            channelTask3.Wait();
         }
     }
 }

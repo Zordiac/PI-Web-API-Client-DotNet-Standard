@@ -1,5 +1,7 @@
 ﻿using OSIsoft.PIDevClub.PIWebApiClient.Api;
 using OSIsoft.PIDevClub.PIWebApiClient.Client;
+using OSIsoft.PIDevClub.PIWebApiClient.Model;
+using OSIsoft.PIDevClub.PIWebApiClient.WebID;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
@@ -18,6 +20,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         public string BaseUrl { get; private set; }
         public bool UseKerberos { get; private set; }
         public string UserName { get; private set; }
+        private PISystemLanding systemLanding = null;
 
         private string Password;
         public bool CacheDisabled { get; set; }
@@ -30,6 +33,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
             Password = password;
             CacheDisabled = true;
             client = new ApiClient(baseUrl);
+
         }
 
         private Configuration GetConfiguration(bool NoCacheHeaderCompatible)
@@ -45,14 +49,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
                 client.RestClient.Authenticator = new DefaultAuthenticator();
             }
 
-            if ((NoCacheHeaderCompatible == true) && (CacheDisabled==true))
+            if ((NoCacheHeaderCompatible == true) && (CacheDisabled == true))
             {
                 config.DefaultHeader.Add("Cache-Control", "no-cache");
             }
             return config;
         }
 
-    
+
         public class DefaultAuthenticator : IAuthenticator
         {
             public void Authenticate(IRestClient client, IRestRequest request)
@@ -74,7 +78,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AnalysisCategoryApi(config);
             }
         }
@@ -83,7 +87,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AnalysisRulePlugInApi(config);
             }
         }
@@ -92,7 +96,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AnalysisRuleApi(config);
             }
         }
@@ -101,16 +105,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AnalysisTemplateApi(config);
             }
         }
 
-        public IAssetDatabaseApi AssetData
+        public IAssetDatabaseApi AssetDatabase
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AssetDatabaseApi(config);
             }
         }
@@ -119,7 +123,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AssetServerApi(config);
             }
         }
@@ -128,7 +132,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AttributeApi(config);
             }
         }
@@ -137,7 +141,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AttributeCategoryApi(config);
             }
         }
@@ -146,7 +150,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AttributeTemplateApi(config);
             }
         }
@@ -155,7 +159,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new AttributeTraitApi(config);
             }
         }
@@ -164,7 +168,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new BatchApi(config);
             }
         }
@@ -182,8 +186,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new ConfigurationApi(config);
+            }
+        }
+
+        public IChannelApi Channel
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new ChannelApi(config);
             }
         }
 
@@ -191,7 +204,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new DataServerApi(config);
             }
         }
@@ -200,7 +213,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new ElementApi(config);
             }
         }
@@ -209,7 +222,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new ElementCategoryApi(config);
             }
         }
@@ -220,7 +233,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new ElementTemplateApi(config);
             }
         }
@@ -230,7 +243,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new EnumerationSetApi(config);
             }
         }
@@ -240,7 +253,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new EnumerationValueApi(config);
             }
         }
@@ -249,7 +262,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new EventFrameApi(config);
             }
         }
@@ -259,7 +272,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new HomeApi(config);
             }
         }
@@ -269,18 +282,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new PointApi(config);
             }
         }
-
 
 
         public ISecurityIdentityApi SecurityIdentity
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new SecurityIdentityApi(config);
             }
         }
@@ -289,7 +301,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new SecurityMappingApi(config);
             }
         }
@@ -298,7 +310,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new StreamApi(config);
             }
         }
@@ -317,7 +329,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new SystemApi(config);
             }
         }
@@ -326,7 +338,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new TableApi(config);
             }
         }
@@ -335,7 +347,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new TableCategoryApi(config);
             }
         }
@@ -344,7 +356,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new TimeRuleApi(config);
             }
         }
@@ -353,7 +365,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new TimeRulePlugInApi(config);
             }
         }
@@ -362,7 +374,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new UnitApi(config);
             }
         }
@@ -370,8 +382,25 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
         {
             get
             {
-                 Configuration config = GetConfiguration(true);
+                Configuration config = GetConfiguration(true);
                 return new UnitClassApi(config);
+            }
+        }
+
+        public IWebIdHelper WebIdHelper
+        {
+            get
+            {
+                if (systemLanding == null)
+                {
+                    systemLanding = System.Landing();
+                }
+                int piWebApiYearVersion = Convert.ToInt32(systemLanding.ProductTitle.Substring(11, 4));
+                if ((systemLanding.ProductVersion != "1.10.0.475") && (piWebApiYearVersion < 2018))
+                {
+                    throw new WebIdException("This PI Web API version is not compatible with Web ID 2.0. Please update your PI Web API to 2017 R2 to use this feature.");
+                }
+                return new WebIdHelper();
             }
         }
     }
