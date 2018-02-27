@@ -21,6 +21,7 @@ using OSIsoft.PIDevClub.PIWebApiClient.Model;
 using OSIsoft.PIDevClub.PIWebApiClient.WebID;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,10 +31,11 @@ namespace LibraryTest
     {
         static void Main(string[] args)
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             //Create an instance of the PI Web API top level object.
-            PIWebApiClient client = new PIWebApiClient("https://marc-web-sql.marc.net/piwebapi", true);
+            PIWebApiClient client = new PIWebApiClient("https://marc-rras.osisoft.int/piwebapi", true);
 
-            //Get the PI Data Archive object
+            ////Get the PI Data Archive object
             PIDataServer dataServer = client.DataServer.GetByPath("\\\\MARC-PI2016");
 
             //Get PI Point
@@ -64,11 +66,6 @@ namespace LibraryTest
             PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu");
             PIPoint point3 = client.Point.GetByPath("\\\\marc-pi2016\\cdt158");
             List<string> webIds = new List<string>() { point1.WebId, point2.WebId, point3.WebId };
-
-
-
-
-
 
             //Get recorded values in bulk 
             PIItemsStreamValues piItemsStreamValues = client.StreamSet.GetRecordedAdHoc(webId: webIds, startTime: "*-3d", endTime: "*");
@@ -132,47 +129,9 @@ namespace LibraryTest
             //Get the attribute's end of the stream value
             PITimedValue value = client.Stream.GetEnd(attribute.WebId);
 
-            ChannelsExamples(client, webIds);
-            WebId2Example(client);
+
+
         }
 
-        private static void WebId2Example(PIWebApiClient client)
-        {
-            PIPoint piPoint = client.Point.GetByPath(@"\\marc-pi2016\sinusoid", null, "Full");
-            WebIdInfo piPointWebIdInfo = client.WebIdHelper.GetWebIdInfo(piPoint.WebId);
-            string webId = client.WebIdHelper.GenerateWebIdByPath(@"\\marc-pi2016\sinusoid", typeof(PIPoint));
-        }
-
-        private static void ChannelsExamples(PIWebApiClient client, List<string> webIds)
-        {
-            //Example StartStream
-            CancellationTokenSource cancellationSource1 = new CancellationTokenSource();
-            IObserver<PIItemsStreamValues> observer1 = new CustomChannelObserver();
-            Task channelTask1 = client.Channel.StartStream(webIds[0], observer1, cancellationSource1.Token);
-
-
-            //Example StartStreamSet
-            CancellationTokenSource cancellationSource2 = new CancellationTokenSource();
-            IObserver<PIItemsStreamValues> observer2 = new CustomChannelObserver();
-            PIElement element = client.Element.GetByPath("\\\\MARC-PI2016\\AFSDKTest\\Element2");
-            Task channelTask2 = client.Channel.StartStreamSet(element.WebId, observer2, cancellationSource2.Token);
-
-
-
-            //Example StartStreamSets
-            CancellationTokenSource cancellationSource3 = new CancellationTokenSource();
-            IObserver<PIItemsStreamValues> observer3 = new CustomChannelObserver();
-            Task channelTask3 = client.Channel.StartStreamSets(webIds, observer3, cancellationSource3.Token);
-
-
-
-            System.Threading.Thread.Sleep(120000);
-            cancellationSource3.Cancel();
-            cancellationSource2.Cancel();
-            cancellationSource1.Cancel();
-            channelTask1.Wait();
-            channelTask2.Wait();
-            channelTask3.Wait();
-        }
     }
 }

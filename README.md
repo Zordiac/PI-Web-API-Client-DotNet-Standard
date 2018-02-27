@@ -161,43 +161,6 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 ```
 
 
-### Using PI Web API Channels with the IObserver pattern
-
-```cs
-	public class CustomChannelObserver : IObserver<PIItemsStreamValues>
-	{
-		public void OnCompleted()
-		{
-			Console.WriteLine("Completed");
-		}
-
-		public void OnError(Exception error)
-		{
-			Console.WriteLine(error.Message);
-		}
-
-		public void OnNext(PIItemsStreamValues value)
-		{
-			foreach(PIStreamValues item in value.Items)
-			{
-				foreach (PITimedValue subItem in item.Items)
-				{
-					Console.WriteLine("\n\nName={0}, Path={1}, WebId={2}, Value={3}, Timestamp={4}", item.Name, item.Path, item.WebId, subItem.Value, subItem.Timestamp);
-				}
-			}
-		Console.Write(value.Items[0].Items[0].Value);
-		}
-	}
-	
-	
-	CancellationTokenSource cancellationSource1 = new CancellationTokenSource();
-	IObserver<PIItemsStreamValues> observer1 = new CustomChannelObserver();
-	Task channelTask1 = client.Channel.StartStream(webId, observer1, cancellationSource1.Token);
-	System.Threading.Thread.Sleep(120000);
-	cancellationSource1.Cancel();
-	channelTask1.Wait();	
-```
-
 ### Getting WebID 2.0 information
 
 ```cs
