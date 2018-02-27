@@ -17,20 +17,17 @@ This version was developed on top of the PI Web API 2017 R2 swagger specificatio
 ## Requirements
 
  - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
- - .NET Core 2.0
+ - .NET Core 2.0+ or .NET Framework 4.6+
 
  
 ## Installation
 
- - Download this source code
- - Create a new folder under %PIHOME% named WebAPIClient, if it doesn't exist.
- - Create a new folder under WebAPIClient named DotNetCore, if it doesn't exist.
- - Copy the unique file from the dist folder to %PIHOME%\WebAPIClient\DotNetCore.
-
+ - Create a new .NET Core or .NET Framework project.
+ - Open the NuGet Package Manager and run:  
  
-## Usage
-
-Create a new .NET Core project (Console Application for instance). Open the Package Manager Console and run "Install-Package OSIsoft.PIDevClub.PIWebApiClient -Source %PIHOME%\WebAPIClient\DotNetCore" to add this library to your .NET Core project.
+ ```
+Install-Package OSIsoft.PIDevClub.PIWebApiClient -Version 1.1.6
+  ```
 
 ## Documentation
 
