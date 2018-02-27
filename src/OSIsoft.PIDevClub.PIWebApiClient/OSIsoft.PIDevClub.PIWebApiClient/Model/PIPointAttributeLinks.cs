@@ -25,7 +25,6 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using OSIsoft.PIDevClub.PIWebApiClient.Client;
 using System.Runtime.InteropServices;
 

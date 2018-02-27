@@ -1,23 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Version>1.1.5</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>OSIsoft, LLC</Company>
+    <Authors>Marcos Loeff</Authors>
+    <PackageLicenseUrl>https://github.com/osimloeff/PI-Web-API-Client-DotNet-Core/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/osimloeff/PI-Web-API-Client-DotNet-Core/</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>bin\Release</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>bin\Debug\netcoreapp2.0\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NETCOREAPP2</DefineConstants>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="RestSharp.NetCore" Version="105.2.3" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="RestSharp" Version="106.2.1" />
   </ItemGroup>
 
 </Project>

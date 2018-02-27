@@ -1,13 +1,13 @@
-PI Web API client library for .NET Core (2017 R2)
+PI Web API client library for .NET Standard (2017 R2)
 ===
 
 
 ## Overview
-This repository has the source code package of the PI Web API Client libraries for .NET Core.
+This repository has the source code package of the PI Web API Client libraries for .NET Standard, which is compatible with .NET Framework and .NET Core.
 
 .NET Core is a cross-platform, open source, and modular .NET platform for creating modern web apps, microservices, libraries and console applications. Click [here](https://blogs.msdn.microsoft.com/dotnet/2016/06/27/announcing-net-core-1-0/) to read the official announcement.
 
-Nevertheless, PI AF SDK is not compatible with .NET Core yet. Therefore, this library will help our community develop modern apps on top of the PI System developed on .NET Core.
+Nevertheless, PI AF SDK is not compatible with .NET Core yet. Therefore, this library will help our community develop modern apps on top of the PI System developed on .NET Standard.
 
 We have tested it on Windows, but it should work on Linux and OS X as well.
 
