@@ -1,16 +1,15 @@
-# WebApiHelper
+# WebIdHelper
 
 Method | Description
 ------------ | -------------
-[**GetWebIdInfo**](WebApiHelper.md#getwebidinfo) | Get WebID information.
-[**GenerateWebIdByPath**](WebApiHelper.md#generatewebidbypath) | Generate a WebID on the client using the Path.
-
+[**GetWebIdInfo**](WebIdHelper.md#getwebidinfo) | Get WebID 2.0 information.
+[**GenerateWebIdByPath**](WebIdHelper.md#generatewebidbypath) | Generate a WebID client-side using the object's path.
 
 
 # **GetWebIdInfo**
 > WebIdInfo GetWebIdInfo(string webId)
 
-Get Web ID information.
+Get WebID 2.0 information.
 
 ### Parameters
 
@@ -27,7 +26,7 @@ Name | Type | Description | Notes
 # **GenerateWebIdByPath**
 > string GenerateWebIdByPath(string path, Type type, Type ownerType = null);
 
-Get a WebID using a path.
+Generate a WebID client-side using the object's path.
 
 ### Parameters
 

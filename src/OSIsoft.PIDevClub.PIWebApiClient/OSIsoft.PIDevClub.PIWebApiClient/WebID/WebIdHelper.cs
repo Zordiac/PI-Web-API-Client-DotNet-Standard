@@ -63,7 +63,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.WebID
                     throw new WebIdException("PIElementTemplate owner type must be a PIElementTemplate.");
                 }
             }
-            else if ((type == typeof(PIEnumerationSet)) && (type == typeof(PIEnumerationValue)))
+            else if ((type == typeof(PIEnumerationSet)) || (type == typeof(PIEnumerationValue)))
             {
                 if ((ownerType != typeof(PIDataServer)) && (ownerType != typeof(PIAssetServer)))
                 {

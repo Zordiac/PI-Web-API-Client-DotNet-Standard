@@ -357,6 +357,8 @@ Class | Method | HTTP request | Description
 *UnitApi* | [**Get**](docs/Api/UnitApi.md#get) | **GET** /units/{webId} | Retrieve a unit.
 *UnitApi* | [**Update**](docs/Api/UnitApi.md#update) | **PATCH** /units/{webId} | Update a unit.
 *UnitApi* | [**Delete**](docs/Api/UnitApi.md#delete) | **DELETE** /units/{webId} | Delete a unit.
+*WebIdHelper* | [**GetWebIdInfo**](docs/Api/WebIdHelper.md#getwebidinfo) | - | Get WebID 2.0 information.
+*WebIdHelper* | [**GenerateWebIdByPath**](docs/Api/WebIdHelper.md#generatewebidbypath) | - | Generate a WebID 2.0 client side using the object's path.
 
 ## Documentation For Models
 
@@ -500,3 +502,4 @@ Class | Method | HTTP request | Description
 - [PIValueQuery](docs/Model/PIValueQuery.md)
 - [PIVersion](docs/Model/PIVersion.md)
 - [PIWebException](docs/Model/PIWebException.md)
+- [WebIdInfo](docs/Model/WebIdInfo.md)
