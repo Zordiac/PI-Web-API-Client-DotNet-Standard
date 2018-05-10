@@ -50,7 +50,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Client
         /// <param name="errorCode">HTTP status code.</param>
         /// <param name="message">Error message.</param>
         /// <param name="errorContent">Error content.</param>
-        public ApiException(int errorCode, string message, dynamic errorContent = null) : base(message)
+        internal ApiException(int errorCode, string message, dynamic errorContent = null) : base(message)
         {
             this.ErrorCode = errorCode;
             this.ErrorContent = errorContent;

@@ -10,7 +10,7 @@
 
 
 using System;
-using RestSharp;
+
 
 namespace OSIsoft.PIDevClub.PIWebApiClient.Client
 {

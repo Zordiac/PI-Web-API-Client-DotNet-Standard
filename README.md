@@ -26,7 +26,7 @@ This version was developed on top of the PI Web API 2017 R2 swagger specificatio
  - Open the NuGet Package Manager and run:  
  
  ```
-Install-Package OSIsoft.PIDevClub.PIWebApiClient -Version 1.1.6
+Install-Package OSIsoft.PIDevClub.PIWebApiClient
   ```
 
 ## Documentation
@@ -175,6 +175,29 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 ```cs
 	string webId1 = client.WebIdHelper.GenerateWebIdByPath(Constants.AF_ATTRIBUTE_PATH, typeof(PIAttribute), typeof(PIElement));
 	string webId2 = client.WebIdHelper.GenerateWebIdByPath(Constants.PI_DATA_SERVER_PATH, typeof(PIDataServer));
+```
+
+### Cancelling the HTTP request with the CancellationTokenSource
+
+```cs
+	Stopwatch watch = Stopwatch.StartNew();
+	CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+	PIItemsStreamValues bulkValues = null;
+	try
+	{
+		Task t = Task.Run(async () =>
+		{
+			bulkValues = await client.StreamSet.GetRecordedAdHocAsync(webId: webIds, startTime: "*-1800d", endTime: "*", maxCount: 50000, cancellationTokenSource: cancellationTokenSource);
+		});
+		System.Threading.Thread.Sleep(4000);
+		cancellationTokenSource.Cancel();
+		t.Wait();
+		Console.WriteLine("Completed task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
+    }
+    catch (Exception)
+    {
+		Console.WriteLine("Cancelled task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
+    };
 ```
 
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OSIsoft.PIDevClub.PIWebApiClient
+namespace OSIsoft.PIDevClub.PIWebApiClient.Client
 {
     public class CustomDictionaryForQueryString
     {

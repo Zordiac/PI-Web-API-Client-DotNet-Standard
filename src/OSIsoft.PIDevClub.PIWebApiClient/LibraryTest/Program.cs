@@ -21,6 +21,7 @@ using OSIsoft.PIDevClub.PIWebApiClient.Model;
 using OSIsoft.PIDevClub.PIWebApiClient.WebID;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,9 +32,10 @@ namespace LibraryTest
     {
         static void Main(string[] args)
         {
+            //Do not verify Ssl certificate
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             //Create an instance of the PI Web API top level object.
-            PIWebApiClient client = new PIWebApiClient("https://marc-rras.osisoft.int/piwebapi", true);
+            PIWebApiClient client = new PIWebApiClient("https://marc-rras.osisoft.int/piwebapi", false, "marc.adm", "kk");
 
             ////Get the PI Data Archive object
             PIDataServer dataServer = client.DataServer.GetByPath("\\\\MARC-PI2016");
@@ -63,7 +65,7 @@ namespace LibraryTest
 
             //Get PI Points WebIds
             PIPoint point1 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoid");
-            PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu");
+            PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu", selectedFields: "webId");
             PIPoint point3 = client.Point.GetByPath("\\\\marc-pi2016\\cdt158");
             List<string> webIds = new List<string>() { point1.WebId, point2.WebId, point3.WebId };
 
@@ -129,6 +131,28 @@ namespace LibraryTest
             //Get the attribute's end of the stream value
             PITimedValue value = client.Stream.GetEnd(attribute.WebId);
 
+            //Cancelling the HTTP request with the CancellationToken
+            Stopwatch watch = Stopwatch.StartNew();
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            PIItemsStreamValues bulkValues = null;
+            try
+            {
+                Task t = Task.Run(async () =>
+              {
+                  bulkValues = await client.StreamSet.GetRecordedAdHocAsync(webId: webIds, startTime: "*-1800d", endTime: "*", maxCount: 50000, cancellationTokenSource: cancellationTokenSource);
+
+              });
+                //Cancel the request after 4s
+                System.Threading.Thread.Sleep(4000);
+                cancellationTokenSource.Cancel();
+                t.Wait();
+                Console.WriteLine("Completed task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Cancelled task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
+            };
+           
 
 
         }
