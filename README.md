@@ -193,11 +193,11 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 		cancellationTokenSource.Cancel();
 		t.Wait();
 		Console.WriteLine("Completed task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
-    }
-    catch (Exception)
-    {
+	}
+	catch (Exception)
+	{
 		Console.WriteLine("Cancelled task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
-    };
+	};
 ```
 
 
