@@ -2099,15 +2099,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
-			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", heartbeatRate, false);
+			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", includeInitialValues, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2182,16 +2182,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2282,24 +2282,24 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
-			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (interval!= null) localVarQueryParams.Add("interval", interval, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", syncTime, false);
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", syncTimeBoundaryType, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2383,19 +2383,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2478,20 +2478,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (intervals!= null) localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (intervals!= null) localVarQueryParams.Add("intervals", intervals, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2580,23 +2580,23 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", Configuration.ApiClient.ParameterToString(boundaryType));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", boundaryType, false);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2661,8 +2661,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2742,17 +2742,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2834,18 +2834,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2936,24 +2936,24 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", Configuration.ApiClient.ParameterToString(calculationBasis));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", Configuration.ApiClient.ParameterToString(sampleInterval));
-			if (sampleType!= null) localVarQueryParams.Add("sampleType", Configuration.ApiClient.ParameterToString(sampleType));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", Configuration.ApiClient.ParameterToString(summaryDuration));
-			if (summaryType!= null) localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", calculationBasis, false);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", sampleInterval, false);
+			if (sampleType!= null) localVarQueryParams.Add("sampleType", sampleType, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", summaryDuration, false);
+			if (summaryType!= null) localVarQueryParams.Add("summaryType", summaryType, true);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeType!= null) localVarQueryParams.Add("timeType", timeType, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3032,18 +3032,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3108,8 +3108,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3169,10 +3169,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
-			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", heartbeatRate, false);
+			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", includeInitialValues, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3234,11 +3234,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3316,19 +3316,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
-			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (interval!= null) localVarQueryParams.Add("interval", interval, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", syncTime, false);
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", syncTimeBoundaryType, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3399,14 +3399,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3476,15 +3476,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (intervals!= null) localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (intervals!= null) localVarQueryParams.Add("intervals", intervals, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3560,18 +3560,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", Configuration.ApiClient.ParameterToString(boundaryType));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", boundaryType, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3630,8 +3630,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3698,12 +3698,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3772,13 +3772,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3856,19 +3856,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", Configuration.ApiClient.ParameterToString(calculationBasis));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", Configuration.ApiClient.ParameterToString(sampleInterval));
-			if (sampleType!= null) localVarQueryParams.Add("sampleType", Configuration.ApiClient.ParameterToString(sampleType));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", Configuration.ApiClient.ParameterToString(summaryDuration));
-			if (summaryType!= null) localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
-			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", calculationBasis, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", sampleInterval, false);
+			if (sampleType!= null) localVarQueryParams.Add("sampleType", sampleType, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", summaryDuration, false);
+			if (summaryType!= null) localVarQueryParams.Add("summaryType", summaryType, true);
+			if (timeType!= null) localVarQueryParams.Add("timeType", timeType, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3934,13 +3934,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -3999,8 +3999,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -4077,15 +4077,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
-			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", heartbeatRate, false);
+			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", includeInitialValues, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4162,16 +4162,16 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4264,24 +4264,24 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
-			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (interval!= null) localVarQueryParams.Add("interval", interval, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", syncTime, false);
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", syncTimeBoundaryType, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4367,19 +4367,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4464,20 +4464,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (intervals!= null) localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (intervals!= null) localVarQueryParams.Add("intervals", intervals, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4568,23 +4568,23 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", Configuration.ApiClient.ParameterToString(boundaryType));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", boundaryType, false);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4651,8 +4651,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4734,17 +4734,17 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4828,18 +4828,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4932,24 +4932,24 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", Configuration.ApiClient.ParameterToString(calculationBasis));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", Configuration.ApiClient.ParameterToString(sampleInterval));
-			if (sampleType!= null) localVarQueryParams.Add("sampleType", Configuration.ApiClient.ParameterToString(sampleType));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", Configuration.ApiClient.ParameterToString(summaryDuration));
-			if (summaryType!= null) localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", calculationBasis, false);
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", sampleInterval, false);
+			if (sampleType!= null) localVarQueryParams.Add("sampleType", sampleType, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", summaryDuration, false);
+			if (summaryType!= null) localVarQueryParams.Add("summaryType", summaryType, true);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (timeType!= null) localVarQueryParams.Add("timeType", timeType, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5030,18 +5030,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
-			if (showHidden!= null) localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (categoryName!= null) localVarQueryParams.Add("categoryName", categoryName, false);
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (searchFullHierarchy!= null) localVarQueryParams.Add("searchFullHierarchy", searchFullHierarchy, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showExcluded!= null) localVarQueryParams.Add("showExcluded", showExcluded, false);
+			if (showHidden!= null) localVarQueryParams.Add("showHidden", showHidden, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5108,8 +5108,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5171,10 +5171,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
-			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (heartbeatRate!= null) localVarQueryParams.Add("heartbeatRate", heartbeatRate, false);
+			if (includeInitialValues!= null) localVarQueryParams.Add("includeInitialValues", includeInitialValues, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5238,11 +5238,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5322,19 +5322,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
-			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (interval!= null) localVarQueryParams.Add("interval", interval, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", syncTime, false);
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", syncTimeBoundaryType, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5407,14 +5407,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5486,15 +5486,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (intervals!= null) localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (intervals!= null) localVarQueryParams.Add("intervals", intervals, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5572,18 +5572,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", Configuration.ApiClient.ParameterToString(boundaryType));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (boundaryType!= null) localVarQueryParams.Add("boundaryType", boundaryType, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (includeFilteredValues!= null) localVarQueryParams.Add("includeFilteredValues", includeFilteredValues, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5644,8 +5644,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5714,12 +5714,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5790,13 +5790,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (time!= null) localVarQueryParams.Add("time", time, true);
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", retrievalMode, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5876,19 +5876,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", Configuration.ApiClient.ParameterToString(calculationBasis));
-			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
-			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", Configuration.ApiClient.ParameterToString(filterExpression));
-			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", Configuration.ApiClient.ParameterToString(sampleInterval));
-			if (sampleType!= null) localVarQueryParams.Add("sampleType", Configuration.ApiClient.ParameterToString(sampleType));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
-			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", Configuration.ApiClient.ParameterToString(summaryDuration));
-			if (summaryType!= null) localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
-			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (calculationBasis!= null) localVarQueryParams.Add("calculationBasis", calculationBasis, false);
+			if (endTime!= null) localVarQueryParams.Add("endTime", endTime, false);
+			if (filterExpression!= null) localVarQueryParams.Add("filterExpression", filterExpression, false);
+			if (sampleInterval!= null) localVarQueryParams.Add("sampleInterval", sampleInterval, false);
+			if (sampleType!= null) localVarQueryParams.Add("sampleType", sampleType, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (startTime!= null) localVarQueryParams.Add("startTime", startTime, false);
+			if (summaryDuration!= null) localVarQueryParams.Add("summaryDuration", summaryDuration, false);
+			if (summaryType!= null) localVarQueryParams.Add("summaryType", summaryType, true);
+			if (timeType!= null) localVarQueryParams.Add("timeType", timeType, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -5956,13 +5956,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (webId!= null) localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
-			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webId!= null) localVarQueryParams.Add("webId", webId, true);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (time!= null) localVarQueryParams.Add("time", time, false);
+			if (timeZone!= null) localVarQueryParams.Add("timeZone", timeZone, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -6023,8 +6023,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			localVarPostBody = Configuration.ApiClient.Serialize(values);
-			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
-			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", bufferOption, false);
+			if (updateOption!= null) localVarQueryParams.Add("updateOption", updateOption, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);

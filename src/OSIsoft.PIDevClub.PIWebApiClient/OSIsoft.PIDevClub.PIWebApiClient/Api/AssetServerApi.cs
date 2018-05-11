@@ -1325,8 +1325,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1384,9 +1384,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (name!= null) localVarQueryParams.Add("name", name, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1444,9 +1444,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (path!= null) localVarQueryParams.Add("path", path, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1505,8 +1505,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1565,8 +1565,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1625,8 +1625,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1689,7 +1689,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(database);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1760,11 +1760,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
-			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, true);
+			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", userIdentity, true);
+			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", forceRefresh, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1827,10 +1827,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1897,9 +1897,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityEntry);
-			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", applyToChildren, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -1966,9 +1966,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2039,8 +2039,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityEntry);
-			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", applyToChildren, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2105,8 +2105,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", applyToChildren, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2175,13 +2175,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (field!= null) localVarQueryParams.Add("field", field, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (query!= null) localVarQueryParams.Add("query", query, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2244,7 +2244,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityIdentity);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2308,9 +2308,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", userIdentity, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2379,13 +2379,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (field!= null) localVarQueryParams.Add("field", field, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (query!= null) localVarQueryParams.Add("query", query, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2448,7 +2448,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityMapping);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2507,8 +2507,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2567,8 +2567,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2631,7 +2631,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(unitClass);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams);
@@ -2688,8 +2688,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -2749,9 +2749,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (name!= null) localVarQueryParams.Add("name", name, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -2811,9 +2811,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			var localVarFormParams = new Dictionary<String, String>();
 			string localVarPostBody = null;
 
-			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (path!= null) localVarQueryParams.Add("path", path, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -2874,8 +2874,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -2936,8 +2936,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -2998,8 +2998,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3064,7 +3064,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(database);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3137,11 +3137,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
-			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, true);
+			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", userIdentity, true);
+			if (forceRefresh!= null) localVarQueryParams.Add("forceRefresh", forceRefresh, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3206,10 +3206,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", nameFilter, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3278,9 +3278,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityEntry);
-			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", applyToChildren, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3349,9 +3349,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3424,8 +3424,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityEntry);
-			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", applyToChildren, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3492,8 +3492,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			if (applyToChildren!= null) localVarQueryParams.Add("applyToChildren", applyToChildren, false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", securityItem, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3564,13 +3564,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (field!= null) localVarQueryParams.Add("field", field, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (query!= null) localVarQueryParams.Add("query", query, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3635,7 +3635,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityIdentity);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3701,9 +3701,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", userIdentity, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3774,13 +3774,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field));
-			if (maxCount!= null) localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (field!= null) localVarQueryParams.Add("field", field, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (query!= null) localVarQueryParams.Add("query", query, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", sortField, false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3845,7 +3845,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(securityMapping);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3906,8 +3906,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -3968,8 +3968,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);
@@ -4034,7 +4034,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			localVarPostBody = Configuration.ApiClient.Serialize(unitClass);
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
 				localVarPathParams, cancellationTokenSource);

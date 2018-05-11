@@ -35,10 +35,20 @@ namespace LibraryTest
             //Do not verify Ssl certificate
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             //Create an instance of the PI Web API top level object.
-            PIWebApiClient client = new PIWebApiClient("https://marc-rras.osisoft.int/piwebapi", false, "marc.adm", "kk");
+            PIWebApiClient client = new PIWebApiClient("https://marc-rras.osisoft.int/piwebapi/", false, "marc.adm", "kk");
 
+            //PIWebApiClient client = new PIWebApiClient("https://devdata.osisoft.com/piwebapi", false, "webapiuser", "!try3.14webapi!");
+            var homeLanding = client.Home.Get();
             ////Get the PI Data Archive object
             PIDataServer dataServer = client.DataServer.GetByPath("\\\\MARC-PI2016");
+            string expression = "'sinusoid'*2 + 'cdt158'";
+            PITimedValues values = client.Calculation.GetAtTimes(webId: dataServer.WebId, expression: expression , time: new List<string>() { "*-1d" });
+
+            string expression2 = "'cdt158'+tagval('sinusoid','*-1d')";
+            PITimedValues values2 = client.Calculation.GetAtTimes(webId: dataServer.WebId, expression: expression2, time: new List<string>() { "*-1d" });
+
+            PIItemsSummaryValue itemsSummaryValue = client.Calculation.GetSummary(expression: expression2, startTime: "*-1d", endTime: "*", webId: dataServer.WebId, 
+                summaryType: new List<string>() { "Average", "Maximum" });
 
             //Get PI Point
             PIPoint createdPoint = client.Point.GetByPath("\\\\MARC-PI2016\\SINUSOIDR1259", null);
@@ -65,7 +75,7 @@ namespace LibraryTest
 
             //Get PI Points WebIds
             PIPoint point1 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoid");
-            PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu", selectedFields: "webId");
+            PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu", selectedFields: "webId;name");
             PIPoint point3 = client.Point.GetByPath("\\\\marc-pi2016\\cdt158");
             List<string> webIds = new List<string>() { point1.WebId, point2.WebId, point3.WebId };
 
@@ -133,7 +143,7 @@ namespace LibraryTest
 
             //Cancelling the HTTP request with the CancellationToken
             Stopwatch watch = Stopwatch.StartNew();
-            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            CancellationTokenSource cancellationTokenSource = null;
             PIItemsStreamValues bulkValues = null;
             try
             {
@@ -144,7 +154,7 @@ namespace LibraryTest
               });
                 //Cancel the request after 4s
                 System.Threading.Thread.Sleep(4000);
-                cancellationTokenSource.Cancel();
+                //cancellationTokenSource.Cancel();
                 t.Wait();
                 Console.WriteLine("Completed task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
             }
