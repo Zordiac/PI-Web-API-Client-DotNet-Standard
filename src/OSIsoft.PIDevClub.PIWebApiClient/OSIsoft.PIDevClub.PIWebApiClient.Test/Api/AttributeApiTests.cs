@@ -241,7 +241,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Test
         public void SetValueTest()
         {
             DateTime time = DateTime.Today;
-            PITimedValue value = new PITimedValue("t", null, true, false, false, 153);
+            PITimedValue value = new PITimedValue(Timestamp: "t", Value: 153);
             value.Substituted = null;
             instance.SetValue(webId, value);
 

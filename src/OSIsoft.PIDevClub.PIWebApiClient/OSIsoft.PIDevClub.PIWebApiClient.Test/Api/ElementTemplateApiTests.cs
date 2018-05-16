@@ -188,7 +188,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Test
         {
             bool? showInherited = null;
             string selectedFields = null;
-            var response = instance.GetAttributeTemplates(webId, selectedFields, showInherited);
+            var response = instance.GetAttributeTemplates(webId, selectedFields: selectedFields, showInherited: showInherited);
             Assert.IsInstanceOf<PIItemsAttributeTemplate>(response, "response is PIItemsAttributeTemplate");
         }
 

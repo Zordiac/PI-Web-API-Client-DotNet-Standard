@@ -491,12 +491,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Test
             List<PITimedValue> attr1tv = new List<PITimedValue>();
             List<PITimedValue> attr2tv = new List<PITimedValue>();
             List<PITimedValue> attr3tv = new List<PITimedValue>();
-            attr1tv.Add(new PITimedValue(time1, null, null, null, null, 25));
-            attr1tv.Add(new PITimedValue(time2, null, null, null, null, 35));
-            attr2tv.Add(new PITimedValue(time1, null, null, null, null, 45));
-            attr2tv.Add(new PITimedValue(time2, null, null, null, null, 55));
-            attr3tv.Add(new PITimedValue(time1, null, null, null, null, 65));
-            attr3tv.Add(new PITimedValue(time2, null, null, null, null, 75));
+            attr1tv.Add(new PITimedValue(Timestamp: time1, Value: 25));
+            attr1tv.Add(new PITimedValue(Timestamp: time2, Value: 35));
+            attr2tv.Add(new PITimedValue(Timestamp: time1, Value: 45));
+            attr2tv.Add(new PITimedValue(Timestamp: time2, Value: 55));
+            attr3tv.Add(new PITimedValue(Timestamp: time1, Value: 65));
+            attr3tv.Add(new PITimedValue(Timestamp: time2, Value: 75));
 
 
 
@@ -529,12 +529,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Test
             List<PITimedValue> attr1tv = new List<PITimedValue>();
             List<PITimedValue> attr2tv = new List<PITimedValue>();
             List<PITimedValue> attr3tv = new List<PITimedValue>();
-            attr1tv.Add(new PITimedValue(time1, null, null, null, null, 25));
-            attr1tv.Add(new PITimedValue(time2, null, null, null, null, 35));
-            attr2tv.Add(new PITimedValue(time1, null, null, null, null, 45));
-            attr2tv.Add(new PITimedValue(time2, null, null, null, null, 55));
-            attr3tv.Add(new PITimedValue(time1, null, null, null, null, 65));
-            attr3tv.Add(new PITimedValue(time2, null, null, null, null, 75));
+            attr1tv.Add(new PITimedValue(Timestamp: time1, Value: 25));
+            attr1tv.Add(new PITimedValue(Timestamp: time2, Value: 35));
+            attr2tv.Add(new PITimedValue(Timestamp: time1, Value: 45));
+            attr2tv.Add(new PITimedValue(Timestamp: time2, Value: 55));
+            attr3tv.Add(new PITimedValue(Timestamp: time1, Value: 65));
+            attr3tv.Add(new PITimedValue(Timestamp: time2, Value: 75));
 
             PIStreamValues streamValues1 = new PIStreamValues(webIds[0], null, null, attr1tv);
             PIStreamValues streamValues2 = new PIStreamValues(webIds[1], null, null, attr2tv);
