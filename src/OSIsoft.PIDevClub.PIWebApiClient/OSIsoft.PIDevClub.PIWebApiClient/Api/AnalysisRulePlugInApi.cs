@@ -232,6 +232,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIAnalysisRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIAnalysisRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIAnalysisRulePlugIn)));
 		}
 
@@ -292,6 +293,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIAnalysisRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIAnalysisRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIAnalysisRulePlugIn)));
 		}
 
@@ -356,6 +358,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIAnalysisRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIAnalysisRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIAnalysisRulePlugIn)));
 		}
 
@@ -418,6 +421,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIAnalysisRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIAnalysisRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIAnalysisRulePlugIn)));
 		}
 

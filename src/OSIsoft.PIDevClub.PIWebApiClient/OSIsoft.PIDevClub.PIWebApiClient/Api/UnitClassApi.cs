@@ -490,6 +490,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnitClass>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnitClass)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnitClass)));
 		}
 
@@ -550,6 +551,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnitClass>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnitClass)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnitClass)));
 		}
 
@@ -610,6 +612,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -664,6 +667,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -724,6 +728,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnit>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnit)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnit)));
 		}
 
@@ -784,6 +789,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnit>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnit)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnit)));
 		}
 
@@ -847,6 +853,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -911,6 +918,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnitClass>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnitClass)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnitClass)));
 		}
 
@@ -973,6 +981,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnitClass>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnitClass)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnitClass)));
 		}
 
@@ -1035,6 +1044,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -1091,6 +1101,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -1153,6 +1164,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnit>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnit)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnit)));
 		}
 
@@ -1215,6 +1227,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIUnit>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIUnit)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIUnit)));
 		}
 
@@ -1280,6 +1293,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 

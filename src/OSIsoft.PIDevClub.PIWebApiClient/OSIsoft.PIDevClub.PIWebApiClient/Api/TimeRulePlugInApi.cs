@@ -232,6 +232,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRulePlugIn)));
 		}
 
@@ -292,6 +293,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRulePlugIn)));
 		}
 
@@ -356,6 +358,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRulePlugIn)));
 		}
 
@@ -418,6 +421,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRulePlugIn>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRulePlugIn)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRulePlugIn)));
 		}
 

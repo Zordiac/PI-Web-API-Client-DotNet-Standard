@@ -15,7 +15,9 @@
 // ************************************************************************
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http.Headers;
+using OSIsoft.PIDevClub.PIWebApiClient.Model;
 
 namespace OSIsoft.PIDevClub.PIWebApiClient.Client
 {
@@ -24,6 +26,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Client
     /// </summary>
     public class ApiResponse<T>
     {
+        /// <summary>
+        /// Gets or sets the response header
+        /// </summary>
+        /// <value>The response header.</value>
+        public IDictionary<string, string> Headers { get; private set; }
+
         /// <summary>
         /// Gets or sets the status code (HTTP status code)
         /// </summary>
@@ -43,9 +51,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Client
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="headers">HTTP headers.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
-        public ApiResponse(int statusCode, T data)
+        public ApiResponse(int statusCode, HttpResponseHeaders headers, T data)
         {
-            this.StatusCode= statusCode;
+            this.StatusCode = statusCode;
+            this.Headers = new Dictionary<string, string>();
+            foreach (var header in headers)
+            {
+                this.Headers.Add(header.Key, header.Value.FirstOrDefault());
+            }
+            this.StatusCode = statusCode;
             this.Data = data;
         }
 

@@ -221,6 +221,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsAttributeTrait>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsAttributeTrait)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsAttributeTrait)));
 		}
 
@@ -278,6 +279,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIAttributeTrait>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIAttributeTrait)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIAttributeTrait)));
 		}
 
@@ -339,6 +341,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsAttributeTrait>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsAttributeTrait)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsAttributeTrait)));
 		}
 
@@ -398,6 +401,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIAttributeTrait>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIAttributeTrait)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIAttributeTrait)));
 		}
 

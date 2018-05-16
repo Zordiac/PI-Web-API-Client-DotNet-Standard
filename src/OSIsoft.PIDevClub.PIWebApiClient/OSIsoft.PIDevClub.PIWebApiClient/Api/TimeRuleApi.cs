@@ -328,6 +328,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRule>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRule)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRule)));
 		}
 
@@ -388,6 +389,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRule>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRule)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRule)));
 		}
 
@@ -448,6 +450,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -502,6 +505,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -566,6 +570,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRule>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRule)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRule)));
 		}
 
@@ -628,6 +633,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PITimeRule>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PITimeRule)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PITimeRule)));
 		}
 
@@ -690,6 +696,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -746,6 +753,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 

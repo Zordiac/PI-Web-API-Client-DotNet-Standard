@@ -154,6 +154,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PILanding>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PILanding)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PILanding)));
 		}
 
@@ -206,6 +207,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PILanding>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PILanding)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PILanding)));
 		}
 

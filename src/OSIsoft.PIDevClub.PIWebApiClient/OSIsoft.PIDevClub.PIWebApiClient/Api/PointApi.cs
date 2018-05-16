@@ -514,6 +514,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIPoint>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIPoint)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPoint)));
 		}
 
@@ -574,6 +575,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIPoint>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIPoint)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPoint)));
 		}
 
@@ -634,6 +636,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -688,6 +691,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -754,6 +758,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsPointAttribute>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsPointAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsPointAttribute)));
 		}
 
@@ -820,6 +825,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIPointAttribute>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIPointAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPointAttribute)));
 		}
 
@@ -886,6 +892,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsItemPoint>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsItemPoint)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsItemPoint)));
 		}
 
@@ -950,6 +957,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIPoint>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIPoint)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPoint)));
 		}
 
@@ -1012,6 +1020,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIPoint>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIPoint)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPoint)));
 		}
 
@@ -1074,6 +1083,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -1130,6 +1140,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
@@ -1198,6 +1209,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsPointAttribute>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsPointAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsPointAttribute)));
 		}
 
@@ -1266,6 +1278,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIPointAttribute>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIPointAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPointAttribute)));
 		}
 
@@ -1334,6 +1347,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsItemPoint>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsItemPoint)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsItemPoint)));
 		}
 

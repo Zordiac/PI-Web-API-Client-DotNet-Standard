@@ -164,6 +164,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Dictionary<string, PIResponse>>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Dictionary<string, PIResponse>)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Dictionary<string, PIResponse>)));
 		}
 
@@ -222,6 +223,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<Dictionary<string, PIResponse>>(localVarStatusCode,
+				localVarResponse.Headers,
 				(Dictionary<string, PIResponse>)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Dictionary<string, PIResponse>)));
 		}
 

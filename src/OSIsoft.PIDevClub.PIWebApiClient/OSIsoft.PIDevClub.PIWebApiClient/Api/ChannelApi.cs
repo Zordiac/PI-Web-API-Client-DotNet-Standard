@@ -154,6 +154,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsChannelInstance>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsChannelInstance)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsChannelInstance)));
 		}
 
@@ -206,6 +207,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			}
 
 			return new ApiResponse<PIItemsChannelInstance>(localVarStatusCode,
+				localVarResponse.Headers,
 				(PIItemsChannelInstance)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsChannelInstance)));
 		}
 
