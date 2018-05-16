@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryTest", "LibraryTest\LibraryTest.csproj", "{2B085A65-4CFC-4356-92EF-B218240F20F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSIsoft.PIDevClub.PIWebApiClient", "OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient.csproj", "{9C218AEC-C9AB-4708-BF7D-DCC1CECADCFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSIsoft.PIDevClub.PIWebApiClient", "OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient.csproj", "{9C218AEC-C9AB-4708-BF7D-DCC1CECADCFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSIsoft.PIDevClub.PIWebApiClient.Test", "OSIsoft.PIDevClub.PIWebApiClient.Test\OSIsoft.PIDevClub.PIWebApiClient.Test.csproj", "{4BA66B80-6E8D-45D5-9887-57C9AAA7BA12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9C218AEC-C9AB-4708-BF7D-DCC1CECADCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C218AEC-C9AB-4708-BF7D-DCC1CECADCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C218AEC-C9AB-4708-BF7D-DCC1CECADCFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA66B80-6E8D-45D5-9887-57C9AAA7BA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA66B80-6E8D-45D5-9887-57C9AAA7BA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA66B80-6E8D-45D5-9887-57C9AAA7BA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA66B80-6E8D-45D5-9887-57C9AAA7BA12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
