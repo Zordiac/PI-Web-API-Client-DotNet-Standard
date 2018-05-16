@@ -7,6 +7,9 @@
 *.user
 *.sln.docstates
 
+dist/
+.vs/
+src/OSIsoft.PIDevClub.PIWebApiClient/.vs/
 # Build results
 
 [Dd]ebug/

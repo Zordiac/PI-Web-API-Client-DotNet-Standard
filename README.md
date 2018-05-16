@@ -157,6 +157,35 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
     PIItemsEventFrame efs = client.AssetData.GetEventFrames(db.WebId, referencedElementNameFilter: "myElement", referencedElementTemplateName: "user", startTime: "*-1d", endTime: "*");
 ```
 
+### PI Web API Batch
+
+```java
+    Dictionary<string, PIRequest> batch = new Dictionary<string, PIRequest>()
+    {
+		{ "1", new PIRequest("GET", "https://localhost/piwebapi/points?path=\\\\SATURN-MARCOS\\sinusoid") },
+		{ "2", new PIRequest("GET", "https://localhost/piwebapi/points?path=\\\\SATURN-MARCOS\\cdt158") },
+		{ "3", new PIRequest() {
+				Method = "GET",
+				Resource = "https://localhost/piwebapi/streamsets/value?webid={0}&webid={1}",
+				Parameters = new List<string>() { "$.1.Content.WebId", "$.2.Content.WebId" },
+				ParentIds = new List<string>() { "1", "2" }
+			}
+		}
+    };
+    Dictionary<string, PIResponse> batchResponse = await client.BatchApi.ExecuteAsync(batch);
+
+    if (batchResponse.All(r => r.Value.Status == 200))
+    {
+		PIPoint pointBatch1 = JsonConvert.DeserializeObject<PIPoint>(batchResponse["1"].Content.ToString());
+		PIPoint pointBatch2 = JsonConvert.DeserializeObject<PIPoint>(batchResponse["2"].Content.ToString());
+		PIItemsStreamValue batchStreamValues = JsonConvert.DeserializeObject<PIItemsStreamValue>(batchResponse["3"].Content.ToString());
+		foreach (PIStreamValue piStreamValue in batchStreamValues.Items)
+		{
+			Console.WriteLine("PI Point: {0}, Value: {1}, Timestamp: {2}", piStreamValue.Name, piStreamValue.Value.Value, piStreamValue.Value.Timestamp);
+		}
+    }
+```
+
 
 ### Getting WebID 2.0 information
 
