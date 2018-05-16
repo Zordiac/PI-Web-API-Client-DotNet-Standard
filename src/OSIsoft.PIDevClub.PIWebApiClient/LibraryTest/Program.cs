@@ -33,9 +33,9 @@ namespace LibraryTest
         static void Main(string[] args)
         {
             //Do not verify Ssl certificate
-            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             //Create an instance of the PI Web API top level object.
-            PIWebApiClient client = new PIWebApiClient("https://marc-rras.osisoft.int/piwebapi/", false, "marc.adm", "kk");
+            PIWebApiClient client = new PIWebApiClient("https://marc-web-sql.marc.net/piwebapi/", true);
 
             //PIWebApiClient client = new PIWebApiClient("https://devdata.osisoft.com/piwebapi", false, "webapiuser", "!try3.14webapi!");
             var homeLanding = client.Home.Get();

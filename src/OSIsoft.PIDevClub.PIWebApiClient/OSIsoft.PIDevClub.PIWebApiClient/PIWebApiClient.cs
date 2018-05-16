@@ -275,6 +275,42 @@ namespace OSIsoft.PIDevClub.PIWebApiClient
             }
         }
 
+        public INotificationContactTemplateApi NotificationContactTemplate
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationContactTemplateApi(config);
+            }
+        }
+
+        public INotificationRuleApi NotificationRule
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationRuleApi(config);
+            }
+        }
+
+        public INotificationRuleSubscriberApi NotificationRuleSubscriber
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationRuleSubscriberApi(config);
+            }
+        }
+
+        public INotificationRuleTemplateApi NotificationRuleTemplate
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationRuleTemplateApi(config);
+            }
+        }
+
 
         public IPointApi Point
         {
