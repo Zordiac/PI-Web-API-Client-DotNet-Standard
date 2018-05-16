@@ -11,6 +11,7 @@ Name | Type | Notes
 **Type** | **string**
 **TypeQualifier** | **string**
 **DefaultUnitsName** | **string**
+**DisplayDigits** | **int?**
 **DataReferencePlugIn** | **string**
 **ConfigString** | **string**
 **IsConfigurationItem** | **bool?**
@@ -21,6 +22,9 @@ Name | Type | Notes
 **CategoryNames** | **List<string>**
 **Step** | **bool?**
 **TraitName** | **string**
+**DefaultUnitsNameAbbreviation** | **string**
+**Span** | **double?**
+**Zero** | **double?**
 **Links** | **[**PIAttributeLinks**](../Model/PIAttributeLinks.md)**
 **WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 

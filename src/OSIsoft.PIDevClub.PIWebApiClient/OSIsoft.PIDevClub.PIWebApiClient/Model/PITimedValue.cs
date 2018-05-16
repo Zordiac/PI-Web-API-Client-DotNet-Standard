@@ -38,13 +38,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PITimedValue
 	{
-		public PITimedValue(string Timestamp = null, string UnitsAbbreviation = null, bool? Good = null, bool? Questionable = null, bool? Substituted = null, object Value = null, List<PIPropertyError> Errors = null, PIWebException WebException = null)
+		public PITimedValue(string Timestamp = null, string UnitsAbbreviation = null, bool? Good = null, bool? Questionable = null, bool? Substituted = null, bool? Annotated = null, object Value = null, List<PIPropertyError> Errors = null, PIWebException WebException = null)
 		{
 			this.Timestamp = Timestamp;
 			this.UnitsAbbreviation = UnitsAbbreviation;
 			this.Good = Good;
 			this.Questionable = Questionable;
 			this.Substituted = Substituted;
+			this.Annotated = Annotated;
 			this.Value = Value;
 			this.Errors = Errors;
 			this.WebException = WebException;
@@ -79,6 +80,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Substituted", EmitDefaultValue = false)]
 		public bool? Substituted { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PITimedValue
+		/// </summary>
+		[DataMember(Name = "Annotated", EmitDefaultValue = false)]
+		public bool? Annotated { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PITimedValue

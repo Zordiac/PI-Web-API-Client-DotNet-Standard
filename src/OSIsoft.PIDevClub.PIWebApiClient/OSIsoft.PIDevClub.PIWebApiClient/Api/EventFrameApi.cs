@@ -260,7 +260,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		ApiResponse<Object> UpdateAnnotationWithHttpInfo(string id, string webId, PIAnnotation annotation);
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -272,7 +272,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		Object DeleteAnnotation(string id, string webId);
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -284,28 +284,56 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		ApiResponse<Object> DeleteAnnotationWithHttpInfo(string id, string webId);
 
 		/// <summary>
-		/// Get the attributes of the specified event frame.
+		/// Delete attached media from an annotation on an event frame.
 		/// </summary>
 		/// <remarks>
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of the event frame.</param>
-		/// <param name="categoryName">Specify that returned attributes must have this category. The default is no category filter.</param>
-		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
-		/// <param name="nameFilter">The name query string used for finding attributes. The default is no filter.</param>
-		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <returns>Object</returns>
+		Object DeleteAnnotationAttachmentMediaById(string id, string webId);
+
+		/// <summary>
+		/// Delete attached media from an annotation on an event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <returns>ApiResponse<Object></returns>
+		ApiResponse<Object> DeleteAnnotationAttachmentMediaByIdWithHttpInfo(string id, string webId);
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
-		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
-		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
-		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
-		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
-		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
-		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
-		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
-		/// <returns>PIItemsAttribute</returns>
-		PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null);
+		/// <returns>PIMediaMetadata</returns>
+		PIMediaMetadata GetAnnotationAttachmentMediaMetadataById(string id, string webId, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIMediaMetadata></returns>
+		ApiResponse<PIMediaMetadata> GetAnnotationAttachmentMediaMetadataByIdWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the attributes of the specified event frame.
@@ -326,10 +354,38 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
+		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsAttribute</returns>
+		PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null);
+
+		/// <summary>
+		/// Get the attributes of the specified event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the event frame.</param>
+		/// <param name="categoryName">Specify that returned attributes must have this category. The default is no category filter.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="nameFilter">The name query string used for finding attributes. The default is no filter.</param>
+		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
+		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttribute></returns>
-		ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null);
+		ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null);
 
 		/// <summary>
 		/// Create a new attribute of the specified event frame.
@@ -1158,7 +1214,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAnnotationAsyncWithHttpInfo(string id, string webId, PIAnnotation annotation, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -1171,7 +1227,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		System.Threading.Tasks.Task<Object> DeleteAnnotationAsync(string id, string webId, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -1184,29 +1240,60 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAnnotationAsyncWithHttpInfo(string id, string webId, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
-		/// Get the attributes of the specified event frame.
+		/// Delete attached media from an annotation on an event frame.
 		/// </summary>
 		/// <remarks>
 		/// 
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="webId">The ID of the event frame.</param>
-		/// <param name="categoryName">Specify that returned attributes must have this category. The default is no category filter.</param>
-		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
-		/// <param name="nameFilter">The name query string used for finding attributes. The default is no filter.</param>
-		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<Object></returns>
+		System.Threading.Tasks.Task<Object> DeleteAnnotationAttachmentMediaByIdAsync(string id, string webId, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Delete attached media from an annotation on an event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
+		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAnnotationAttachmentMediaByIdAsyncWithHttpInfo(string id, string webId, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
-		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
-		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
-		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
-		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
-		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
-		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
-		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
-		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		/// <returns>async System.Threading.Tasks.Task<PIMediaMetadata></returns>
+		System.Threading.Tasks.Task<PIMediaMetadata> GetAnnotationAttachmentMediaMetadataByIdAsync(string id, string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIMediaMetadata>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIMediaMetadata>> GetAnnotationAttachmentMediaMetadataByIdAsyncWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Get the attributes of the specified event frame.
@@ -1227,11 +1314,40 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
+		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
+		System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Get the attributes of the specified event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the event frame.</param>
+		/// <param name="categoryName">Specify that returned attributes must have this category. The default is no category filter.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned per call (page size). The default is 1000.</param>
+		/// <param name="nameFilter">The name query string used for finding attributes. The default is no filter.</param>
+		/// <param name="searchFullHierarchy">Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showExcluded">Specified if the search should include attributes with the Excluded property set. The default is 'false'.</param>
+		/// <param name="showHidden">Specified if the search should include attributes with the Hidden property set. The default is 'false'.</param>
+		/// <param name="sortField">The field or property of the object used to sort the returned collection. The default is 'Name'.</param>
+		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
+		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Create a new attribute of the specified event frame.
@@ -2434,7 +2550,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -2450,7 +2566,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -2495,6 +2611,134 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Delete attached media from an annotation on an event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <returns>Object</returns>
+		public Object DeleteAnnotationAttachmentMediaById(string id, string webId)
+		{
+			ApiResponse<Object> localVarResponse = DeleteAnnotationAttachmentMediaByIdWithHttpInfo(id, webId);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Delete attached media from an annotation on an event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <returns>ApiResponse<Object></returns>
+		public ApiResponse<Object> DeleteAnnotationAttachmentMediaByIdWithHttpInfo(string id, string webId)
+		{
+			// verify the required parameter 'id' is set
+			if (id == null)
+				throw new ApiException(400, "Missing required parameter 'id'");
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/eventframes/{webId}/annotations/{id}/attachment/media";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (id!= null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id));
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("DeleteAnnotationAttachmentMediaByIdWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
+				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+		}
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIMediaMetadata</returns>
+		public PIMediaMetadata GetAnnotationAttachmentMediaMetadataById(string id, string webId, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponse<PIMediaMetadata> localVarResponse = GetAnnotationAttachmentMediaMetadataByIdWithHttpInfo(id, webId, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIMediaMetadata></returns>
+		public ApiResponse<PIMediaMetadata> GetAnnotationAttachmentMediaMetadataByIdWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null)
+		{
+			// verify the required parameter 'id' is set
+			if (id == null)
+				throw new ApiException(400, "Missing required parameter 'id'");
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/eventframes/{webId}/annotations/{id}/attachment/media/metadata";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (id!= null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id));
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetAnnotationAttachmentMediaMetadataByIdWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIMediaMetadata>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIMediaMetadata)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIMediaMetadata)));
+		}
+
+		/// <summary>
 		/// Get the attributes of the specified event frame.
 		/// </summary>
 		/// <remarks>
@@ -2513,12 +2757,14 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttribute</returns>
-		public PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
+		public PIItemsAttribute GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAttribute> localVarResponse = GetAttributesWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType, webIdType);
+			ApiResponse<PIItemsAttribute> localVarResponse = GetAttributesWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, trait, traitCategory, valueType, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -2541,10 +2787,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttribute></returns>
-		public ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
+		public ApiResponse<PIItemsAttribute> GetAttributesWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2569,6 +2817,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", startIndex, false);
 			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (trait!= null) localVarQueryParams.Add("trait", trait, true);
+			if (traitCategory!= null) localVarQueryParams.Add("traitCategory", traitCategory, true);
 			if (valueType!= null) localVarQueryParams.Add("valueType", valueType, false);
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
@@ -4445,7 +4695,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -4462,7 +4712,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Delete an annotation on an event frame.
+		/// Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -4508,6 +4758,138 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Delete attached media from an annotation on an event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<Object></returns>
+		public async System.Threading.Tasks.Task<Object> DeleteAnnotationAttachmentMediaByIdAsync(string id, string webId, CancellationTokenSource cancellationTokenSource = null)
+		{
+			ApiResponse<Object> localVarResponse = await DeleteAnnotationAttachmentMediaByIdAsyncWithHttpInfo(id, webId, cancellationTokenSource);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Delete attached media from an annotation on an event frame.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the annotation to delete the attached media of.</param>
+		/// <param name="webId">The ID of the owner event frame of the annotation to delete the attached media of.</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAnnotationAttachmentMediaByIdAsyncWithHttpInfo(string id, string webId, CancellationTokenSource cancellationTokenSource = null)
+		{
+			// verify the required parameter 'id' is set
+			if (id == null)
+				throw new ApiException(400, "Missing required parameter 'id'");
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/eventframes/{webId}/annotations/{id}/attachment/media";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (id!= null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id));
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams, cancellationTokenSource);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("DeleteAnnotationAttachmentMediaByIdAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<Object>(localVarStatusCode,
+				localVarResponse.Headers,
+				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+		}
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIMediaMetadata></returns>
+		public async System.Threading.Tasks.Task<PIMediaMetadata> GetAnnotationAttachmentMediaMetadataByIdAsync(string id, string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			ApiResponse<PIMediaMetadata> localVarResponse = await GetAnnotationAttachmentMediaMetadataByIdAsyncWithHttpInfo(id, webId, selectedFields, webIdType, cancellationTokenSource);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Gets the metadata of the media attached to the specified annotation.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="id">The Annotation identifier of the specific annotation.</param>
+		/// <param name="webId">The ID of the owner event frame.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIMediaMetadata>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIMediaMetadata>> GetAnnotationAttachmentMediaMetadataByIdAsyncWithHttpInfo(string id, string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			// verify the required parameter 'id' is set
+			if (id == null)
+				throw new ApiException(400, "Missing required parameter 'id'");
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/eventframes/{webId}/annotations/{id}/attachment/media/metadata";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (id!= null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id));
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams, cancellationTokenSource);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetAnnotationAttachmentMediaMetadataByIdAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIMediaMetadata>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIMediaMetadata)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIMediaMetadata)));
+		}
+
+		/// <summary>
 		/// Get the attributes of the specified event frame.
 		/// </summary>
 		/// <remarks>
@@ -4526,13 +4908,15 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
 		{
-			ApiResponse<PIItemsAttribute> localVarResponse = await GetAttributesAsyncWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType, webIdType, cancellationTokenSource);
+			ApiResponse<PIItemsAttribute> localVarResponse = await GetAttributesAsyncWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, trait, traitCategory, valueType, webIdType, cancellationTokenSource);
 			return localVarResponse.Data;
 		}
 
@@ -4555,11 +4939,13 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="sortOrder">The order that the returned collection is sorted. The default is 'Ascending'.</param>
 		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="templateName">Specify that returned attributes must be members of this template. The default is no template filter.</param>
+		/// <param name="trait">The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.</param>
+		/// <param name="traitCategory">The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.</param>
 		/// <param name="valueType">Specify that returned attributes' value type must be the given value type. The default is no value type filter.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4584,6 +4970,8 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", sortOrder, false);
 			if (startIndex!= null) localVarQueryParams.Add("startIndex", startIndex, false);
 			if (templateName!= null) localVarQueryParams.Add("templateName", templateName, false);
+			if (trait!= null) localVarQueryParams.Add("trait", trait, true);
+			if (traitCategory!= null) localVarQueryParams.Add("traitCategory", traitCategory, true);
 			if (valueType!= null) localVarQueryParams.Add("valueType", valueType, false);
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,

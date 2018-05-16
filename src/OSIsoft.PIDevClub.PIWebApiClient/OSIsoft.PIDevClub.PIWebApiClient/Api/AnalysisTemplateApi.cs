@@ -139,7 +139,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -150,7 +150,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -499,7 +499,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -511,7 +511,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -1041,7 +1041,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -1056,7 +1056,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -1880,7 +1880,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>
@@ -1896,7 +1896,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Delete an analysis template.
 		/// </summary>
 		/// <remarks>
-		/// Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
+		/// Deleting an analysis template will delete any analysis which was created from it, unless the analysis is tied to a notification.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the analysis template to update.</param>

@@ -9,7 +9,10 @@ Name | Type | Notes
 **Database** | **string**
 **Categories** | **string**
 **BaseTemplate** | **string**
+**BaseTemplates** | **string**
+**DerivedTemplates** | **string**
 **DefaultAttribute** | **string**
+**NotificationRuleTemplates** | **string**
 **Security** | **string**
 **SecurityEntries** | **string**
 

@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAssetServer
 	{
-		public PIAssetServer(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, bool? IsConnected = null, string ServerVersion = null, Dictionary<string, PIValue> ExtendedProperties = null, PIAssetServerLinks Links = null, PIWebException WebException = null)
+		public PIAssetServer(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, bool? IsConnected = null, string ServerVersion = null, string ServerTime = null, Dictionary<string, PIValue> ExtendedProperties = null, PIAssetServerLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -47,6 +47,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Path = Path;
 			this.IsConnected = IsConnected;
 			this.ServerVersion = ServerVersion;
+			this.ServerTime = ServerTime;
 			this.ExtendedProperties = ExtendedProperties;
 			this.Links = Links;
 			this.WebException = WebException;
@@ -93,6 +94,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "ServerVersion", EmitDefaultValue = false)]
 		public string ServerVersion { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAssetServer
+		/// </summary>
+		[DataMember(Name = "ServerTime", EmitDefaultValue = false)]
+		public string ServerTime { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIAssetServer

@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIElementLinks
 	{
-		public PIElementLinks(string Self = null, string Analyses = null, string Attributes = null, string Elements = null, string Database = null, string Parent = null, string Template = null, string Categories = null, string DefaultAttribute = null, string EventFrames = null, string InterpolatedData = null, string RecordedData = null, string PlotData = null, string SummaryData = null, string Value = null, string EndValue = null, string Security = null, string SecurityEntries = null)
+		public PIElementLinks(string Self = null, string Analyses = null, string Attributes = null, string Elements = null, string Database = null, string Parent = null, string Template = null, string Categories = null, string DefaultAttribute = null, string EventFrames = null, string InterpolatedData = null, string RecordedData = null, string PlotData = null, string SummaryData = null, string Value = null, string EndValue = null, string Security = null, string SecurityEntries = null, string NotificationRules = null)
 		{
 			this.Self = Self;
 			this.Analyses = Analyses;
@@ -58,6 +58,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.EndValue = EndValue;
 			this.Security = Security;
 			this.SecurityEntries = SecurityEntries;
+			this.NotificationRules = NotificationRules;
 		}
 
 		/// <summary>
@@ -167,6 +168,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "SecurityEntries", EmitDefaultValue = false)]
 		public string SecurityEntries { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIElementLinks
+		/// </summary>
+		[DataMember(Name = "NotificationRules", EmitDefaultValue = false)]
+		public string NotificationRules { get; set; }
 
 	}
 }

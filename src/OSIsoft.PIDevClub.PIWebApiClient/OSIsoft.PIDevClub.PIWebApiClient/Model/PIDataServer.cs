@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIDataServer
 	{
-		public PIDataServer(string WebId = null, string Id = null, string Name = null, string Path = null, bool? IsConnected = null, string ServerVersion = null, PIDataServerLinks Links = null, PIWebException WebException = null)
+		public PIDataServer(string WebId = null, string Id = null, string Name = null, string Path = null, bool? IsConnected = null, string ServerVersion = null, string ServerTime = null, PIDataServerLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -46,6 +46,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Path = Path;
 			this.IsConnected = IsConnected;
 			this.ServerVersion = ServerVersion;
+			this.ServerTime = ServerTime;
 			this.Links = Links;
 			this.WebException = WebException;
 		}
@@ -85,6 +86,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "ServerVersion", EmitDefaultValue = false)]
 		public string ServerVersion { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIDataServer
+		/// </summary>
+		[DataMember(Name = "ServerTime", EmitDefaultValue = false)]
+		public string ServerTime { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIDataServer

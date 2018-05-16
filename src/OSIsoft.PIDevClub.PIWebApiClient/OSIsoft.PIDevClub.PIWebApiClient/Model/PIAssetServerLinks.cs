@@ -38,10 +38,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAssetServerLinks
 	{
-		public PIAssetServerLinks(string Self = null, string Databases = null, string SecurityIdentities = null, string SecurityMappings = null, string UnitClasses = null, string AnalysisRulePlugIns = null, string TimeRulePlugIns = null, string Security = null, string SecurityEntries = null)
+		public PIAssetServerLinks(string Self = null, string Databases = null, string NotificationContactTemplates = null, string SecurityIdentities = null, string SecurityMappings = null, string UnitClasses = null, string AnalysisRulePlugIns = null, string TimeRulePlugIns = null, string Security = null, string SecurityEntries = null)
 		{
 			this.Self = Self;
 			this.Databases = Databases;
+			this.NotificationContactTemplates = NotificationContactTemplates;
 			this.SecurityIdentities = SecurityIdentities;
 			this.SecurityMappings = SecurityMappings;
 			this.UnitClasses = UnitClasses;
@@ -62,6 +63,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Databases", EmitDefaultValue = false)]
 		public string Databases { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAssetServerLinks
+		/// </summary>
+		[DataMember(Name = "NotificationContactTemplates", EmitDefaultValue = false)]
+		public string NotificationContactTemplates { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIAssetServerLinks

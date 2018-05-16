@@ -38,10 +38,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAnnotationLinks
 	{
-		public PIAnnotationLinks(string Self = null, string Owner = null)
+		public PIAnnotationLinks(string Self = null, string Owner = null, string MediaData = null, string MediaMetadata = null)
 		{
 			this.Self = Self;
 			this.Owner = Owner;
+			this.MediaData = MediaData;
+			this.MediaMetadata = MediaMetadata;
 		}
 
 		/// <summary>
@@ -55,6 +57,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Owner", EmitDefaultValue = false)]
 		public string Owner { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnnotationLinks
+		/// </summary>
+		[DataMember(Name = "MediaData", EmitDefaultValue = false)]
+		public string MediaData { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAnnotationLinks
+		/// </summary>
+		[DataMember(Name = "MediaMetadata", EmitDefaultValue = false)]
+		public string MediaMetadata { get; set; }
 
 	}
 }

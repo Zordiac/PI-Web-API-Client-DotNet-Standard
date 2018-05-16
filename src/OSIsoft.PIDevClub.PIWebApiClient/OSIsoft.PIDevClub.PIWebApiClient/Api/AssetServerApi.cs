@@ -214,6 +214,32 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		ApiResponse<Object> CreateAssetDatabaseWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null);
 
 		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsNotificationContactTemplate</returns>
+		PIItemsNotificationContactTemplate GetNotificationContactTemplates(string webId, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsNotificationContactTemplate></returns>
+		ApiResponse<PIItemsNotificationContactTemplate> GetNotificationContactTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
 		/// Get the security information of the specified security item associated with the asset server for a specified user.
 		/// </summary>
 		/// <remarks>
@@ -818,6 +844,34 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
 		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAssetDatabaseAsyncWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationContactTemplate></returns>
+		System.Threading.Tasks.Task<PIItemsNotificationContactTemplate> GetNotificationContactTemplatesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationContactTemplate>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationContactTemplate>> GetNotificationContactTemplatesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the asset server for a specified user.
@@ -1711,6 +1765,67 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			return new ApiResponse<Object>(localVarStatusCode,
 				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+		}
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsNotificationContactTemplate</returns>
+		public PIItemsNotificationContactTemplate GetNotificationContactTemplates(string webId, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponse<PIItemsNotificationContactTemplate> localVarResponse = GetNotificationContactTemplatesWithHttpInfo(webId, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsNotificationContactTemplate></returns>
+		public ApiResponse<PIItemsNotificationContactTemplate> GetNotificationContactTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/assetservers/{webId}/notificationcontacttemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetNotificationContactTemplatesWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsNotificationContactTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsNotificationContactTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsNotificationContactTemplate)));
 		}
 
 		/// <summary>
@@ -3107,6 +3222,69 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			return new ApiResponse<Object>(localVarStatusCode,
 				localVarResponse.Headers,
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+		}
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationContactTemplate></returns>
+		public async System.Threading.Tasks.Task<PIItemsNotificationContactTemplate> GetNotificationContactTemplatesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			ApiResponse<PIItemsNotificationContactTemplate> localVarResponse = await GetNotificationContactTemplatesAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationTokenSource);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Retrieve a list of all notification contact templates on the specified Asset Server.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the server.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationContactTemplate>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationContactTemplate>> GetNotificationContactTemplatesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/assetservers/{webId}/notificationcontacttemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams, cancellationTokenSource);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetNotificationContactTemplatesAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsNotificationContactTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsNotificationContactTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsNotificationContactTemplate)));
 		}
 
 		/// <summary>

@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAttributeTemplate
 	{
-		public PIAttributeTemplate(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string Type = null, string TypeQualifier = null, string DefaultUnitsName = null, object DefaultValue = null, string DataReferencePlugIn = null, string ConfigString = null, bool? IsConfigurationItem = null, bool? IsExcluded = null, bool? IsHidden = null, bool? IsManualDataEntry = null, bool? HasChildren = null, List<string> CategoryNames = null, string TraitName = null, PIAttributeTemplateLinks Links = null, PIWebException WebException = null)
+		public PIAttributeTemplate(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string Type = null, string TypeQualifier = null, string DefaultUnitsName = null, object DefaultValue = null, string DataReferencePlugIn = null, string ConfigString = null, bool? IsConfigurationItem = null, bool? IsExcluded = null, bool? IsHidden = null, bool? IsManualDataEntry = null, bool? HasChildren = null, List<string> CategoryNames = null, string TraitName = null, string DefaultUnitsNameAbbreviation = null, PIAttributeTemplateLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -58,6 +58,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.HasChildren = HasChildren;
 			this.CategoryNames = CategoryNames;
 			this.TraitName = TraitName;
+			this.DefaultUnitsNameAbbreviation = DefaultUnitsNameAbbreviation;
 			this.Links = Links;
 			this.WebException = WebException;
 		}
@@ -169,6 +170,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "TraitName", EmitDefaultValue = false)]
 		public string TraitName { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttributeTemplate
+		/// </summary>
+		[DataMember(Name = "DefaultUnitsNameAbbreviation", EmitDefaultValue = false)]
+		public string DefaultUnitsNameAbbreviation { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIAttributeTemplate

@@ -57,7 +57,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -68,7 +68,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -125,7 +125,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -137,7 +137,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -254,7 +254,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -269,7 +269,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -417,7 +417,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>
@@ -433,7 +433,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get the value of a configuration item.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// The response content may vary based on the configuration item's data type.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="key">The key of the configuration item.</param>

@@ -8,6 +8,7 @@ Name | Type | Notes
 **Good** | **bool?**
 **Questionable** | **bool?**
 **Substituted** | **bool?**
+**Annotated** | **bool?**
 **Value** | **[**object**](../Model/Object.md)**
 **Errors** | **List<PIPropertyError>**
 **WebException** | **[**PIWebException**](../Model/PIWebException.md)**

@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIAttribute
 	{
-		public PIAttribute(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string Type = null, string TypeQualifier = null, string DefaultUnitsName = null, string DataReferencePlugIn = null, string ConfigString = null, bool? IsConfigurationItem = null, bool? IsExcluded = null, bool? IsHidden = null, bool? IsManualDataEntry = null, bool? HasChildren = null, List<string> CategoryNames = null, bool? Step = null, string TraitName = null, PIAttributeLinks Links = null, PIWebException WebException = null)
+		public PIAttribute(string WebId = null, string Id = null, string Name = null, string Description = null, string Path = null, string Type = null, string TypeQualifier = null, string DefaultUnitsName = null, int? DisplayDigits = null, string DataReferencePlugIn = null, string ConfigString = null, bool? IsConfigurationItem = null, bool? IsExcluded = null, bool? IsHidden = null, bool? IsManualDataEntry = null, bool? HasChildren = null, List<string> CategoryNames = null, bool? Step = null, string TraitName = null, string DefaultUnitsNameAbbreviation = null, double? Span = null, double? Zero = null, PIAttributeLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -48,6 +48,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Type = Type;
 			this.TypeQualifier = TypeQualifier;
 			this.DefaultUnitsName = DefaultUnitsName;
+			this.DisplayDigits = DisplayDigits;
 			this.DataReferencePlugIn = DataReferencePlugIn;
 			this.ConfigString = ConfigString;
 			this.IsConfigurationItem = IsConfigurationItem;
@@ -58,6 +59,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.CategoryNames = CategoryNames;
 			this.Step = Step;
 			this.TraitName = TraitName;
+			this.DefaultUnitsNameAbbreviation = DefaultUnitsNameAbbreviation;
+			this.Span = Span;
+			this.Zero = Zero;
 			this.Links = Links;
 			this.WebException = WebException;
 		}
@@ -109,6 +113,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "DefaultUnitsName", EmitDefaultValue = false)]
 		public string DefaultUnitsName { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttribute
+		/// </summary>
+		[DataMember(Name = "DisplayDigits", EmitDefaultValue = false)]
+		public int? DisplayDigits { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIAttribute
@@ -169,6 +179,24 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "TraitName", EmitDefaultValue = false)]
 		public string TraitName { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttribute
+		/// </summary>
+		[DataMember(Name = "DefaultUnitsNameAbbreviation", EmitDefaultValue = false)]
+		public string DefaultUnitsNameAbbreviation { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttribute
+		/// </summary>
+		[DataMember(Name = "Span", EmitDefaultValue = false)]
+		public double? Span { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIAttribute
+		/// </summary>
+		[DataMember(Name = "Zero", EmitDefaultValue = false)]
+		public double? Zero { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIAttribute

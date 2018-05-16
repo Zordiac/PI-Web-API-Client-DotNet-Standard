@@ -199,7 +199,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServerLicense</returns>
-		PIDataServerLicense GetLicense(string webId, string module, string selectedFields = null, string webIdType = null);
+		PIDataServerLicense GetLicense(string webId, string module = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
@@ -213,7 +213,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServerLicense></returns>
-		ApiResponse<PIDataServerLicense> GetLicenseWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null);
+		ApiResponse<PIDataServerLicense> GetLicenseWithHttpInfo(string webId, string module = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
@@ -454,7 +454,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServerLicense></returns>
-		System.Threading.Tasks.Task<PIDataServerLicense> GetLicenseAsync(string webId, string module, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PIDataServerLicense> GetLicenseAsync(string webId, string module = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
@@ -469,7 +469,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>> GetLicenseAsyncWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>> GetLicenseAsyncWithHttpInfo(string webId, string module = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Retrieve a list of points on a specified Data Server.
@@ -940,7 +940,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIDataServerLicense</returns>
-		public PIDataServerLicense GetLicense(string webId, string module, string selectedFields = null, string webIdType = null)
+		public PIDataServerLicense GetLicense(string webId, string module = null, string selectedFields = null, string webIdType = null)
 		{
 			ApiResponse<PIDataServerLicense> localVarResponse = GetLicenseWithHttpInfo(webId, module, selectedFields, webIdType);
 			return localVarResponse.Data;
@@ -958,14 +958,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIDataServerLicense></returns>
-		public ApiResponse<PIDataServerLicense> GetLicenseWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null)
+		public ApiResponse<PIDataServerLicense> GetLicenseWithHttpInfo(string webId, string module = null, string selectedFields = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
-			// verify the required parameter 'module' is set
-			if (module == null)
-				throw new ApiException(400, "Missing required parameter 'module'");
 
 			var localVarPath = "/dataservers/{webId}/license";
 			var localVarPathParams = new Dictionary<String, String>();
@@ -1519,7 +1516,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIDataServerLicense></returns>
-		public async System.Threading.Tasks.Task<PIDataServerLicense> GetLicenseAsync(string webId, string module, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PIDataServerLicense> GetLicenseAsync(string webId, string module = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
 		{
 			ApiResponse<PIDataServerLicense> localVarResponse = await GetLicenseAsyncWithHttpInfo(webId, module, selectedFields, webIdType, cancellationTokenSource);
 			return localVarResponse.Data;
@@ -1538,14 +1535,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>> GetLicenseAsyncWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIDataServerLicense>> GetLicenseAsyncWithHttpInfo(string webId, string module = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
-			// verify the required parameter 'module' is set
-			if (module == null)
-				throw new ApiException(400, "Missing required parameter 'module'");
 
 			var localVarPath = "/dataservers/{webId}/license";
 			var localVarPathParams = new Dictionary<String, String>();

@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIElementTemplateLinks
 	{
-		public PIElementTemplateLinks(string Self = null, string AnalysisTemplates = null, string AttributeTemplates = null, string Database = null, string Categories = null, string BaseTemplate = null, string DefaultAttribute = null, string Security = null, string SecurityEntries = null)
+		public PIElementTemplateLinks(string Self = null, string AnalysisTemplates = null, string AttributeTemplates = null, string Database = null, string Categories = null, string BaseTemplate = null, string BaseTemplates = null, string DerivedTemplates = null, string DefaultAttribute = null, string NotificationRuleTemplates = null, string Security = null, string SecurityEntries = null)
 		{
 			this.Self = Self;
 			this.AnalysisTemplates = AnalysisTemplates;
@@ -46,7 +46,10 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.Database = Database;
 			this.Categories = Categories;
 			this.BaseTemplate = BaseTemplate;
+			this.BaseTemplates = BaseTemplates;
+			this.DerivedTemplates = DerivedTemplates;
 			this.DefaultAttribute = DefaultAttribute;
+			this.NotificationRuleTemplates = NotificationRuleTemplates;
 			this.Security = Security;
 			this.SecurityEntries = SecurityEntries;
 		}
@@ -90,8 +93,26 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// <summary>
 		/// Gets or Sets PIElementTemplateLinks
 		/// </summary>
+		[DataMember(Name = "BaseTemplates", EmitDefaultValue = false)]
+		public string BaseTemplates { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIElementTemplateLinks
+		/// </summary>
+		[DataMember(Name = "DerivedTemplates", EmitDefaultValue = false)]
+		public string DerivedTemplates { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIElementTemplateLinks
+		/// </summary>
 		[DataMember(Name = "DefaultAttribute", EmitDefaultValue = false)]
 		public string DefaultAttribute { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIElementTemplateLinks
+		/// </summary>
+		[DataMember(Name = "NotificationRuleTemplates", EmitDefaultValue = false)]
+		public string NotificationRuleTemplates { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIElementTemplateLinks

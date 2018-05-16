@@ -38,11 +38,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PILandingLinks
 	{
-		public PILandingLinks(string Self = null, string AssetServers = null, string DataServers = null, string Search = null, string System = null)
+		public PILandingLinks(string Self = null, string AssetServers = null, string DataServers = null, string PIDirectory = null, string Search = null, string System = null)
 		{
 			this.Self = Self;
 			this.AssetServers = AssetServers;
 			this.DataServers = DataServers;
+			this.PIDirectory = PIDirectory;
 			this.Search = Search;
 			this.System = System;
 		}
@@ -64,6 +65,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "DataServers", EmitDefaultValue = false)]
 		public string DataServers { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PILandingLinks
+		/// </summary>
+		[DataMember(Name = "PIDirectory", EmitDefaultValue = false)]
+		public string PIDirectory { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PILandingLinks

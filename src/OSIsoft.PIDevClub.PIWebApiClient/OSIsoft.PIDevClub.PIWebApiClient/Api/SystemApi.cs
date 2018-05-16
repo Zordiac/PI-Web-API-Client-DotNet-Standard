@@ -74,7 +74,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		ApiResponse<PIItemsCacheInstance> CacheInstancesWithHttpInfo();
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -84,7 +84,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		PISystemStatus Status();
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -180,7 +180,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>> CacheInstancesAsyncWithHttpInfo(CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -191,7 +191,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		System.Threading.Tasks.Task<PISystemStatus> StatusAsync(CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -376,7 +376,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -390,7 +390,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -627,7 +627,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 
@@ -642,7 +642,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
-		/// Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
+		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
 		/// </summary>
 		/// <remarks>
 		/// 

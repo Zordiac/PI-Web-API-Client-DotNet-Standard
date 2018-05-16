@@ -11,7 +11,9 @@ Method | HTTP request | Description
 [**CreateAnnotation**](EventFrameApi.md#createannotation) | **POST** /eventframes/{webId}/annotations | Create an annotation on an event frame.
 [**GetAnnotationById**](EventFrameApi.md#getannotationbyid) | **GET** /eventframes/{webId}/annotations/{id} | Get a specific annotation on an event frame.
 [**UpdateAnnotation**](EventFrameApi.md#updateannotation) | **PATCH** /eventframes/{webId}/annotations/{id} | Update an annotation on an event frame by replacing items in its definition.
-[**DeleteAnnotation**](EventFrameApi.md#deleteannotation) | **DELETE** /eventframes/{webId}/annotations/{id} | Delete an annotation on an event frame.
+[**DeleteAnnotation**](EventFrameApi.md#deleteannotation) | **DELETE** /eventframes/{webId}/annotations/{id} | Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
+[**DeleteAnnotationAttachmentMediaById**](EventFrameApi.md#deleteannotationattachmentmediabyid) | **DELETE** /eventframes/{webId}/annotations/{id}/attachment/media | Delete attached media from an annotation on an event frame.
+[**GetAnnotationAttachmentMediaMetadataById**](EventFrameApi.md#getannotationattachmentmediametadatabyid) | **GET** /eventframes/{webId}/annotations/{id}/attachment/media/metadata | Gets the metadata of the media attached to the specified annotation.
 [**GetAttributes**](EventFrameApi.md#getattributes) | **GET** /eventframes/{webId}/attributes | Get the attributes of the specified event frame.
 [**CreateAttribute**](EventFrameApi.md#createattribute) | **POST** /eventframes/{webId}/attributes | Create a new attribute of the specified event frame.
 [**CaptureValues**](EventFrameApi.md#capturevalues) | **POST** /eventframes/{webId}/attributes/capture | Calls the EventFrame's CaptureValues method.
@@ -212,7 +214,7 @@ Name | Type | Description | Notes
 # **DeleteAnnotation**
 > DeleteAnnotation(string id, string webId)
 
-Delete an annotation on an event frame.
+Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 
 ### Parameters
 
@@ -228,8 +230,48 @@ Name | Type | Description | Notes
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
+# **DeleteAnnotationAttachmentMediaById**
+> DeleteAnnotationAttachmentMediaById(string id, string webId)
+
+Delete attached media from an annotation on an event frame.
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The Annotation identifier of the annotation to delete the attached media of.. | [required]
+ **webId** | **string**| The ID of the owner event frame of the annotation to delete the attached media of.. | [required]
+
+
+### Return type
+
+[**Object**](../Model/Object.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **GetAnnotationAttachmentMediaMetadataById**
+> GetAnnotationAttachmentMediaMetadataById(string id, string webId, string selectedFields = null, string webIdType = null)
+
+Gets the metadata of the media attached to the specified annotation.
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The Annotation identifier of the specific annotation.. | [required]
+ **webId** | **string**| The ID of the owner event frame.. | [required]
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
+
+
+### Return type
+
+[**PIMediaMetadata**](../Model/PIMediaMetadata.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
 # **GetAttributes**
-> GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string valueType = null, string webIdType = null)
+> GetAttributes(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null)
 
 Get the attributes of the specified event frame.
 
@@ -249,6 +291,8 @@ Name | Type | Description | Notes
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'.. | [optional]
  **startIndex** | **int?**| The starting index (zero based) of the items to be returned. The default is 0.. | [optional]
  **templateName** | **string**| Specify that returned attributes must be members of this template. The default is no template filter.. | [optional]
+ **trait** | **List<string>**| The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.. | [optional]
+ **traitCategory** | **List<string>**| The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.. | [optional]
  **valueType** | **string**| Specify that returned attributes' value type must be the given value type. The default is no value type filter.. | [optional]
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 

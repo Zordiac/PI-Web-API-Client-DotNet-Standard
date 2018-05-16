@@ -133,7 +133,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **GetLicense**
-> GetLicense(string webId, string module, string selectedFields = null, string webIdType = null)
+> GetLicense(string webId, string module = null, string selectedFields = null, string webIdType = null)
 
 Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.
 
@@ -142,7 +142,7 @@ Retrieves the specified license for the given Data Server. The fields of the res
 Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the server.. | [required]
- **module** | **string**| The case-sensitive name of the module.. | [required]
+ **module** | **string**| The case-sensitive name of the module.. | [optional]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 

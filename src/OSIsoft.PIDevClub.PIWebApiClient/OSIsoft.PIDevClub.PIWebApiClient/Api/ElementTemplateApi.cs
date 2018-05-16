@@ -161,29 +161,37 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttributeTemplate</returns>
-		PIItemsAttributeTemplate GetAttributeTemplates(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null);
+		PIItemsAttributeTemplate GetAttributeTemplates(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttributeTemplate></returns>
-		ApiResponse<PIItemsAttributeTemplate> GetAttributeTemplatesWithHttpInfo(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null);
+		ApiResponse<PIItemsAttributeTemplate> GetAttributeTemplatesWithHttpInfo(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null);
 
 		/// <summary>
 		/// Create an attribute template.
@@ -212,6 +220,34 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		ApiResponse<Object> CreateAttributeTemplateWithHttpInfo(string webId, PIAttributeTemplate template, string webIdType = null);
 
 		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsElementTemplate</returns>
+		PIItemsElementTemplate GetBaseElementTemplates(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsElementTemplate></returns>
+		ApiResponse<PIItemsElementTemplate> GetBaseElementTemplatesWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
 		/// Get an element template's categories.
 		/// </summary>
 		/// <remarks>
@@ -238,6 +274,62 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsElementCategory></returns>
 		ApiResponse<PIItemsElementCategory> GetCategoriesWithHttpInfo(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null);
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsElementTemplate</returns>
+		PIItemsElementTemplate GetDerivedElementTemplates(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null);
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsElementTemplate></returns>
+		ApiResponse<PIItemsElementTemplate> GetDerivedElementTemplatesWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null);
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsNotificationRuleTemplate</returns>
+		PIItemsNotificationRuleTemplate GetNotificationRuleTemplates(string webId, string selectedFields = null, string webIdType = null);
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsNotificationRuleTemplate></returns>
+		ApiResponse<PIItemsNotificationRuleTemplate> GetNotificationRuleTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the element template for a specified user.
@@ -547,31 +639,39 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttributeTemplate></returns>
-		System.Threading.Tasks.Task<PIItemsAttributeTemplate> GetAttributeTemplatesAsync(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PIItemsAttributeTemplate> GetAttributeTemplatesAsync(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTemplate>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTemplate>> GetAttributeTemplatesAsyncWithHttpInfo(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTemplate>> GetAttributeTemplatesAsyncWithHttpInfo(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Create an attribute template.
@@ -602,6 +702,36 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeTemplateAsyncWithHttpInfo(string webId, PIAttributeTemplate template, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsElementTemplate></returns>
+		System.Threading.Tasks.Task<PIItemsElementTemplate> GetBaseElementTemplatesAsync(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>> GetBaseElementTemplatesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
 		/// Get an element template's categories.
 		/// </summary>
 		/// <remarks>
@@ -630,6 +760,66 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>></returns>
 		System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsElementTemplate></returns>
+		System.Threading.Tasks.Task<PIItemsElementTemplate> GetDerivedElementTemplatesAsync(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>> GetDerivedElementTemplatesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationRuleTemplate></returns>
+		System.Threading.Tasks.Task<PIItemsNotificationRuleTemplate> GetNotificationRuleTemplatesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleTemplate>></returns>
+		System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleTemplate>> GetNotificationRuleTemplatesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the element template for a specified user.
@@ -1146,17 +1336,21 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>PIItemsAttributeTemplate</returns>
-		public PIItemsAttributeTemplate GetAttributeTemplates(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null)
+		public PIItemsAttributeTemplate GetAttributeTemplates(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null)
 		{
-			ApiResponse<PIItemsAttributeTemplate> localVarResponse = GetAttributeTemplatesWithHttpInfo(webId, selectedFields, showInherited, webIdType);
+			ApiResponse<PIItemsAttributeTemplate> localVarResponse = GetAttributeTemplatesWithHttpInfo(webId, depthFirstTraverse, maxCount, selectedFields, showDescendants, showInherited, startIndex, webIdType);
 			return localVarResponse.Data;
 		}
 
@@ -1164,15 +1358,19 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <returns>ApiResponse<PIItemsAttributeTemplate></returns>
-		public ApiResponse<PIItemsAttributeTemplate> GetAttributeTemplatesWithHttpInfo(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null)
+		public ApiResponse<PIItemsAttributeTemplate> GetAttributeTemplatesWithHttpInfo(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1186,8 +1384,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (depthFirstTraverse!= null) localVarQueryParams.Add("depthFirstTraverse", depthFirstTraverse, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showDescendants!= null) localVarQueryParams.Add("showDescendants", showDescendants, false);
 			if (showInherited!= null) localVarQueryParams.Add("showInherited", showInherited, false);
+			if (startIndex!= null) localVarQueryParams.Add("startIndex", startIndex, false);
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
@@ -1271,6 +1473,70 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsElementTemplate</returns>
+		public PIItemsElementTemplate GetBaseElementTemplates(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponse<PIItemsElementTemplate> localVarResponse = GetBaseElementTemplatesWithHttpInfo(webId, maxCount, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsElementTemplate></returns>
+		public ApiResponse<PIItemsElementTemplate> GetBaseElementTemplatesWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/elementtemplates/{webId}/baseelementtemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetBaseElementTemplatesWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsElementTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsElementTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElementTemplate)));
+		}
+
+		/// <summary>
 		/// Get an element template's categories.
 		/// </summary>
 		/// <remarks>
@@ -1332,6 +1598,134 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			return new ApiResponse<PIItemsElementCategory>(localVarStatusCode,
 				localVarResponse.Headers,
 				(PIItemsElementCategory)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElementCategory)));
+		}
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsElementTemplate</returns>
+		public PIItemsElementTemplate GetDerivedElementTemplates(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null)
+		{
+			ApiResponse<PIItemsElementTemplate> localVarResponse = GetDerivedElementTemplatesWithHttpInfo(webId, maxCount, selectedFields, showDescendants, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsElementTemplate></returns>
+		public ApiResponse<PIItemsElementTemplate> GetDerivedElementTemplatesWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/elementtemplates/{webId}/derivedelementtemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showDescendants!= null) localVarQueryParams.Add("showDescendants", showDescendants, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetDerivedElementTemplatesWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsElementTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsElementTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElementTemplate)));
+		}
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>PIItemsNotificationRuleTemplate</returns>
+		public PIItemsNotificationRuleTemplate GetNotificationRuleTemplates(string webId, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponse<PIItemsNotificationRuleTemplate> localVarResponse = GetNotificationRuleTemplatesWithHttpInfo(webId, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <returns>ApiResponse<PIItemsNotificationRuleTemplate></returns>
+		public ApiResponse<PIItemsNotificationRuleTemplate> GetNotificationRuleTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/elementtemplates/{webId}/notificationruletemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetNotificationRuleTemplatesWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsNotificationRuleTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsNotificationRuleTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsNotificationRuleTemplate)));
 		}
 
 		/// <summary>
@@ -2051,18 +2445,22 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttributeTemplate></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttributeTemplate> GetAttributeTemplatesAsync(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PIItemsAttributeTemplate> GetAttributeTemplatesAsync(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
 		{
-			ApiResponse<PIItemsAttributeTemplate> localVarResponse = await GetAttributeTemplatesAsyncWithHttpInfo(webId, selectedFields, showInherited, webIdType, cancellationTokenSource);
+			ApiResponse<PIItemsAttributeTemplate> localVarResponse = await GetAttributeTemplatesAsyncWithHttpInfo(webId, depthFirstTraverse, maxCount, selectedFields, showDescendants, showInherited, startIndex, webIdType, cancellationTokenSource);
 			return localVarResponse.Data;
 		}
 
@@ -2070,16 +2468,20 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// Get child attribute templates for an element template.
 		/// </summary>
 		/// <remarks>
-		/// 
+		/// If 'showInherited' and 'showDescendants' are 'true', it returns all the attribute templates from current element template and the base template.  If 'showInherited' is 'false', it returns all the attribute templates from the current element template.
 		/// </remarks>
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="depthFirstTraverse">When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.</param>
 		/// <param name="showInherited">Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.</param>
+		/// <param name="startIndex">The starting index (zero based) of the items to be returned. The default is 0.</param>
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTemplate>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTemplate>> GetAttributeTemplatesAsyncWithHttpInfo(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTemplate>> GetAttributeTemplatesAsyncWithHttpInfo(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2093,8 +2495,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			string localVarPostBody = null;
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (depthFirstTraverse!= null) localVarQueryParams.Add("depthFirstTraverse", depthFirstTraverse, false);
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showDescendants!= null) localVarQueryParams.Add("showDescendants", showDescendants, false);
 			if (showInherited!= null) localVarQueryParams.Add("showInherited", showInherited, false);
+			if (startIndex!= null) localVarQueryParams.Add("startIndex", startIndex, false);
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
@@ -2180,6 +2586,72 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		}
 
 		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsElementTemplate></returns>
+		public async System.Threading.Tasks.Task<PIItemsElementTemplate> GetBaseElementTemplatesAsync(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			ApiResponse<PIItemsElementTemplate> localVarResponse = await GetBaseElementTemplatesAsyncWithHttpInfo(webId, maxCount, selectedFields, webIdType, cancellationTokenSource);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Get base element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// The root template will be returned first, followed by successive templates in the inheritance chain.
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>> GetBaseElementTemplatesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/elementtemplates/{webId}/baseelementtemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams, cancellationTokenSource);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetBaseElementTemplatesAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsElementTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsElementTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElementTemplate)));
+		}
+
+		/// <summary>
 		/// Get an element template's categories.
 		/// </summary>
 		/// <remarks>
@@ -2243,6 +2715,138 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			return new ApiResponse<PIItemsElementCategory>(localVarStatusCode,
 				localVarResponse.Headers,
 				(PIItemsElementCategory)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElementCategory)));
+		}
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsElementTemplate></returns>
+		public async System.Threading.Tasks.Task<PIItemsElementTemplate> GetDerivedElementTemplatesAsync(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			ApiResponse<PIItemsElementTemplate> localVarResponse = await GetDerivedElementTemplatesAsyncWithHttpInfo(webId, maxCount, selectedFields, showDescendants, webIdType, cancellationTokenSource);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Get derived element templates for an element template.
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="maxCount">The maximum number of objects to be returned. The default is 1000.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="showDescendants">Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElementTemplate>> GetDerivedElementTemplatesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/elementtemplates/{webId}/derivedelementtemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (maxCount!= null) localVarQueryParams.Add("maxCount", maxCount, false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (showDescendants!= null) localVarQueryParams.Add("showDescendants", showDescendants, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams, cancellationTokenSource);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetDerivedElementTemplatesAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsElementTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsElementTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElementTemplate)));
+		}
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationRuleTemplate></returns>
+		public async System.Threading.Tasks.Task<PIItemsNotificationRuleTemplate> GetNotificationRuleTemplatesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			ApiResponse<PIItemsNotificationRuleTemplate> localVarResponse = await GetNotificationRuleTemplatesAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationTokenSource);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>
+		/// Get notification rule templates for an element template
+		/// </summary>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="webId">The ID of the element template.</param>
+		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
+		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
+		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
+		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleTemplate>></returns>
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleTemplate>> GetNotificationRuleTemplatesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		{
+			// verify the required parameter 'webId' is set
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/elementtemplates/{webId}/notificationruletemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			string localVarPostBody = null;
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", selectedFields, false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
+			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
+				localVarPathParams, cancellationTokenSource);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetNotificationRuleTemplatesAsyncWithHttpInfo", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponse<PIItemsNotificationRuleTemplate>(localVarStatusCode,
+				localVarResponse.Headers,
+				(PIItemsNotificationRuleTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsNotificationRuleTemplate)));
 		}
 
 		/// <summary>

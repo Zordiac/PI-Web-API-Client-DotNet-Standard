@@ -9,7 +9,10 @@ Method | HTTP request | Description
 [**GetAnalysisTemplates**](ElementTemplateApi.md#getanalysistemplates) | **GET** /elementtemplates/{webId}/analysistemplates | Get analysis templates for an element template.
 [**GetAttributeTemplates**](ElementTemplateApi.md#getattributetemplates) | **GET** /elementtemplates/{webId}/attributetemplates | Get child attribute templates for an element template.
 [**CreateAttributeTemplate**](ElementTemplateApi.md#createattributetemplate) | **POST** /elementtemplates/{webId}/attributetemplates | Create an attribute template.
+[**GetBaseElementTemplates**](ElementTemplateApi.md#getbaseelementtemplates) | **GET** /elementtemplates/{webId}/baseelementtemplates | Get base element templates for an element template.
 [**GetCategories**](ElementTemplateApi.md#getcategories) | **GET** /elementtemplates/{webId}/categories | Get an element template's categories.
+[**GetDerivedElementTemplates**](ElementTemplateApi.md#getderivedelementtemplates) | **GET** /elementtemplates/{webId}/derivedelementtemplates | Get derived element templates for an element template.
+[**GetNotificationRuleTemplates**](ElementTemplateApi.md#getnotificationruletemplates) | **GET** /elementtemplates/{webId}/notificationruletemplates | Get notification rule templates for an element template
 [**GetSecurity**](ElementTemplateApi.md#getsecurity) | **GET** /elementtemplates/{webId}/security | Get the security information of the specified security item associated with the element template for a specified user.
 [**GetSecurityEntries**](ElementTemplateApi.md#getsecurityentries) | **GET** /elementtemplates/{webId}/securityentries | Retrieve the security entries associated with the element template based on the specified criteria. By default, all security entries for this element template are returned.
 [**CreateSecurityEntry**](ElementTemplateApi.md#createsecurityentry) | **POST** /elementtemplates/{webId}/securityentries | Create a security entry owned by the element template.
@@ -116,7 +119,7 @@ Name | Type | Description | Notes
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
 # **GetAttributeTemplates**
-> GetAttributeTemplates(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null)
+> GetAttributeTemplates(string webId, bool? depthFirstTraverse = null, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, bool? showInherited = null, int? startIndex = null, string webIdType = null)
 
 Get child attribute templates for an element template.
 
@@ -125,8 +128,12 @@ Get child attribute templates for an element template.
 Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webId** | **string**| The ID of the element template.. | [required]
+ **depthFirstTraverse** | **bool?**| When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).. | [optional]
+ **maxCount** | **int?**| The maximum number of objects to be returned. The default is 1000.. | [optional]
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **showDescendants** | **bool?**| Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.. | [optional]
  **showInherited** | **bool?**| Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.. | [optional]
+ **startIndex** | **int?**| The starting index (zero based) of the items to be returned. The default is 0.. | [optional]
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
 
 
@@ -156,6 +163,27 @@ Name | Type | Description | Notes
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
+# **GetBaseElementTemplates**
+> GetBaseElementTemplates(string webId, int? maxCount = null, string selectedFields = null, string webIdType = null)
+
+Get base element templates for an element template.
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webId** | **string**| The ID of the element template.. | [required]
+ **maxCount** | **int?**| The maximum number of objects to be returned. The default is 1000.. | [optional]
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
+
+
+### Return type
+
+[**PIItemsElementTemplate**](../Model/PIItemsElementTemplate.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
 # **GetCategories**
 > GetCategories(string webId, string selectedFields = null, bool? showInherited = null, string webIdType = null)
 
@@ -174,6 +202,48 @@ Name | Type | Description | Notes
 ### Return type
 
 [**PIItemsElementCategory**](../Model/PIItemsElementCategory.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **GetDerivedElementTemplates**
+> GetDerivedElementTemplates(string webId, int? maxCount = null, string selectedFields = null, bool? showDescendants = null, string webIdType = null)
+
+Get derived element templates for an element template.
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webId** | **string**| The ID of the element template.. | [required]
+ **maxCount** | **int?**| The maximum number of objects to be returned. The default is 1000.. | [optional]
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **showDescendants** | **bool?**| Specifies if the result should include all descendant element templates from the current element template, even indirect ones. The default is 'false'.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
+
+
+### Return type
+
+[**PIItemsElementTemplate**](../Model/PIItemsElementTemplate.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **GetNotificationRuleTemplates**
+> GetNotificationRuleTemplates(string webId, string selectedFields = null, string webIdType = null)
+
+Get notification rule templates for an element template
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webId** | **string**| The ID of the element template.. | [required]
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional]
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional]
+
+
+### Return type
+
+[**PIItemsNotificationRuleTemplate**](../Model/PIItemsNotificationRuleTemplate.md)
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 

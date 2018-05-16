@@ -38,7 +38,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 
 	public class PIPoint
 	{
-		public PIPoint(string WebId = null, int? Id = null, string Name = null, string Path = null, string Descriptor = null, string PointClass = null, string PointType = null, string DigitalSetName = null, string EngineeringUnits = null, bool? Step = null, bool? Future = null, PIPointLinks Links = null, PIWebException WebException = null)
+		public PIPoint(string WebId = null, int? Id = null, string Name = null, string Path = null, string Descriptor = null, string PointClass = null, string PointType = null, string DigitalSetName = null, double? Span = null, double? Zero = null, string EngineeringUnits = null, bool? Step = null, bool? Future = null, int? DisplayDigits = null, PIPointLinks Links = null, PIWebException WebException = null)
 		{
 			this.WebId = WebId;
 			this.Id = Id;
@@ -48,9 +48,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 			this.PointClass = PointClass;
 			this.PointType = PointType;
 			this.DigitalSetName = DigitalSetName;
+			this.Span = Span;
+			this.Zero = Zero;
 			this.EngineeringUnits = EngineeringUnits;
 			this.Step = Step;
 			this.Future = Future;
+			this.DisplayDigits = DisplayDigits;
 			this.Links = Links;
 			this.WebException = WebException;
 		}
@@ -106,6 +109,18 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// <summary>
 		/// Gets or Sets PIPoint
 		/// </summary>
+		[DataMember(Name = "Span", EmitDefaultValue = false)]
+		public double? Span { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIPoint
+		/// </summary>
+		[DataMember(Name = "Zero", EmitDefaultValue = false)]
+		public double? Zero { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIPoint
+		/// </summary>
 		[DataMember(Name = "EngineeringUnits", EmitDefaultValue = false)]
 		public string EngineeringUnits { get; set; }
 
@@ -120,6 +135,12 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Model
 		/// </summary>
 		[DataMember(Name = "Future", EmitDefaultValue = false)]
 		public bool? Future { get; set; }
+
+		/// <summary>
+		/// Gets or Sets PIPoint
+		/// </summary>
+		[DataMember(Name = "DisplayDigits", EmitDefaultValue = false)]
+		public int? DisplayDigits { get; set; }
 
 		/// <summary>
 		/// Gets or Sets PIPoint

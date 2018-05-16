@@ -1,4 +1,4 @@
-PI Web API client library for .NET Standard (2017 R2)
+PI Web API client library for .NET Standard (2018)
 ===
 
 
@@ -11,12 +11,12 @@ Nevertheless, PI AF SDK is not compatible with .NET Core yet. Therefore, this li
 
 We have tested it on Windows, but it should work on Linux and OS X as well.
 
-This version was developed on top of the PI Web API 2017 R2 swagger specification. 
+This version was developed on top of the PI Web API 2018 swagger specification. 
 
 
 ## Requirements
 
- - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
+ - PI Web API 2018 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
  - .NET Core 2.0+ or .NET Framework 4.6+
 
  
