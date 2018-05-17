@@ -108,7 +108,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Dictionary<string, Object>></returns>
-		System.Threading.Tasks.Task<Dictionary<string, Object>> ListAsync(CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<Dictionary<string, Object>> ListAsync(CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Get the current system configuration.
@@ -119,7 +119,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>> ListAsyncWithHttpInfo(CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>> ListAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Get the value of a configuration item.
@@ -131,7 +131,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> GetAsync(string key, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<Object> GetAsync(string key, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Get the value of a configuration item.
@@ -143,7 +143,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> GetAsyncWithHttpInfo(string key, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> GetAsyncWithHttpInfo(string key, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Delete a configuration item.
@@ -155,7 +155,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item to remove.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> DeleteAsync(string key, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<Object> DeleteAsync(string key, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Delete a configuration item.
@@ -167,7 +167,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item to remove.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string key, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string key, CancellationToken? cancellationToken = null);
 
 		#endregion
 	}
@@ -371,9 +371,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Dictionary<string, Object>></returns>
-		public async System.Threading.Tasks.Task<Dictionary<string, Object>> ListAsync(CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<Dictionary<string, Object>> ListAsync(CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<Dictionary<string, Object>> localVarResponse = await ListAsyncWithHttpInfo(cancellationTokenSource);
+			ApiResponse<Dictionary<string, Object>> localVarResponse = await ListAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -386,7 +386,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>> ListAsyncWithHttpInfo(CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>> ListAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
 		{
 
 			var localVarPath = "/system/configuration";
@@ -398,7 +398,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -423,9 +423,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> GetAsync(string key, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<Object> GetAsync(string key, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<Object> localVarResponse = await GetAsyncWithHttpInfo(key, cancellationTokenSource);
+			ApiResponse<Object> localVarResponse = await GetAsyncWithHttpInfo(key, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -439,7 +439,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAsyncWithHttpInfo(string key, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAsyncWithHttpInfo(string key, CancellationToken? cancellationToken = null)
 		{
 			// verify the required parameter 'key' is set
 			if (key == null)
@@ -455,7 +455,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (key!= null) localVarPathParams.Add("key", Configuration.ApiClient.ParameterToString(key));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -480,9 +480,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item to remove.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> DeleteAsync(string key, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<Object> DeleteAsync(string key, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<Object> localVarResponse = await DeleteAsyncWithHttpInfo(key, cancellationTokenSource);
+			ApiResponse<Object> localVarResponse = await DeleteAsyncWithHttpInfo(key, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -496,7 +496,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="key">The key of the configuration item to remove.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string key, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string key, CancellationToken? cancellationToken = null)
 		{
 			// verify the required parameter 'key' is set
 			if (key == null)
@@ -512,7 +512,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (key!= null) localVarPathParams.Add("key", Configuration.ApiClient.ParameterToString(key));
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 

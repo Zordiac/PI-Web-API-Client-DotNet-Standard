@@ -184,7 +184,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetAtIntervalsAsync(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PITimedValues> GetAtIntervalsAsync(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns results of evaluating the expression over the time range from the start time to the end time at a defined interval.
@@ -201,7 +201,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtIntervalsAsyncWithHttpInfo(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtIntervalsAsyncWithHttpInfo(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns the result of evaluating the expression at each point in time over the time range from the start time to the end time where a recorded value exists for a member of the expression.
@@ -217,7 +217,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetAtRecordedAsync(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PITimedValues> GetAtRecordedAsync(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns the result of evaluating the expression at each point in time over the time range from the start time to the end time where a recorded value exists for a member of the expression.
@@ -233,7 +233,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtRecordedAsyncWithHttpInfo(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtRecordedAsyncWithHttpInfo(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns the result of evaluating the expression over the time range from the start time to the end time. The time range is first divided into a number of summary intervals. Then the calculation is performed for the specified summaries over each interval.
@@ -255,7 +255,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSummaryValue></returns>
-		System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns the result of evaluating the expression over the time range from the start time to the end time. The time range is first divided into a number of summary intervals. Then the calculation is performed for the specified summaries over each interval.
@@ -277,7 +277,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns the result of evaluating the expression at the specified timestamps.
@@ -293,7 +293,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetAtTimesAsync(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PITimedValues> GetAtTimesAsync(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Returns the result of evaluating the expression at the specified timestamps.
@@ -309,7 +309,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtTimesAsyncWithHttpInfo(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtTimesAsyncWithHttpInfo(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationToken? cancellationToken = null);
 
 		#endregion
 	}
@@ -637,9 +637,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetAtIntervalsAsync(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetAtIntervalsAsync(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PITimedValues> localVarResponse = await GetAtIntervalsAsyncWithHttpInfo(endTime, expression, sampleInterval, selectedFields, startTime, webId, cancellationTokenSource);
+			ApiResponse<PITimedValues> localVarResponse = await GetAtIntervalsAsyncWithHttpInfo(endTime, expression, sampleInterval, selectedFields, startTime, webId, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -658,7 +658,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtIntervalsAsyncWithHttpInfo(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtIntervalsAsyncWithHttpInfo(string endTime = null, string expression = null, string sampleInterval = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
 
 			var localVarPath = "/calculation/intervals";
@@ -676,7 +676,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarQueryParams.Add("webId", webId, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -705,9 +705,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetAtRecordedAsync(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetAtRecordedAsync(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PITimedValues> localVarResponse = await GetAtRecordedAsyncWithHttpInfo(endTime, expression, selectedFields, startTime, webId, cancellationTokenSource);
+			ApiResponse<PITimedValues> localVarResponse = await GetAtRecordedAsyncWithHttpInfo(endTime, expression, selectedFields, startTime, webId, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -725,7 +725,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtRecordedAsyncWithHttpInfo(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtRecordedAsyncWithHttpInfo(string endTime = null, string expression = null, string selectedFields = null, string startTime = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
 
 			var localVarPath = "/calculation/recorded";
@@ -742,7 +742,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarQueryParams.Add("webId", webId, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -777,9 +777,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSummaryValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PIItemsSummaryValue> localVarResponse = await GetSummaryAsyncWithHttpInfo(calculationBasis, endTime, expression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, webId, cancellationTokenSource);
+			ApiResponse<PIItemsSummaryValue> localVarResponse = await GetSummaryAsyncWithHttpInfo(calculationBasis, endTime, expression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, webId, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -803,7 +803,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string calculationBasis = null, string endTime = null, string expression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
 
 			var localVarPath = "/calculation/summary";
@@ -826,7 +826,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarQueryParams.Add("webId", webId, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -855,9 +855,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetAtTimesAsync(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetAtTimesAsync(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PITimedValues> localVarResponse = await GetAtTimesAsyncWithHttpInfo(expression, selectedFields, sortOrder, time, webId, cancellationTokenSource);
+			ApiResponse<PITimedValues> localVarResponse = await GetAtTimesAsyncWithHttpInfo(expression, selectedFields, sortOrder, time, webId, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -875,7 +875,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtTimesAsyncWithHttpInfo(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetAtTimesAsyncWithHttpInfo(string expression = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string webId = null, CancellationToken? cancellationToken = null)
 		{
 
 			var localVarPath = "/calculation/times";
@@ -892,7 +892,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webId!= null) localVarQueryParams.Add("webId", webId, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 

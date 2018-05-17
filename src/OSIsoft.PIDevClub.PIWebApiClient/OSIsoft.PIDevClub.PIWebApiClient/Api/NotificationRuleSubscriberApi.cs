@@ -125,7 +125,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PINotificationRuleSubscriber></returns>
-		System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Retrieve a notification rule subscriber by path.
@@ -139,7 +139,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Retrieve a notification rule subscriber.
@@ -153,7 +153,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PINotificationRuleSubscriber></returns>
-		System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Retrieve a notification rule subscriber.
@@ -167,7 +167,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Retrieve notification rule subscriber subscribers.
@@ -181,7 +181,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationRuleSubscriber></returns>
-		System.Threading.Tasks.Task<PIItemsNotificationRuleSubscriber> GetNotificationRuleSubscribersAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<PIItemsNotificationRuleSubscriber> GetNotificationRuleSubscribersAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
 
 		/// <summary>
 		/// Retrieve notification rule subscriber subscribers.
@@ -195,7 +195,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleSubscriber>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleSubscriber>> GetNotificationRuleSubscribersAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleSubscriber>> GetNotificationRuleSubscribersAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
 
 		#endregion
 	}
@@ -426,9 +426,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PINotificationRuleSubscriber></returns>
-		public async System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PINotificationRuleSubscriber> localVarResponse = await GetNotificationRuleSubscriberByPathAsyncWithHttpInfo(path, selectedFields, webIdType, cancellationTokenSource);
+			ApiResponse<PINotificationRuleSubscriber> localVarResponse = await GetNotificationRuleSubscriberByPathAsyncWithHttpInfo(path, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -444,7 +444,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -462,7 +462,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -489,9 +489,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PINotificationRuleSubscriber></returns>
-		public async System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PINotificationRuleSubscriber> GetNotificationRuleSubscriberAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PINotificationRuleSubscriber> localVarResponse = await GetNotificationRuleSubscriberAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationTokenSource);
+			ApiResponse<PINotificationRuleSubscriber> localVarResponse = await GetNotificationRuleSubscriberAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -507,7 +507,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PINotificationRuleSubscriber>> GetNotificationRuleSubscriberAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -525,7 +525,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -552,9 +552,9 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationRuleSubscriber></returns>
-		public async System.Threading.Tasks.Task<PIItemsNotificationRuleSubscriber> GetNotificationRuleSubscribersAsync(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<PIItemsNotificationRuleSubscriber> GetNotificationRuleSubscribersAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
 		{
-			ApiResponse<PIItemsNotificationRuleSubscriber> localVarResponse = await GetNotificationRuleSubscribersAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationTokenSource);
+			ApiResponse<PIItemsNotificationRuleSubscriber> localVarResponse = await GetNotificationRuleSubscribersAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
 		}
 
@@ -570,7 +570,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleSubscriber>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleSubscriber>> GetNotificationRuleSubscribersAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationTokenSource cancellationTokenSource = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRuleSubscriber>> GetNotificationRuleSubscribersAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -588,7 +588,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 			if (webIdType!= null) localVarQueryParams.Add("webIdType", webIdType, false);
 			IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
 				new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, 
-				localVarPathParams, cancellationTokenSource);
+				localVarPathParams, cancellationToken);
 
 			int localVarStatusCode = (int)localVarResponse.StatusCode;
 

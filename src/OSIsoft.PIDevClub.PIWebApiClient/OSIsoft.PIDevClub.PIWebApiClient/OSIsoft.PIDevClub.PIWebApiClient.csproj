@@ -8,7 +8,7 @@
     <PackageLicenseUrl>https://github.com/osimloeff/PI-Web-API-Client-DotNet-Standard/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/osimloeff/PI-Web-API-Client-DotNet-Standard</PackageProjectUrl>
     <RepositoryUrl>https://github.com/osimloeff/PI-Web-API-Client-DotNet-Standard</RepositoryUrl>
-    <PackageReleaseNotes>Updated using PI Web API 2018 swagger specification.
+    <PackageReleaseNotes>Upgraded using PI Web API 2018 swagger specification.
 </PackageReleaseNotes>
     <PackageTags>piwebapi, osisoft, client</PackageTags>
     <Description>The PI Web API client library for .NET Standard is a client REST library for the PI Web API, which is a RESTful web service on top of the OSIsoft PI System. This version was developed on top of the PI Web API 2017 R2 swagger specification.</Description>

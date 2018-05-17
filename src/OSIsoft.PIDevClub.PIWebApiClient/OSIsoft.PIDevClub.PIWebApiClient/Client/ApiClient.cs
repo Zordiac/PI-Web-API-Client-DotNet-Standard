@@ -156,27 +156,33 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Client
 
         internal async Task<IRestResponse> CallApiAsync(string localVarPath, HttpMethod method, CustomDictionaryForQueryString localVarQueryParams,
             string localVarPostBody, Dictionary<string, string> localVarHeaderParams, Dictionary<string, string> localVarPathParams,
-            CancellationTokenSource cancellationTokenSource = null)
+            CancellationToken? cancellationToken = null)
         {
             HttpRequestMessage request = PrepareRequest(localVarPath, method, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarPathParams);
             HttpResponseMessage response = null;
             HttpClient client = new HttpClient(handler);
-            if (cancellationTokenSource == null)
+
+            try
             {
-                try
+                if (cancellationToken == null)
                 {
                     response = await client.SendAsync(request);
-
                 }
-                catch (Exception e)
+                else
                 {
-                    throw new ApiException(1, e.Message);
+                    response = await client.SendAsync(request, (CancellationToken)cancellationToken);
                 }
+
             }
-            else
+            catch (TaskCanceledException e)
             {
-                response = await client.SendAsync(request, cancellationTokenSource.Token);
+                throw e;
             }
+            catch (Exception e)
+            {
+                throw new ApiException(1, e.Message);
+            }
+
             IRestResponse restResponse = new RestResponse(response);
             return restResponse;
         }

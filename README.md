@@ -206,7 +206,7 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 	string webId2 = client.WebIdHelper.GenerateWebIdByPath(Constants.PI_DATA_SERVER_PATH, typeof(PIDataServer));
 ```
 
-### Cancelling the HTTP request with the CancellationTokenSource
+### Cancelling the HTTP request with the CancellationToken
 
 ```cs
 	Stopwatch watch = Stopwatch.StartNew();
@@ -216,9 +216,10 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 	{
 		Task t = Task.Run(async () =>
 		{
-			bulkValues = await client.StreamSet.GetRecordedAdHocAsync(webId: webIds, startTime: "*-1800d", endTime: "*", maxCount: 50000, cancellationTokenSource: cancellationTokenSource);
+			bulkValues = await client.StreamSet.GetRecordedAdHocAsync(webId: webIds, startTime: "*-1800d", endTime: "*", maxCount: 50000, cancellationToken: cancellationTokenSource.Token);
 		});
-		System.Threading.Thread.Sleep(4000);
+		//Cancel the request after 1s
+		System.Threading.Thread.Sleep(1000);
 		cancellationTokenSource.Cancel();
 		t.Wait();
 		Console.WriteLine("Completed task: Time elapsed: {0}s", 0.001 * watch.ElapsedMilliseconds);
