@@ -64,7 +64,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsChannelInstance></returns>
-		System.Threading.Tasks.Task<PIItemsChannelInstance> InstancesAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsChannelInstance> InstancesAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves a list of currently running channel instances.
@@ -75,7 +75,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -169,7 +169,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsChannelInstance></returns>
-		public async System.Threading.Tasks.Task<PIItemsChannelInstance> InstancesAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsChannelInstance> InstancesAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsChannelInstance> localVarResponse = await InstancesAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -184,7 +184,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsChannelInstance>> InstancesAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/channels/instances";

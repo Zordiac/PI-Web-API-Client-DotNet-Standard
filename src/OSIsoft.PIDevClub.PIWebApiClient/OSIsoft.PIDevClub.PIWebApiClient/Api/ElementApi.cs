@@ -955,7 +955,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIElement></returns>
-		System.Threading.Tasks.Task<PIElement> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIElement> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an element by path.
@@ -969,7 +969,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIElement>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIElement>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an element.
@@ -983,7 +983,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIElement></returns>
-		System.Threading.Tasks.Task<PIElement> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIElement> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an element.
@@ -997,7 +997,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIElement>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIElement>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update an element by replacing items in its definition.
@@ -1010,7 +1010,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="element">A partial element containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIElement element, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIElement element, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update an element by replacing items in its definition.
@@ -1023,7 +1023,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="element">A partial element containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIElement element, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIElement element, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete an element.
@@ -1035,7 +1035,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete an element.
@@ -1047,7 +1047,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve analyses based on the specified conditions.
@@ -1065,7 +1065,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysis></returns>
-		System.Threading.Tasks.Task<PIItemsAnalysis> GetAnalysesAsync(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsAnalysis> GetAnalysesAsync(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve analyses based on the specified conditions.
@@ -1083,7 +1083,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysis>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysis>> GetAnalysesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysis>> GetAnalysesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create an Analysis.
@@ -1097,7 +1097,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAnalysisAsync(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> CreateAnalysisAsync(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create an Analysis.
@@ -1111,7 +1111,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisAsyncWithHttpInfo(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisAsyncWithHttpInfo(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the attributes of the specified element.
@@ -1138,7 +1138,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the attributes of the specified element.
@@ -1165,7 +1165,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a new attribute of the specified element.
@@ -1179,7 +1179,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a new attribute of the specified element.
@@ -1193,7 +1193,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get an element's categories.
@@ -1207,7 +1207,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElementCategory></returns>
-		System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get an element's categories.
@@ -1221,7 +1221,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Executes the create configuration function of the data references found within the attributes of the element, and optionally, its children.
@@ -1234,7 +1234,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeChildElements">If true, includes the child elements of the specified element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateConfigAsync(string webId, bool? includeChildElements = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> CreateConfigAsync(string webId, bool? includeChildElements = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Executes the create configuration function of the data references found within the attributes of the element, and optionally, its children.
@@ -1247,7 +1247,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeChildElements">If true, includes the child elements of the specified element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateConfigAsyncWithHttpInfo(string webId, bool? includeChildElements = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateConfigAsyncWithHttpInfo(string webId, bool? includeChildElements = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves a list of element attributes matching the specified filters from the specified element.
@@ -1275,7 +1275,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		System.Threading.Tasks.Task<PIItemsAttribute> FindElementAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsAttribute> FindElementAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves a list of element attributes matching the specified filters from the specified element.
@@ -1303,7 +1303,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindElementAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindElementAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.
@@ -1327,7 +1327,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		System.Threading.Tasks.Task<PIItemsElement> GetElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsElement> GetElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.
@@ -1351,7 +1351,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a child element.
@@ -1365,7 +1365,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateElementAsync(string webId, PIElement element, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> CreateElementAsync(string webId, PIElement element, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a child element.
@@ -1379,7 +1379,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateElementAsyncWithHttpInfo(string webId, PIElement element, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateElementAsyncWithHttpInfo(string webId, PIElement element, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.
@@ -1406,7 +1406,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
-		System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.
@@ -1433,7 +1433,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve notification rules for an element
@@ -1447,7 +1447,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationRule></returns>
-		System.Threading.Tasks.Task<PIItemsNotificationRule> GetNotificationRulesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsNotificationRule> GetNotificationRulesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve notification rules for an element
@@ -1461,7 +1461,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRule>> GetNotificationRulesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRule>> GetNotificationRulesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get a list of the full or relative paths to this element.
@@ -1474,7 +1474,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="relativePath">The full path in ShortName format to the parent object that the returned paths should be relative. For example, "\\Server1\Database2" would return all the paths to the element relative to the database. A path of "\\Server1\Database2\RootElement" would return all paths to the element relative to "RootElement". If null, then all the full paths to the element will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsstring></returns>
-		System.Threading.Tasks.Task<PIItemsstring> GetPathsAsync(string webId, string relativePath = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsstring> GetPathsAsync(string webId, string relativePath = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get a list of the full or relative paths to this element.
@@ -1487,7 +1487,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="relativePath">The full path in ShortName format to the parent object that the returned paths should be relative. For example, "\\Server1\Database2" would return all the paths to the element relative to the database. A path of "\\Server1\Database2\RootElement" would return all paths to the element relative to "RootElement". If null, then all the full paths to the element will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsstring>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsstring>> GetPathsAsyncWithHttpInfo(string webId, string relativePath = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsstring>> GetPathsAsyncWithHttpInfo(string webId, string relativePath = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.
@@ -1510,7 +1510,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.
@@ -1533,7 +1533,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Add a reference to an existing element to the child elements collection.
@@ -1547,7 +1547,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referenceType">The name of the reference type between the parent and the referenced element. The default is "parent-child".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> AddReferencedElementAsync(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> AddReferencedElementAsync(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Add a reference to an existing element to the child elements collection.
@@ -1561,7 +1561,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referenceType">The name of the reference type between the parent and the referenced element. The default is "parent-child".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> AddReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> AddReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Remove a reference to an existing element from the child elements collection.
@@ -1574,7 +1574,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referencedElementWebId">The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> RemoveReferencedElementAsync(string webId, List<string> referencedElementWebId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> RemoveReferencedElementAsync(string webId, List<string> referencedElementWebId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Remove a reference to an existing element from the child elements collection.
@@ -1587,7 +1587,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referencedElementWebId">The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> RemoveReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> RemoveReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the element for a specified user.
@@ -1603,7 +1603,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the security information of the specified security item associated with the element for a specified user.
@@ -1619,7 +1619,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.
@@ -1634,7 +1634,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.
@@ -1649,7 +1649,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a security entry owned by the element.
@@ -1664,7 +1664,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a security entry owned by the element.
@@ -1679,7 +1679,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve the security entry associated with the element with the specified name.
@@ -1694,7 +1694,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve the security entry associated with the element with the specified name.
@@ -1709,7 +1709,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update a security entry owned by the element.
@@ -1724,7 +1724,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> UpdateSecurityEntryAsync(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> UpdateSecurityEntryAsync(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update a security entry owned by the element.
@@ -1739,7 +1739,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSecurityEntryAsyncWithHttpInfo(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSecurityEntryAsyncWithHttpInfo(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete a security entry owned by the element.
@@ -1753,7 +1753,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> DeleteSecurityEntryAsync(string name, string webId, bool? applyToChildren = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> DeleteSecurityEntryAsync(string name, string webId, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete a security entry owned by the element.
@@ -1767,7 +1767,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSecurityEntryAsyncWithHttpInfo(string name, string webId, bool? applyToChildren = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSecurityEntryAsyncWithHttpInfo(string name, string webId, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve multiple elements by web id or path.
@@ -1784,7 +1784,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsItemElement></returns>
-		System.Threading.Tasks.Task<PIItemsItemElement> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsItemElement> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve multiple elements by web id or path.
@@ -1801,7 +1801,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsItemElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsItemElement>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsItemElement>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve elements based on the specified conditions. By default, returns all the elements.
@@ -1818,7 +1818,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		System.Threading.Tasks.Task<PIItemsElement> GetElementsQueryAsync(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsElement> GetElementsQueryAsync(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve elements based on the specified conditions. By default, returns all the elements.
@@ -1835,7 +1835,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsQueryAsyncWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsQueryAsyncWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -1849,7 +1849,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		System.Threading.Tasks.Task<PIItemsElement> CreateSearchByAttributeAsync(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsElement> CreateSearchByAttributeAsync(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -1863,7 +1863,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Execute a "Search Elements By Attribute Value" operation.
@@ -1885,7 +1885,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		System.Threading.Tasks.Task<PIItemsElement> ExecuteSearchByAttributeAsync(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsElement> ExecuteSearchByAttributeAsync(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Execute a "Search Elements By Attribute Value" operation.
@@ -1907,7 +1907,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -3985,7 +3985,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIElement></returns>
-		public async System.Threading.Tasks.Task<PIElement> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIElement> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIElement> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4003,7 +4003,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIElement>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIElement>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -4048,7 +4048,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIElement></returns>
-		public async System.Threading.Tasks.Task<PIElement> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIElement> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIElement> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4066,7 +4066,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIElement>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIElement>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4110,7 +4110,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="element">A partial element containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIElement element, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIElement element, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await UpdateAsyncWithHttpInfo(webId, element, cancellationToken);
 			return localVarResponse.Data;
@@ -4127,7 +4127,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="element">A partial element containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIElement element, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIElement element, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4172,7 +4172,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await DeleteAsyncWithHttpInfo(webId, cancellationToken);
 			return localVarResponse.Data;
@@ -4188,7 +4188,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4235,7 +4235,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysis></returns>
-		public async System.Threading.Tasks.Task<PIItemsAnalysis> GetAnalysesAsync(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsAnalysis> GetAnalysesAsync(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsAnalysis> localVarResponse = await GetAnalysesAsyncWithHttpInfo(webId, maxCount, selectedFields, sortField, sortOrder, startIndex, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4257,7 +4257,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysis>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysis>> GetAnalysesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysis>> GetAnalysesAsyncWithHttpInfo(string webId, int? maxCount = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4306,7 +4306,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAnalysisAsync(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> CreateAnalysisAsync(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await CreateAnalysisAsyncWithHttpInfo(webId, analysis, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4324,7 +4324,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisAsyncWithHttpInfo(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisAsyncWithHttpInfo(string webId, PIAnalysis analysis, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4385,7 +4385,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsAttribute> GetAttributesAsync(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsAttribute> localVarResponse = await GetAttributesAsyncWithHttpInfo(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, trait, traitCategory, valueType, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4416,7 +4416,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> GetAttributesAsyncWithHttpInfo(string webId, string categoryName = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, bool? showExcluded = null, bool? showHidden = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, List<string> trait = null, List<string> traitCategory = null, string valueType = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4474,7 +4474,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> CreateAttributeAsync(string webId, PIAttribute attribute, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await CreateAttributeAsyncWithHttpInfo(webId, attribute, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4492,7 +4492,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4540,7 +4540,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElementCategory></returns>
-		public async System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsElementCategory> GetCategoriesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsElementCategory> localVarResponse = await GetCategoriesAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4558,7 +4558,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElementCategory>> GetCategoriesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4602,7 +4602,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeChildElements">If true, includes the child elements of the specified element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateConfigAsync(string webId, bool? includeChildElements = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> CreateConfigAsync(string webId, bool? includeChildElements = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await CreateConfigAsyncWithHttpInfo(webId, includeChildElements, cancellationToken);
 			return localVarResponse.Data;
@@ -4619,7 +4619,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="includeChildElements">If true, includes the child elements of the specified element.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateConfigAsyncWithHttpInfo(string webId, bool? includeChildElements = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateConfigAsyncWithHttpInfo(string webId, bool? includeChildElements = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4677,7 +4677,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttribute></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttribute> FindElementAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsAttribute> FindElementAttributesAsync(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsAttribute> localVarResponse = await FindElementAttributesAsyncWithHttpInfo(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, maxCount, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4709,7 +4709,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindElementAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttribute>> FindElementAttributesAsyncWithHttpInfo(string webId, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, int? maxCount = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4778,7 +4778,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsElement> GetElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsElement> GetElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsElement> localVarResponse = await GetElementsAsyncWithHttpInfo(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4806,7 +4806,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4861,7 +4861,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateElementAsync(string webId, PIElement element, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> CreateElementAsync(string webId, PIElement element, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await CreateElementAsyncWithHttpInfo(webId, element, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4879,7 +4879,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateElementAsyncWithHttpInfo(string webId, PIElement element, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateElementAsyncWithHttpInfo(string webId, PIElement element, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -4940,7 +4940,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsEventFrame></returns>
-		public async System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsEventFrame> GetEventFramesAsync(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsEventFrame> localVarResponse = await GetEventFramesAsyncWithHttpInfo(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -4971,7 +4971,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsEventFrame>> GetEventFramesAsyncWithHttpInfo(string webId, bool? canBeAcknowledged = null, string categoryName = null, string endTime = null, bool? isAcknowledged = null, int? maxCount = null, string nameFilter = null, string searchMode = null, string selectedFields = null, List<string> severity = null, string sortField = null, string sortOrder = null, int? startIndex = null, string startTime = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5029,7 +5029,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsNotificationRule></returns>
-		public async System.Threading.Tasks.Task<PIItemsNotificationRule> GetNotificationRulesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsNotificationRule> GetNotificationRulesAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsNotificationRule> localVarResponse = await GetNotificationRulesAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5047,7 +5047,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRule>> GetNotificationRulesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsNotificationRule>> GetNotificationRulesAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5091,7 +5091,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="relativePath">The full path in ShortName format to the parent object that the returned paths should be relative. For example, "\\Server1\Database2" would return all the paths to the element relative to the database. A path of "\\Server1\Database2\RootElement" would return all paths to the element relative to "RootElement". If null, then all the full paths to the element will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsstring></returns>
-		public async System.Threading.Tasks.Task<PIItemsstring> GetPathsAsync(string webId, string relativePath = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsstring> GetPathsAsync(string webId, string relativePath = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsstring> localVarResponse = await GetPathsAsyncWithHttpInfo(webId, relativePath, cancellationToken);
 			return localVarResponse.Data;
@@ -5108,7 +5108,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="relativePath">The full path in ShortName format to the parent object that the returned paths should be relative. For example, "\\Server1\Database2" would return all the paths to the element relative to the database. A path of "\\Server1\Database2\RootElement" would return all paths to the element relative to "RootElement". If null, then all the full paths to the element will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsstring>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsstring>> GetPathsAsyncWithHttpInfo(string webId, string relativePath = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsstring>> GetPathsAsyncWithHttpInfo(string webId, string relativePath = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5161,7 +5161,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsElement> GetReferencedElementsAsync(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsElement> localVarResponse = await GetReferencedElementsAsyncWithHttpInfo(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5188,7 +5188,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetReferencedElementsAsyncWithHttpInfo(string webId, string categoryName = null, string descriptionFilter = null, string elementType = null, int? maxCount = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string templateName = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5242,7 +5242,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referenceType">The name of the reference type between the parent and the referenced element. The default is "parent-child".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> AddReferencedElementAsync(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> AddReferencedElementAsync(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await AddReferencedElementAsyncWithHttpInfo(webId, referencedElementWebId, referenceType, cancellationToken);
 			return localVarResponse.Data;
@@ -5260,7 +5260,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referenceType">The name of the reference type between the parent and the referenced element. The default is "parent-child".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> AddReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> AddReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, string referenceType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5307,7 +5307,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referencedElementWebId">The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> RemoveReferencedElementAsync(string webId, List<string> referencedElementWebId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> RemoveReferencedElementAsync(string webId, List<string> referencedElementWebId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await RemoveReferencedElementAsyncWithHttpInfo(webId, referencedElementWebId, cancellationToken);
 			return localVarResponse.Data;
@@ -5324,7 +5324,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="referencedElementWebId">The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveReferencedElementAsyncWithHttpInfo(string webId, List<string> referencedElementWebId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5373,7 +5373,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityRights></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityRights> GetSecurityAsync(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsSecurityRights> localVarResponse = await GetSecurityAsyncWithHttpInfo(webId, userIdentity, forceRefresh, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5393,7 +5393,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityRights>> GetSecurityAsyncWithHttpInfo(string webId, List<string> userIdentity, bool? forceRefresh = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5444,7 +5444,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsSecurityEntry> GetSecurityEntriesAsync(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsSecurityEntry> localVarResponse = await GetSecurityEntriesAsyncWithHttpInfo(webId, nameFilter, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5463,7 +5463,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSecurityEntry>> GetSecurityEntriesAsyncWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5510,7 +5510,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> CreateSecurityEntryAsync(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await CreateSecurityEntryAsyncWithHttpInfo(webId, securityEntry, applyToChildren, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5529,7 +5529,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateSecurityEntryAsyncWithHttpInfo(string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -5579,7 +5579,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PISecurityEntry></returns>
-		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PISecurityEntry> GetSecurityEntryByNameAsync(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PISecurityEntry> localVarResponse = await GetSecurityEntryByNameAsyncWithHttpInfo(name, webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5598,7 +5598,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISecurityEntry>> GetSecurityEntryByNameAsyncWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -5648,7 +5648,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> UpdateSecurityEntryAsync(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> UpdateSecurityEntryAsync(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await UpdateSecurityEntryAsyncWithHttpInfo(name, webId, securityEntry, applyToChildren, cancellationToken);
 			return localVarResponse.Data;
@@ -5667,7 +5667,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSecurityEntryAsyncWithHttpInfo(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSecurityEntryAsyncWithHttpInfo(string name, string webId, PISecurityEntry securityEntry, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -5719,7 +5719,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> DeleteSecurityEntryAsync(string name, string webId, bool? applyToChildren = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> DeleteSecurityEntryAsync(string name, string webId, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await DeleteSecurityEntryAsyncWithHttpInfo(name, webId, applyToChildren, cancellationToken);
 			return localVarResponse.Data;
@@ -5737,7 +5737,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="applyToChildren">If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSecurityEntryAsyncWithHttpInfo(string name, string webId, bool? applyToChildren = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSecurityEntryAsyncWithHttpInfo(string name, string webId, bool? applyToChildren = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)
@@ -5788,7 +5788,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsItemElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsItemElement> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsItemElement> GetMultipleAsync(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsItemElement> localVarResponse = await GetMultipleAsyncWithHttpInfo(asParallel, includeMode, path, selectedFields, webId, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5809,7 +5809,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsItemElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsItemElement>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsItemElement>> GetMultipleAsyncWithHttpInfo(bool? asParallel = null, string includeMode = null, List<string> path = null, string selectedFields = null, List<string> webId = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/elements/multiple";
@@ -5857,7 +5857,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsElement> GetElementsQueryAsync(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsElement> GetElementsQueryAsync(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsElement> localVarResponse = await GetElementsQueryAsyncWithHttpInfo(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5878,7 +5878,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsQueryAsyncWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> GetElementsQueryAsyncWithHttpInfo(string databaseWebId = null, int? maxCount = null, string query = null, string selectedFields = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/elements/search";
@@ -5923,7 +5923,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsElement> CreateSearchByAttributeAsync(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsElement> CreateSearchByAttributeAsync(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsElement> localVarResponse = await CreateSearchByAttributeAsyncWithHttpInfo(query, noResults, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -5941,7 +5941,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> CreateSearchByAttributeAsyncWithHttpInfo(PISearchByAttribute query, bool? noResults = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'query' is set
 			if (query == null)
@@ -5994,7 +5994,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsElement></returns>
-		public async System.Threading.Tasks.Task<PIItemsElement> ExecuteSearchByAttributeAsync(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsElement> ExecuteSearchByAttributeAsync(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsElement> localVarResponse = await ExecuteSearchByAttributeAsyncWithHttpInfo(searchId, categoryName, descriptionFilter, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -6020,7 +6020,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsElement>> ExecuteSearchByAttributeAsyncWithHttpInfo(string searchId, string categoryName = null, string descriptionFilter = null, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'searchId' is set
 			if (searchId == null)

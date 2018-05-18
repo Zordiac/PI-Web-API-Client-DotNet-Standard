@@ -64,7 +64,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PILanding></returns>
-		System.Threading.Tasks.Task<PILanding> GetAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PILanding> GetAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get top level links for this PI System Web API instance.
@@ -75,7 +75,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PILanding>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PILanding>> GetAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PILanding>> GetAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -169,7 +169,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PILanding></returns>
-		public async System.Threading.Tasks.Task<PILanding> GetAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PILanding> GetAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PILanding> localVarResponse = await GetAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -184,7 +184,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PILanding>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PILanding>> GetAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PILanding>> GetAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/";

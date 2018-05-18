@@ -209,7 +209,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an Analysis Rule by path.
@@ -223,7 +223,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an Analysis Rule.
@@ -237,7 +237,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an Analysis Rule.
@@ -251,7 +251,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update an Analysis Rule by replacing items in its definition.
@@ -264,7 +264,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="analysisRule">A partial Analysis Rule containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIAnalysisRule analysisRule, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIAnalysisRule analysisRule, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update an Analysis Rule by replacing items in its definition.
@@ -277,7 +277,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="analysisRule">A partial Analysis Rule containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete an Analysis Rule.
@@ -289,7 +289,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete an Analysis Rule.
@@ -301,7 +301,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the child Analysis Rules of the Analysis Rule.
@@ -321,7 +321,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysisRule></returns>
-		System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the child Analysis Rules of the Analysis Rule.
@@ -341,7 +341,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -355,7 +355,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -369,7 +369,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -798,7 +798,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		public async System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIAnalysisRule> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIAnalysisRule> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -816,7 +816,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -861,7 +861,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAnalysisRule></returns>
-		public async System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIAnalysisRule> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIAnalysisRule> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -879,7 +879,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAnalysisRule>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -923,7 +923,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="analysisRule">A partial Analysis Rule containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIAnalysisRule analysisRule, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> UpdateAsync(string webId, PIAnalysisRule analysisRule, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await UpdateAsyncWithHttpInfo(webId, analysisRule, cancellationToken);
 			return localVarResponse.Data;
@@ -940,7 +940,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="analysisRule">A partial Analysis Rule containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -985,7 +985,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> DeleteAsync(string webId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await DeleteAsyncWithHttpInfo(webId, cancellationToken);
 			return localVarResponse.Data;
@@ -1001,7 +1001,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the Analysis Rule.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAsyncWithHttpInfo(string webId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1050,7 +1050,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAnalysisRule></returns>
-		public async System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsAnalysisRule> GetAnalysisRulesAsync(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsAnalysisRule> localVarResponse = await GetAnalysisRulesAsyncWithHttpInfo(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -1074,7 +1074,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAnalysisRule>> GetAnalysisRulesAsyncWithHttpInfo(string webId, int? maxCount = null, string nameFilter = null, bool? searchFullHierarchy = null, string selectedFields = null, string sortField = null, string sortOrder = null, int? startIndex = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1125,7 +1125,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> CreateAnalysisRuleAsync(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await CreateAnalysisRuleAsyncWithHttpInfo(webId, analysisRule, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -1143,7 +1143,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAnalysisRuleAsyncWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)

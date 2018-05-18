@@ -144,7 +144,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PISystemLanding></returns>
-		System.Threading.Tasks.Task<PISystemLanding> LandingAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PISystemLanding> LandingAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get system links for this PI System Web API instance.
@@ -155,7 +155,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISystemLanding>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISystemLanding>> LandingAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PISystemLanding>> LandingAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get AF cache instances currently in use by the system. These are caches from which user requests are serviced. The number of instances depends on the number of users connected to the service, the service's authentication method, and the cache instance configuration.
@@ -166,7 +166,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsCacheInstance></returns>
-		System.Threading.Tasks.Task<PIItemsCacheInstance> CacheInstancesAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsCacheInstance> CacheInstancesAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get AF cache instances currently in use by the system. These are caches from which user requests are serviced. The number of instances depends on the number of users connected to the service, the service's authentication method, and the cache instance configuration.
@@ -177,7 +177,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>> CacheInstancesAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>> CacheInstancesAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
@@ -188,7 +188,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PISystemStatus></returns>
-		System.Threading.Tasks.Task<PISystemStatus> StatusAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PISystemStatus> StatusAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.
@@ -199,7 +199,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISystemStatus>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PISystemStatus>> StatusAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PISystemStatus>> StatusAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get information about the Windows identity used to fulfill the request. This depends on the service's authentication method and the credentials passed by the client. The impersonation level of the Windows identity is included.
@@ -210,7 +210,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUserInfo></returns>
-		System.Threading.Tasks.Task<PIUserInfo> UserInfoAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIUserInfo> UserInfoAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get information about the Windows identity used to fulfill the request. This depends on the service's authentication method and the credentials passed by the client. The impersonation level of the Windows identity is included.
@@ -221,7 +221,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUserInfo>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIUserInfo>> UserInfoAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIUserInfo>> UserInfoAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the current versions of the PI Web API instance and all external plugins.
@@ -232,7 +232,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Dictionary<string, PIVersion>></returns>
-		System.Threading.Tasks.Task<Dictionary<string, PIVersion>> VersionsAsync(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Dictionary<string, PIVersion>> VersionsAsync(CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Get the current versions of the PI Web API instance and all external plugins.
@@ -243,7 +243,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIVersion>>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIVersion>>> VersionsAsyncWithHttpInfo(CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIVersion>>> VersionsAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -533,7 +533,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PISystemLanding></returns>
-		public async System.Threading.Tasks.Task<PISystemLanding> LandingAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PISystemLanding> LandingAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PISystemLanding> localVarResponse = await LandingAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -548,7 +548,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISystemLanding>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISystemLanding>> LandingAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISystemLanding>> LandingAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/system";
@@ -584,7 +584,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsCacheInstance></returns>
-		public async System.Threading.Tasks.Task<PIItemsCacheInstance> CacheInstancesAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsCacheInstance> CacheInstancesAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsCacheInstance> localVarResponse = await CacheInstancesAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -599,7 +599,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>> CacheInstancesAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsCacheInstance>> CacheInstancesAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/system/cacheinstances";
@@ -635,7 +635,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PISystemStatus></returns>
-		public async System.Threading.Tasks.Task<PISystemStatus> StatusAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PISystemStatus> StatusAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PISystemStatus> localVarResponse = await StatusAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -650,7 +650,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PISystemStatus>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PISystemStatus>> StatusAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PISystemStatus>> StatusAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/system/status";
@@ -686,7 +686,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIUserInfo></returns>
-		public async System.Threading.Tasks.Task<PIUserInfo> UserInfoAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIUserInfo> UserInfoAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIUserInfo> localVarResponse = await UserInfoAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -701,7 +701,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIUserInfo>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIUserInfo>> UserInfoAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIUserInfo>> UserInfoAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/system/userinfo";
@@ -737,7 +737,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Dictionary<string, PIVersion>></returns>
-		public async System.Threading.Tasks.Task<Dictionary<string, PIVersion>> VersionsAsync(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Dictionary<string, PIVersion>> VersionsAsync(CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Dictionary<string, PIVersion>> localVarResponse = await VersionsAsyncWithHttpInfo(cancellationToken);
 			return localVarResponse.Data;
@@ -752,7 +752,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <exception cref="OSIsoft.PIDevClub.PIWebApiClient.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIVersion>>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIVersion>>> VersionsAsyncWithHttpInfo(CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIVersion>>> VersionsAsyncWithHttpInfo(CancellationToken cancellationToken = default(CancellationToken))
 		{
 
 			var localVarPath = "/system/versions";

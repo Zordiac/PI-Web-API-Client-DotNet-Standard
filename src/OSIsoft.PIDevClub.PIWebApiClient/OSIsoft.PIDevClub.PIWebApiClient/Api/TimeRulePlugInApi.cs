@@ -99,7 +99,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRulePlugIn></returns>
-		System.Threading.Tasks.Task<PITimeRulePlugIn> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimeRulePlugIn> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve a Time Rule Plug-in by path.
@@ -113,7 +113,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve a Time Rule Plug-in.
@@ -127,7 +127,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRulePlugIn></returns>
-		System.Threading.Tasks.Task<PITimeRulePlugIn> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimeRulePlugIn> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve a Time Rule Plug-in.
@@ -141,7 +141,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -311,7 +311,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRulePlugIn></returns>
-		public async System.Threading.Tasks.Task<PITimeRulePlugIn> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimeRulePlugIn> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimeRulePlugIn> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -329,7 +329,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -374,7 +374,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimeRulePlugIn></returns>
-		public async System.Threading.Tasks.Task<PITimeRulePlugIn> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimeRulePlugIn> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimeRulePlugIn> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -392,7 +392,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimeRulePlugIn>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)

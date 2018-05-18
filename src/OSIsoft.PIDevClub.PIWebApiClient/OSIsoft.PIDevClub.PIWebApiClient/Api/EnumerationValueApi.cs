@@ -145,7 +145,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEnumerationValue></returns>
-		System.Threading.Tasks.Task<PIEnumerationValue> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIEnumerationValue> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an enumeration value by path.
@@ -159,7 +159,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an enumeration value mapping
@@ -173,7 +173,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEnumerationValue></returns>
-		System.Threading.Tasks.Task<PIEnumerationValue> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIEnumerationValue> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an enumeration value mapping
@@ -187,7 +187,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update an enumeration value by replacing items in its definition.
@@ -200,7 +200,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="enumerationValue">A partial enumeration value containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> UpdateEnumerationValueAsync(string webId, PIEnumerationValue enumerationValue, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> UpdateEnumerationValueAsync(string webId, PIEnumerationValue enumerationValue, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Update an enumeration value by replacing items in its definition.
@@ -213,7 +213,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="enumerationValue">A partial enumeration value containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEnumerationValueAsyncWithHttpInfo(string webId, PIEnumerationValue enumerationValue, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEnumerationValueAsyncWithHttpInfo(string webId, PIEnumerationValue enumerationValue, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete an enumeration value from an enumeration set.
@@ -225,7 +225,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the enumeration value.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> DeleteEnumerationValueAsync(string webId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> DeleteEnumerationValueAsync(string webId, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Delete an enumeration value from an enumeration set.
@@ -237,7 +237,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the enumeration value.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEnumerationValueAsyncWithHttpInfo(string webId, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEnumerationValueAsyncWithHttpInfo(string webId, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -523,7 +523,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEnumerationValue></returns>
-		public async System.Threading.Tasks.Task<PIEnumerationValue> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIEnumerationValue> GetByPathAsync(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIEnumerationValue> localVarResponse = await GetByPathAsyncWithHttpInfo(path, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -541,7 +541,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetByPathAsyncWithHttpInfo(string path, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'path' is set
 			if (path == null)
@@ -586,7 +586,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIEnumerationValue></returns>
-		public async System.Threading.Tasks.Task<PIEnumerationValue> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIEnumerationValue> GetAsync(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIEnumerationValue> localVarResponse = await GetAsyncWithHttpInfo(webId, selectedFields, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -604,7 +604,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIEnumerationValue>> GetAsyncWithHttpInfo(string webId, string selectedFields = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -648,7 +648,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="enumerationValue">A partial enumeration value containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> UpdateEnumerationValueAsync(string webId, PIEnumerationValue enumerationValue, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> UpdateEnumerationValueAsync(string webId, PIEnumerationValue enumerationValue, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await UpdateEnumerationValueAsyncWithHttpInfo(webId, enumerationValue, cancellationToken);
 			return localVarResponse.Data;
@@ -665,7 +665,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="enumerationValue">A partial enumeration value containing the desired changes.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEnumerationValueAsyncWithHttpInfo(string webId, PIEnumerationValue enumerationValue, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEnumerationValueAsyncWithHttpInfo(string webId, PIEnumerationValue enumerationValue, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -710,7 +710,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the enumeration value.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> DeleteEnumerationValueAsync(string webId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> DeleteEnumerationValueAsync(string webId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await DeleteEnumerationValueAsyncWithHttpInfo(webId, cancellationToken);
 			return localVarResponse.Data;
@@ -726,7 +726,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webId">The ID of the enumeration value.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEnumerationValueAsyncWithHttpInfo(string webId, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEnumerationValueAsyncWithHttpInfo(string webId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)

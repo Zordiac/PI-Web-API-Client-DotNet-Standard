@@ -67,7 +67,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="batch">The batch of requests.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Dictionary<string, PIResponse>></returns>
-		System.Threading.Tasks.Task<Dictionary<string, PIResponse>> ExecuteAsync(Dictionary<string, PIRequest> batch, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Dictionary<string, PIResponse>> ExecuteAsync(Dictionary<string, PIRequest> batch, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Execute a batch of requests against the service. As shown in the Sample Request, the input is a dictionary with IDs as keys and request objects as values. Each request object specifies the HTTP method and the resource and, optionally, the content and a list of parent IDs. The list of parent IDs specifies which other requests must complete before the given request will be executed. The example first creates an element, then gets the element by the response's Location header, then creates an attribute for the element. Note that the resource can be an absolute URL or a JsonPath that references the response to the parent request. The batch's response is a dictionary uses keys corresponding those provided in the request, with response objects containing a status code, response headers, and the response body. A request can alternatively specify a request template in place of a resource. In this case, a single JsonPath may select multiple tokens, and a separate subrequest will be made from the template for each token. The responses of these subrequests will returned as the content of a single outer response.
@@ -79,7 +79,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="batch">The batch of requests.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIResponse>>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIResponse>>> ExecuteAsyncWithHttpInfo(Dictionary<string, PIRequest> batch, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIResponse>>> ExecuteAsyncWithHttpInfo(Dictionary<string, PIRequest> batch, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -180,7 +180,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="batch">The batch of requests.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Dictionary<string, PIResponse>></returns>
-		public async System.Threading.Tasks.Task<Dictionary<string, PIResponse>> ExecuteAsync(Dictionary<string, PIRequest> batch, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Dictionary<string, PIResponse>> ExecuteAsync(Dictionary<string, PIRequest> batch, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Dictionary<string, PIResponse>> localVarResponse = await ExecuteAsyncWithHttpInfo(batch, cancellationToken);
 			return localVarResponse.Data;
@@ -196,7 +196,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="batch">The batch of requests.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIResponse>>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIResponse>>> ExecuteAsyncWithHttpInfo(Dictionary<string, PIRequest> batch, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, PIResponse>>> ExecuteAsyncWithHttpInfo(Dictionary<string, PIRequest> batch, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'batch' is set
 			if (batch == null)

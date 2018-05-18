@@ -94,7 +94,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttributeTrait></returns>
-		System.Threading.Tasks.Task<PIItemsAttributeTrait> GetByCategoryAsync(List<string> category, string selectedFields = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsAttributeTrait> GetByCategoryAsync(List<string> category, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve all attribute traits of the specified category/categories.
@@ -107,7 +107,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTrait>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTrait>> GetByCategoryAsyncWithHttpInfo(List<string> category, string selectedFields = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTrait>> GetByCategoryAsyncWithHttpInfo(List<string> category, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an attribute trait.
@@ -120,7 +120,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAttributeTrait></returns>
-		System.Threading.Tasks.Task<PIAttributeTrait> GetAsync(string name, string selectedFields = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIAttributeTrait> GetAsync(string name, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieve an attribute trait.
@@ -133,7 +133,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAttributeTrait>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIAttributeTrait>> GetAsyncWithHttpInfo(string name, string selectedFields = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIAttributeTrait>> GetAsyncWithHttpInfo(string name, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -296,7 +296,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsAttributeTrait></returns>
-		public async System.Threading.Tasks.Task<PIItemsAttributeTrait> GetByCategoryAsync(List<string> category, string selectedFields = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsAttributeTrait> GetByCategoryAsync(List<string> category, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsAttributeTrait> localVarResponse = await GetByCategoryAsyncWithHttpInfo(category, selectedFields, cancellationToken);
 			return localVarResponse.Data;
@@ -313,7 +313,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTrait>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTrait>> GetByCategoryAsyncWithHttpInfo(List<string> category, string selectedFields = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsAttributeTrait>> GetByCategoryAsyncWithHttpInfo(List<string> category, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'category' is set
 			if (category == null)
@@ -356,7 +356,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIAttributeTrait></returns>
-		public async System.Threading.Tasks.Task<PIAttributeTrait> GetAsync(string name, string selectedFields = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIAttributeTrait> GetAsync(string name, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIAttributeTrait> localVarResponse = await GetAsyncWithHttpInfo(name, selectedFields, cancellationToken);
 			return localVarResponse.Data;
@@ -373,7 +373,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIAttributeTrait>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIAttributeTrait>> GetAsyncWithHttpInfo(string name, string selectedFields = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIAttributeTrait>> GetAsyncWithHttpInfo(string name, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'name' is set
 			if (name == null)

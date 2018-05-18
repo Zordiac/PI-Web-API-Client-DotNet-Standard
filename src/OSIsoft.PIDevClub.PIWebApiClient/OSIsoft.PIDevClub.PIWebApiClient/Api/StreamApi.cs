@@ -458,7 +458,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Opens a channel that will send messages about any value changes for the specified stream.
@@ -473,7 +473,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns the end-of-stream value of the stream.
@@ -487,7 +487,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValue></returns>
-		System.Threading.Tasks.Task<PITimedValue> GetEndAsync(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimedValue> GetEndAsync(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns the end-of-stream value of the stream.
@@ -501,7 +501,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetEndAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetEndAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
@@ -523,7 +523,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
@@ -545,7 +545,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
@@ -564,7 +564,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAtTimesAsync(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAtTimesAsync(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves interpolated values over the specified time range at the specified sampling interval.
@@ -583,7 +583,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
@@ -601,7 +601,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		System.Threading.Tasks.Task<PITimedValues> GetPlotAsync(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimedValues> GetPlotAsync(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves values over the specified time range suitable for plotting over the number of intervals (typically represents pixels).
@@ -619,7 +619,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetPlotAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetPlotAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns a list of compressed values for the requested time range from the source provider.
@@ -641,7 +641,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIExtendedTimedValues></returns>
-		System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAsync(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAsync(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns a list of compressed values for the requested time range from the source provider.
@@ -663,7 +663,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAsyncWithHttpInfo(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAsyncWithHttpInfo(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Updates multiple values for the specified stream.
@@ -678,7 +678,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSubstatus></returns>
-		System.Threading.Tasks.Task<PIItemsSubstatus> UpdateValuesAsync(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsSubstatus> UpdateValuesAsync(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Updates multiple values for the specified stream.
@@ -693,7 +693,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSubstatus>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSubstatus>> UpdateValuesAsyncWithHttpInfo(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSubstatus>> UpdateValuesAsyncWithHttpInfo(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns a single recorded value based on the passed time and retrieval mode from the stream.
@@ -711,7 +711,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIExtendedTimedValue></returns>
-		System.Threading.Tasks.Task<PIExtendedTimedValue> GetRecordedAtTimeAsync(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIExtendedTimedValue> GetRecordedAtTimeAsync(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns a single recorded value based on the passed time and retrieval mode from the stream.
@@ -729,7 +729,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValue>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValue>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves recorded values at the specified times.
@@ -748,7 +748,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIExtendedTimedValues></returns>
-		System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAtTimesAsync(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAtTimesAsync(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Retrieves recorded values at the specified times.
@@ -767,7 +767,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns a summary over the specified time range for the stream.
@@ -790,7 +790,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSummaryValue></returns>
-		System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns a summary over the specified time range for the stream.
@@ -813,7 +813,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns the value of the stream at the specified time. By default, this is usually the current value.
@@ -829,7 +829,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValue></returns>
-		System.Threading.Tasks.Task<PITimedValue> GetValueAsync(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<PITimedValue> GetValueAsync(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Returns the value of the stream at the specified time. By default, this is usually the current value.
@@ -845,7 +845,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValue>></returns>
-		System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetValueAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetValueAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Updates a value for the specified stream.
@@ -861,7 +861,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>
 		/// Updates a value for the specified stream.
@@ -877,7 +877,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken? cancellationToken = null);
+		System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		#endregion
 	}
@@ -1814,7 +1814,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsStreamValues></returns>
-		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsStreamValues> GetChannelAsync(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsStreamValues> localVarResponse = await GetChannelAsyncWithHttpInfo(webId, heartbeatRate, includeInitialValues, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -1833,7 +1833,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsStreamValues>> GetChannelAsyncWithHttpInfo(string webId, int? heartbeatRate = null, bool? includeInitialValues = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1879,7 +1879,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValue></returns>
-		public async System.Threading.Tasks.Task<PITimedValue> GetEndAsync(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimedValue> GetEndAsync(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimedValue> localVarResponse = await GetEndAsyncWithHttpInfo(webId, desiredUnits, selectedFields, cancellationToken);
 			return localVarResponse.Data;
@@ -1897,7 +1897,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="selectedFields">List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetEndAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetEndAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -1950,7 +1950,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAsync(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimedValues> localVarResponse = await GetInterpolatedAsyncWithHttpInfo(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -1976,7 +1976,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2034,7 +2034,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAtTimesAsync(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetInterpolatedAtTimesAsync(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimedValues> localVarResponse = await GetInterpolatedAtTimesAsyncWithHttpInfo(webId, desiredUnits, filterExpression, includeFilteredValues, selectedFields, sortOrder, time, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2057,7 +2057,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetInterpolatedAtTimesAsyncWithHttpInfo(string webId, string desiredUnits = null, string filterExpression = null, bool? includeFilteredValues = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2111,7 +2111,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValues></returns>
-		public async System.Threading.Tasks.Task<PITimedValues> GetPlotAsync(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimedValues> GetPlotAsync(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimedValues> localVarResponse = await GetPlotAsyncWithHttpInfo(webId, desiredUnits, endTime, intervals, selectedFields, startTime, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2133,7 +2133,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetPlotAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValues>> GetPlotAsyncWithHttpInfo(string webId, string desiredUnits = null, string endTime = null, int? intervals = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2190,7 +2190,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIExtendedTimedValues></returns>
-		public async System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAsync(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAsync(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIExtendedTimedValues> localVarResponse = await GetRecordedAsyncWithHttpInfo(webId, associations, boundaryType, desiredUnits, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2216,7 +2216,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAsyncWithHttpInfo(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAsyncWithHttpInfo(string webId, string associations = null, string boundaryType = null, string desiredUnits = null, string endTime = null, string filterExpression = null, bool? includeFilteredValues = null, int? maxCount = null, string selectedFields = null, string startTime = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2270,7 +2270,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSubstatus></returns>
-		public async System.Threading.Tasks.Task<PIItemsSubstatus> UpdateValuesAsync(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsSubstatus> UpdateValuesAsync(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsSubstatus> localVarResponse = await UpdateValuesAsyncWithHttpInfo(webId, values, bufferOption, updateOption, cancellationToken);
 			return localVarResponse.Data;
@@ -2289,7 +2289,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="updateOption">The desired AFUpdateOption. The default is 'Replace'.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSubstatus>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSubstatus>> UpdateValuesAsyncWithHttpInfo(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSubstatus>> UpdateValuesAsyncWithHttpInfo(string webId, List<PITimedValue> values, string bufferOption = null, string updateOption = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2342,7 +2342,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIExtendedTimedValue></returns>
-		public async System.Threading.Tasks.Task<PIExtendedTimedValue> GetRecordedAtTimeAsync(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIExtendedTimedValue> GetRecordedAtTimeAsync(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIExtendedTimedValue> localVarResponse = await GetRecordedAtTimeAsyncWithHttpInfo(webId, time, associations, desiredUnits, retrievalMode, selectedFields, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2364,7 +2364,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValue>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValue>> GetRecordedAtTimeAsyncWithHttpInfo(string webId, string time, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2421,7 +2421,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIExtendedTimedValues></returns>
-		public async System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAtTimesAsync(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIExtendedTimedValues> GetRecordedAtTimesAsync(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIExtendedTimedValues> localVarResponse = await GetRecordedAtTimesAsyncWithHttpInfo(webId, associations, desiredUnits, retrievalMode, selectedFields, sortOrder, time, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2444,7 +2444,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIExtendedTimedValues>> GetRecordedAtTimesAsyncWithHttpInfo(string webId, string associations = null, string desiredUnits = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, List<string> time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2503,7 +2503,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PIItemsSummaryValue></returns>
-		public async System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PIItemsSummaryValue> GetSummaryAsync(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PIItemsSummaryValue> localVarResponse = await GetSummaryAsyncWithHttpInfo(webId, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2530,7 +2530,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PIItemsSummaryValue>> GetSummaryAsyncWithHttpInfo(string webId, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, List<string> summaryType = null, string timeType = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2586,7 +2586,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<PITimedValue></returns>
-		public async System.Threading.Tasks.Task<PITimedValue> GetValueAsync(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<PITimedValue> GetValueAsync(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<PITimedValue> localVarResponse = await GetValueAsyncWithHttpInfo(webId, desiredUnits, selectedFields, time, timeZone, cancellationToken);
 			return localVarResponse.Data;
@@ -2606,7 +2606,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="timeZone">The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<PITimedValue>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetValueAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<PITimedValue>> GetValueAsyncWithHttpInfo(string webId, string desiredUnits = null, string selectedFields = null, string time = null, string timeZone = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
@@ -2655,7 +2655,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<Object></returns>
-		public async System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<Object> UpdateValueAsync(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			ApiResponse<Object> localVarResponse = await UpdateValueAsyncWithHttpInfo(webId, value, bufferOption, updateOption, webIdType, cancellationToken);
 			return localVarResponse.Data;
@@ -2675,7 +2675,7 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Api
 		/// <param name="webIdType">Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".</param>
 		/// <param name="cancellationTokenSource">Signals to a CancellationToken that might be cancelled</param>
 		/// <returns>async System.Threading.Tasks.Task<ApiResponse<Object>></returns>
-		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken? cancellationToken = null)
+		public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateValueAsyncWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// verify the required parameter 'webId' is set
 			if (webId == null)
