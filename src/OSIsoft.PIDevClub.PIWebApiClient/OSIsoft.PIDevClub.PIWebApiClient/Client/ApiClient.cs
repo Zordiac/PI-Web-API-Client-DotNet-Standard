@@ -162,6 +162,11 @@ namespace OSIsoft.PIDevClub.PIWebApiClient.Client
             HttpResponseMessage response = null;
             HttpClient client = new HttpClient(handler);
 
+            if (this.useKerberos == false)
+            {
+                var byteArray = Encoding.ASCII.GetBytes(string.Format("{0}:{1}", this.username, this.password));
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            }
             
             try
             {
