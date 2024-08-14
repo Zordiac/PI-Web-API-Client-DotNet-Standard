@@ -1,6 +1,8 @@
 PI Web API client library for .NET Standard (2018)
 ===
 
+## Update (01/072024)
+This fork fixes an issue with basic authentication not working in the original library.
 
 ## Overview
 This repository has the source code package of the PI Web API Client libraries for .NET Standard, which is compatible with .NET Framework and .NET Core.
